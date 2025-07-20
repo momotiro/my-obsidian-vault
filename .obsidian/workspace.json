@@ -25,14 +25,17 @@
             "id": "d15b01060dcfac3c",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "グラフビュー"
+              "type": "markdown",
+              "state": {
+                "file": "daily/2025-07-08.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2025-07-08"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -176,11 +179,15 @@
       "canvas:新規キャンバスを作成": false,
       "daily-notes:今日のデイリーノートを開く": false,
       "templates:テンプレートを挿入": false,
-      "command-palette:コマンドパレットを開く": false
+      "command-palette:コマンドパレットを開く": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a0dc5dff108633ff",
+  "active": "6b62926d441fb4cb",
   "lastOpenFiles": [
+    "daily/2025-07-06.md",
+    "daily/2025-07-08.md",
+    "daily/Pasted image 20250706113003.png",
     "無題のファイル.canvas",
     "daily/2025-07-20.md",
     "daily/token git",
@@ -188,10 +195,7 @@
     "sync-obsidian.ps1",
     "Git-2.50.1-64-bit.exe",
     "Welcome.md",
-    "daily/Pasted image 20250706113003.png",
-    "daily/2025-07-06.md",
     "daily",
-    "daily/2025-07-08.md",
     "daily/2025-07-07.md",
     "無題のファイル 1.md"
   ]
