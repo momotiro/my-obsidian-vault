@@ -25,24 +25,14 @@
             "id": "7f97121a39ebf234",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "グラフビュー"
-            }
-          },
-          {
-            "id": "d15b01060dcfac3c",
-            "type": "leaf",
-            "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-07-08.md",
+                "file": "daily/2025-07-21.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-08"
+              "title": "2025-07-21"
             }
           }
         ],
@@ -137,11 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "daily/2025-07-21.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "アウトゴーイングリンク"
+              "title": "2025-07-21からのアウトゴーイングリンク"
             }
           },
           {
@@ -194,9 +185,28 @@
   },
   "active": "a0dc5dff108633ff",
   "lastOpenFiles": [
+    "daily/2025-07-20.md",
+    "daily/2025-07-21.md",
+    "LiteratureNote/Kindle/穰一-テクノロジーが予測する未来　web3、メタバース、NFTで世界はこうなる.md",
+    "LiteratureNote/Kindle/遼-ファーストフォロワーのつくりかた 事例で学ぶ「製品・サービスの価値をファンと共に生み出す」ためのマーケティング.md",
+    "LiteratureNote/Kindle/美宝れいこ-人生を変える最強のコミュニティづくり.md",
+    "LiteratureNote/Kindle/奈美香-行動経済学が最強の学問である.md",
+    "LiteratureNote/Kindle/天羽健介、増田雅史-ＮＦＴの教科書　ビジネス・ブロックチェーン・法律・会計まで　デジタルデータが資産になる未来.md",
+    "LiteratureNote/Kindle/哲朗-ビジネスモデル2.0図鑑.md",
+    "LiteratureNote/Kindle/他、O.SASAKI、M.MIZUTAMARI、T.NAKANO、T.UMENO、J.SEKIGUCHI、R.MURATA、M.HIRAMATSU-ブランディングの教科書.md",
+    "LiteratureNote/Kindle/聖貴-USJをV字回復させた森岡毅の実戦マーケティング３部作【３冊 合本版】.md",
+    "LiteratureNote/Kindle/小島英揮-ビジネスも人生もグロースさせる　コミュニティマーケティング.md",
+    "LiteratureNote/Kindle/周-世界のエリートはなぜ「美意識」を鍛えるのか？～経営における「アート」と「サイエンス」～.md",
+    "LiteratureNote/Kindle/高広-コンセプトの教科書――あたらしい価値のつくりかた.md",
+    "LiteratureNote/Kindle/鎌利-【完全版】社内プレゼンの資料作成術.md",
+    "LiteratureNote/Kindle/河原あず、藤田祐司-ファンをはぐくみ事業を成長させる 「コミュニティ」づくりの教科書.md",
+    "LiteratureNote/Kindle/ニック・メータ、ダン・スタインマン、リンカーン・マーフィー、バーチャレクス・コンサルティング-カスタマーサクセス――サブスクリプション時代に求められる「顧客の成功」10の原則.md",
+    "LiteratureNote/Kindle/ドリー・クラーク、桜田直美、伊藤守-ロングゲーム 今、自分にとっていちばん意味のあることをするために.md",
+    "LiteratureNote/Kindle/Dreunen-One Up.md",
+    "コミュニティーマーケティング.md",
+    "daily/Pasted image 20250706113003.png",
     "LiteratureNote",
     "LiteratureNote/Kindle",
-    "コミュニティーマーケティング.md",
     "LiteratureNote/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
     "LiteratureNote/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "LiteratureNote/Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
@@ -207,16 +217,11 @@
     "work/Riot",
     "work",
     "daily/2025-07-06.md",
-    "daily/Pasted image 20250706113003.png",
     "無題のファイル.canvas",
-    "daily/2025-07-20.md",
     "daily/token git",
     "setup-github-sync.ps1",
     "sync-obsidian.ps1",
     "Git-2.50.1-64-bit.exe",
-    "Welcome.md",
-    "daily",
-    "daily/2025-07-07.md",
-    "無題のファイル 1.md"
+    "Welcome.md"
   ]
 }
