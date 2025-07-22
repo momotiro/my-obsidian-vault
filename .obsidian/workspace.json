@@ -183,8 +183,10 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "2ebf7c4d60d0591e",
+  "active": "a0dc5dff108633ff",
   "lastOpenFiles": [
+    "task",
+    "無題のフォルダ",
     "work/Riot/TGS/配信データ.md",
     "work/Riot/TGS/2025-07-22議事録.md",
     "work/Riot/TGS",
@@ -220,7 +222,6 @@
     "work/Riot",
     "work",
     "無題のファイル.canvas",
-    "daily/token git",
-    "setup-github-sync.ps1"
+    "daily/token git"
   ]
 }
