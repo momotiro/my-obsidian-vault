@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/TGS/2025-07-22議事録.md",
+                "file": "daily/2025-07-22.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-22議事録"
+              "title": "2025-07-22"
             }
           }
         ],
@@ -127,12 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "work/Riot/TGS/2025-07-22議事録.md",
+                "file": "daily/2025-07-22.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2025-07-22議事録からのアウトゴーイングリンク"
+              "title": "2025-07-22からのアウトゴーイングリンク"
             }
           },
           {
@@ -183,12 +183,14 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "a0dc5dff108633ff",
+  "active": "2ebf7c4d60d0591e",
   "lastOpenFiles": [
+    "daily/2025-07-06.md",
+    "daily/2025-07-22.md",
+    "work/Riot/TGS/2025-07-22議事録.md",
     "task",
     "無題のフォルダ",
     "work/Riot/TGS/配信データ.md",
-    "work/Riot/TGS/2025-07-22議事録.md",
     "work/Riot/TGS",
     "LiteratureNote/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
     "LiteratureNote/Clippings/AI Autonomous Development with Claude Code.md",
@@ -216,12 +218,10 @@
     "LiteratureNote",
     "LiteratureNote/Kindle",
     "LiteratureNote/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
-    "LiteratureNote/Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
     "LiteratureNote/Clippings",
     "work/Riot/analyze_zeta_youtube.py",
     "work/Riot",
     "work",
-    "無題のファイル.canvas",
-    "daily/token git"
+    "無題のファイル.canvas"
   ]
 }
