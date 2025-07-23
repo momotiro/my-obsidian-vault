@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/TGS/2025-07-22議事録.md",
+                "file": "LiteratureNote/Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-22議事録"
+              "title": "人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは"
             }
           }
         ],
@@ -127,12 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "work/Riot/TGS/2025-07-22議事録.md",
+                "file": "LiteratureNote/Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2025-07-22議事録からのアウトゴーイングリンク"
+              "title": "人を動かし夢中にさせる「ゲームフルデザイン」101の手法とはからのアウトゴーイングリンク"
             }
           },
           {
@@ -183,18 +183,23 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "2ebf7c4d60d0591e",
+  "active": "a0dc5dff108633ff",
   "lastOpenFiles": [
+    "LiteratureNote/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
+    "LiteratureNote/Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
+    "LiteratureNote/Clippings/AI Autonomous Development with Claude Code.md",
+    "LiteratureNote/Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
+    "コミュニティーマーケティング.md",
+    "LiteratureNote/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
+    "work/Riot/TGS/2025-07-22議事録.md",
+    "Clippings",
     "daily/2025-07-21.md",
     "daily/2025-07-22.md",
     "daily/2025-07-06.md",
-    "work/Riot/TGS/2025-07-22議事録.md",
     "task",
     "無題のフォルダ",
     "work/Riot/TGS/配信データ.md",
     "work/Riot/TGS",
-    "LiteratureNote/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
-    "LiteratureNote/Clippings/AI Autonomous Development with Claude Code.md",
     "LiteratureNote/Clippings/無題のフォルダ",
     "daily/2025-07-20.md",
     "LiteratureNote/Kindle/穰一-テクノロジーが予測する未来　web3、メタバース、NFTで世界はこうなる.md",
@@ -211,17 +216,12 @@
     "LiteratureNote/Kindle/鎌利-【完全版】社内プレゼンの資料作成術.md",
     "LiteratureNote/Kindle/河原あず、藤田祐司-ファンをはぐくみ事業を成長させる 「コミュニティ」づくりの教科書.md",
     "LiteratureNote/Kindle/ニック・メータ、ダン・スタインマン、リンカーン・マーフィー、バーチャレクス・コンサルティング-カスタマーサクセス――サブスクリプション時代に求められる「顧客の成功」10の原則.md",
-    "LiteratureNote/Kindle/ドリー・クラーク、桜田直美、伊藤守-ロングゲーム 今、自分にとっていちばん意味のあることをするために.md",
-    "LiteratureNote/Kindle/Dreunen-One Up.md",
-    "コミュニティーマーケティング.md",
     "daily/Pasted image 20250706113003.png",
     "LiteratureNote",
     "LiteratureNote/Kindle",
-    "LiteratureNote/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "LiteratureNote/Clippings",
     "work/Riot/analyze_zeta_youtube.py",
     "work/Riot",
-    "work",
     "無題のファイル.canvas"
   ]
 }
