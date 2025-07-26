@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "108b2cf0320d216b",
+        "id": "4d52018578bcddc0",
         "type": "tabs",
         "children": [
           {
-            "id": "0a1aaa91575d137a",
+            "id": "f8a8931bfdf83922",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/TGS/2025-07-22議事録.md",
+                "file": "LiteratureNote/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-22議事録"
+              "title": "『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い"
             }
           }
         ]
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "work/Riot/TGS/2025-07-22議事録.md",
-                "linksCollapsed": false,
+                "file": "LiteratureNote/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
+                "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "2025-07-22議事録からのアウトゴーイングリンク"
+              "title": "『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙いからのアウトゴーイングリンク"
             }
           },
           {
@@ -141,20 +141,31 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "LiteratureNote/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "アウトライン"
+              "title": "『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙いのアウトライン"
+            }
+          },
+          {
+            "id": "4074753d14edc56f",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 502.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -168,16 +179,16 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "0a1aaa91575d137a",
+  "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "work/legion/7.24議事録.md",
+    "Pasted image 20250725141618.png",
+    "work/Riot/TGS/2025-07-22議事録.md",
     "LiteratureNote/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
-    "work/Riot/TGS/2025-07-22議事録.md",
     "work/モンハンnow/7.25 大量発生.md",
     "Pasted image 20250725141732.png",
-    "Pasted image 20250725141618.png",
     "work/Riot/TGS/配信データ.md",
-    "work/legion/7.24議事録.md",
     "work/モンハンnow",
     "無題のファイル.md",
     "work/legion",
@@ -205,7 +216,6 @@
     "LiteratureNote/Kindle/穰一-テクノロジーが予測する未来　web3、メタバース、NFTで世界はこうなる.md",
     "LiteratureNote/Kindle/遼-ファーストフォロワーのつくりかた 事例で学ぶ「製品・サービスの価値をファンと共に生み出す」ためのマーケティング.md",
     "LiteratureNote/Kindle/美宝れいこ-人生を変える最強のコミュニティづくり.md",
-    "LiteratureNote/Kindle/奈美香-行動経済学が最強の学問である.md",
     "LiteratureNote",
     "LiteratureNote/Kindle",
     "LiteratureNote/Clippings",
