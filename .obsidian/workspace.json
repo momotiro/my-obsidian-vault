@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/TGS/配信データ.md",
+                "file": "work/Riot/TGS/7.29.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "配信データ"
+              "title": "7.29"
             }
           }
         ]
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "work/Riot/TGS/配信データ.md",
+                "file": "work/Riot/TGS/7.29.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "配信データからのアウトゴーイングリンク"
+              "title": "7.29からのアウトゴーイングリンク"
             }
           },
           {
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/TGS/配信データ.md",
+                "file": "work/Riot/TGS/7.29.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "配信データのアウトライン"
+              "title": "7.29のアウトライン"
             }
           },
           {
@@ -179,8 +179,10 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "a0dc5dff108633ff",
+  "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "work/Riot/TGS/配信データ.md",
+    "work/Riot/TGS/7.29.md",
     "work/Riot/TGS/VALO.md",
     "work/Riot/LoL/Discord.md",
     "work/Riot/onsen/温泉 SNS.md",
@@ -191,7 +193,6 @@
     "daily/2025-07-28.md",
     "work/legion/資料作成.md",
     "work/ZENAIM",
-    "work/Riot/TGS/配信データ.md",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/2025-07-22議事録.md",
     "work/legion/7.24議事録.md",
@@ -214,7 +215,6 @@
     "LiteratureNote/Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
     "LiteratureNote/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
     "LiteratureNote/Clippings/AI Autonomous Development with Claude Code.md",
-    "LiteratureNote/Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
     "LiteratureNote/Clippings/Clippings",
     "task",
     "無題のフォルダ",
