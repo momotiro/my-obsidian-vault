@@ -11,12 +11,14 @@
             "id": "f8a8931bfdf83922",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20250725141618.png"
+                "file": "work/ZENAIM/zenaim火曜日提案.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20250725141618"
+              "icon": "lucide-file",
+              "title": "zenaim火曜日提案"
             }
           }
         ]
@@ -139,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pasted image 20250725141618.png",
+                "file": "work/ZENAIM/zenaim火曜日提案.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Pasted image 20250725141618のアウトライン"
+              "title": "zenaim火曜日提案のアウトライン"
             }
           },
           {
@@ -179,6 +181,7 @@
   },
   "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "Pasted image 20250725141618.png",
     "work/Riot/VAL/da.md",
     "work/Riot/LoL/LoL温泉.md",
     "work/Riot/VAL",
@@ -199,7 +202,6 @@
     "work/Riot/TGS/2025-07-22議事録.md",
     "work/legion/7.24議事録.md",
     "LiteratureNote/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
-    "Pasted image 20250725141618.png",
     "LiteratureNote/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "work/モンハンnow/7.25 大量発生.md",
     "Pasted image 20250725141732.png",
@@ -214,7 +216,6 @@
     "daily/Pasted image 20250706113003.png",
     "daily/2025-07-22.md",
     "daily/2025-07-21.md",
-    "LiteratureNote/Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
     "LiteratureNote/Clippings/Clippings",
     "task",
     "無題のフォルダ",
