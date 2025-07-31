@@ -11,14 +11,12 @@
             "id": "f8a8931bfdf83922",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "work/Riot/VAL/da.md",
-                "mode": "source",
-                "source": false
+                "file": "Pasted image 20250725141618.png"
               },
-              "icon": "lucide-file",
-              "title": "da"
+              "icon": "lucide-image",
+              "title": "Pasted image 20250725141618"
             }
           }
         ]
@@ -141,13 +139,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/VAL/da.md",
+                "file": "Pasted image 20250725141618.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "daのアウトライン"
+              "title": "Pasted image 20250725141618のアウトライン"
             }
           },
           {
@@ -181,8 +179,8 @@
   },
   "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
-    "work/Riot/LoL/LoL温泉.md",
     "work/Riot/VAL/da.md",
+    "work/Riot/LoL/LoL温泉.md",
     "work/Riot/VAL",
     "work/Riot/LoL/無題のフォルダ",
     "work/Riot/TGS/7.29.md",
