@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-08-01.md",
+                "file": "work/Riot/TGS/コンテンツ企画のガントチャート.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-08-01"
+              "title": "コンテンツ企画のガントチャート"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/2025-08-01.md",
+                "file": "work/Riot/TGS/コンテンツ企画のガントチャート.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2025-08-01のアウトライン"
+              "title": "コンテンツ企画のガントチャートのアウトライン"
             }
           },
           {
@@ -181,7 +181,11 @@
   },
   "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "work/legion/資料作成.md",
+    "work/Riot/TGS/コンテンツ企画のガントチャート.md",
+    "work/Riot/TGS/VALO.md",
     "daily/2025-07-31-tasks.md",
+    "daily/2025-07-28.md",
     "daily/2025-08-01.md",
     "work/ZENAIM/zenaim火曜日提案.md",
     "Pasted image 20250725141618.png",
@@ -191,14 +195,11 @@
     "work/Riot/LoL/無題のフォルダ",
     "work/Riot/TGS/7.29.md",
     "work/Riot/TGS/配信データ.md",
-    "work/Riot/TGS/VALO.md",
     "work/Riot/LoL/Discord.md",
     "work/Riot/onsen/温泉 SNS.md",
     "work/Riot/LoL",
     "work/Riot/onsen",
     "work/Riot/TGS/2XKO TGSキックオフ.md",
-    "daily/2025-07-28.md",
-    "work/legion/資料作成.md",
     "work/ZENAIM",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/2025-07-22議事録.md",
@@ -216,7 +217,6 @@
     "LiteratureNote/Kindle/鎌利-【完全版】社内プレゼンの資料作成術.md",
     "daily/2025-07-07.md",
     "daily/Pasted image 20250706113003.png",
-    "daily/2025-07-22.md",
     "LiteratureNote/Clippings/Clippings",
     "task",
     "無題のフォルダ",
