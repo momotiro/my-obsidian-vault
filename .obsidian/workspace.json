@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-07-31-tasks.md",
+                "file": "work/Riot/TGS/swag.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-31-tasks"
+              "title": "swag"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/2025-07-31-tasks.md",
+                "file": "work/Riot/TGS/swag.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2025-07-31-tasksのアウトライン"
+              "title": "swagのアウトライン"
             }
           },
           {
@@ -181,6 +181,8 @@
   },
   "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "daily/2025-07-31-tasks.md",
+    "work/Riot/TGS/swag.md",
     "CLAUDE.md.tmp.17892.1754116520328",
     "daily/2025-07-31-tasks.md.tmp.17892.1754116129416",
     "LiteratureNote/Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
@@ -193,7 +195,6 @@
     "work/Riot/TGS/2XKO TGSキックオフ.md",
     "work/legion/資料作成.md",
     "work/Riot/TGS/VALO.md",
-    "daily/2025-07-31-tasks.md",
     "daily/2025-07-28.md",
     "daily/2025-08-01.md",
     "work/ZENAIM/zenaim火曜日提案.md",
@@ -216,7 +217,6 @@
     "Pasted image 20250725141732.png",
     "work/モンハンnow",
     "無題のファイル.md",
-    "work/legion",
     "CLAUDE.md",
     "LiteratureNote/Kindle/Dreunen-One Up.md",
     "daily/Pasted image 20250706113003.png",
