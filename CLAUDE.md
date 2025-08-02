@@ -52,3 +52,8 @@ tmux attach-session -t president
 ## Working with this Repository
 
 This is primarily a knowledge management vault with one technical demo project. When working with the Claude-Code-Communication system, ensure tmux sessions are properly configured and follow the hierarchical communication patterns defined in the instruction files.
+
+## Obsidian Tagging Notes
+
+- When using tags in Obsidian, use `#TGS` instead of `#TGSタスク`
+- Avoid redundant or unnecessary tags across the vault
