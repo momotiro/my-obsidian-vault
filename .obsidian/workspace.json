@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/TGS/VALO.md",
+                "file": "daily/2025-07-31-tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VALO"
+              "title": "2025-07-31-tasks"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/TGS/VALO.md",
+                "file": "daily/2025-07-31-tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "VALOのアウトライン"
+              "title": "2025-07-31-tasksのアウトライン"
             }
           },
           {
@@ -181,6 +181,7 @@
   },
   "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "work/Riot/TGS/VALO.md",
     "work/Riot/TGS/配信データ.md",
     "daily/2025-07-31-tasks.md",
     "work/Riot/TGS/swag.md",
@@ -195,7 +196,6 @@
     "work/Riot/TGS/7.29.md",
     "work/Riot/TGS/2XKO TGSキックオフ.md",
     "work/legion/資料作成.md",
-    "work/Riot/TGS/VALO.md",
     "daily/2025-07-28.md",
     "daily/2025-08-01.md",
     "work/ZENAIM/zenaim火曜日提案.md",
