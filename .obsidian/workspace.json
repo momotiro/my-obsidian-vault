@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#TGS",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -180,8 +180,9 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "cb601a8a69f83ffd",
+  "active": "f8a8931bfdf83922",
   "lastOpenFiles": [
+    "daily/2025-07-31-tasks.md.tmp.2656.1754317481855",
     "work/Riot/LoL/Discord.md",
     "daily/2025-07-31-tasks.md",
     "work/Riot/TGS/VALO.md",
@@ -219,7 +220,6 @@
     "work/モンハンnow",
     "無題のファイル.md",
     "CLAUDE.md",
-    "LiteratureNote/Kindle/Dreunen-One Up.md",
     "daily/Pasted image 20250706113003.png",
     "無題のファイル.canvas"
   ]
