@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/2025-07-31-tasks.md",
+                "file": "work/モンハンnow/26年の取り組み.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-07-31-tasks"
+              "title": "26年の取り組み"
             }
           }
         ],
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/2025-07-31-tasks.md",
+                "file": "work/モンハンnow/26年の取り組み.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2025-07-31-tasksのアウトライン"
+              "title": "26年の取り組みのアウトライン"
             }
           },
           {
@@ -196,9 +196,10 @@
   },
   "active": "3e459c19976d950b",
   "lastOpenFiles": [
+    "daily/2025-07-31-tasks.md",
+    "work/モンハンnow/26年の取り組み.md",
     "work/ZENAIM/今後の進め方.md",
     "work/ZENAIM/zenaim火曜日提案.md",
-    "daily/2025-07-31-tasks.md",
     "work/Riot/TGS/TGS VALO.md",
     "daily/2025-08-07.md",
     "daily/2025-08-01.md",
@@ -233,7 +234,6 @@
     "work/Riot/onsen",
     "work/ZENAIM",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
-    "work/Riot/TGS/2025-07-22議事録.md",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
   ]
