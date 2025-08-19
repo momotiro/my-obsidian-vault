@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "26年の取り組み"
             }
+          },
+          {
+            "id": "0629970e2c9399ce",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.10"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -184,6 +196,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:クイックスイッチャーを開く": false,
       "graph:グラフビューを開く": false,
       "canvas:新規キャンバスを作成": false,
@@ -194,7 +207,7 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "3e459c19976d950b",
+  "active": "0629970e2c9399ce",
   "lastOpenFiles": [
     "daily/2025-07-31-tasks.md",
     "work/モンハンnow/26年の取り組み.md",
