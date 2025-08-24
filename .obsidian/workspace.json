@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "RGO キックオフ.md",
+                "file": "work/Riot/TGS/ガントチャート.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RGO キックオフ"
+              "title": "ガントチャート"
             }
           },
           {
@@ -170,13 +170,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "RGO キックオフ.md",
+                "file": "work/Riot/TGS/ガントチャート.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "RGO キックオフのアウトライン"
+              "title": "ガントチャートのアウトライン"
             }
           },
           {
@@ -211,11 +211,13 @@
   },
   "active": "3431557dcdae9aac",
   "lastOpenFiles": [
-    "work/ZENAIM/今後の進め方.md",
+    "work/モンハンnow/26年の取り組み.md",
+    "work/Riot/TGS/ガントチャート.md",
     "RGO キックオフ.md",
+    "無題のフォルダ",
+    "work/ZENAIM/今後の進め方.md",
     "work/Riot/RGO",
     "work/ZENAIM/zenaim火曜日提案.md",
-    "work/モンハンnow/26年の取り組み.md",
     "daily/2025-07-31-tasks.md",
     "work/Riot/TGS/TGS VALO.md",
     "daily/2025-08-07.md",
@@ -246,9 +248,7 @@
     "work/Riot/LoL/LoL温泉.md",
     "work/Riot/VAL",
     "work/Riot/LoL/無題のフォルダ",
-    "work/Riot/onsen/温泉 SNS.md",
     "work/Riot/LoL",
-    "work/Riot/onsen",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
   ]
