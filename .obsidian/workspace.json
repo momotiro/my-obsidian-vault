@@ -36,6 +36,18 @@
             }
           },
           {
+            "id": "e2e397a7736fc114",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.12"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.12"
+            }
+          },
+          {
             "id": "3e459c19976d950b",
             "type": "leaf",
             "state": {
@@ -50,7 +62,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -209,7 +221,7 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "3431557dcdae9aac",
+  "active": "e2e397a7736fc114",
   "lastOpenFiles": [
     "work/モンハンnow/26年の取り組み.md",
     "work/Riot/TGS/ガントチャート.md",
