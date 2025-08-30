@@ -39,12 +39,14 @@
             "id": "e2e397a7736fc114",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.9.12"
+                "file": "work/Riot/RGO/RGO.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.9.12"
+              "icon": "lucide-file",
+              "title": "RGO"
             }
           },
           {
@@ -182,13 +184,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/TGS/ガントチャート.md",
+                "file": "work/Riot/RGO/RGO.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ガントチャートのアウトライン"
+              "title": "RGOのアウトライン"
             }
           },
           {
@@ -223,6 +225,7 @@
   },
   "active": "e2e397a7736fc114",
   "lastOpenFiles": [
+    "work/Riot/RGO/RGO.md",
     "work/モンハンnow/26年の取り組み.md",
     "work/Riot/TGS/ガントチャート.md",
     "RGO キックオフ.md",
@@ -257,7 +260,6 @@
     "daily/2025-07-28.md",
     "Pasted image 20250725141618.png",
     "work/Riot/VAL/da.md",
-    "work/Riot/LoL/LoL温泉.md",
     "work/Riot/VAL",
     "work/Riot/LoL/無題のフォルダ",
     "work/Riot/LoL",
