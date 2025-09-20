@@ -16,17 +16,15 @@ def load_skin_data(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         for line_num, line in enumerate(f, 1):
             line = line.strip()
-            if line and '→|' in line:
-                # 行番号→|回答 の形式から回答部分を抽出
-                parts = line.split('→|', 1)
-                if len(parts) == 2:
-                    response = parts[1].strip()
-                    if response and response != '|':  # 空でない回答のみ
-                        responses.append({
-                            'line_number': line_num,
-                            'original': response,
-                            'normalized': response.lower()
-                        })
+            if line and line.startswith('|') and line.endswith('|') and line != '|' and '---' not in line:
+                # | 内容 | の形式から内容部分を抽出
+                response = line.strip('|').strip()
+                if response and response != '':  # 空でない回答のみ
+                    responses.append({
+                        'line_number': line_num,
+                        'original': response,
+                        'normalized': response.lower()
+                    })
     return responses
 
 def create_classification_rules():
@@ -344,8 +342,8 @@ def generate_report(classified_data, classification_log, counter, output_file):
 
 def main():
     """メイン処理"""
-    input_file = "work/Riot/VAL/スキン一覧.md"
-    output_file = "スキン分析結果.md"
+    input_file = r"C:\Users\80036\Documents\Obsidian Vault\work\Riot\VAL\スキン一覧.md"
+    output_file = r"C:\Users\80036\Documents\Obsidian Vault\スキン分析結果.md"
 
     try:
         classified_data, classification_log, counter = analyze_skin_data(input_file)
