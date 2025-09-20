@@ -4,67 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "4d52018578bcddc0",
+        "id": "9932a38258409571",
         "type": "tabs",
         "children": [
           {
-            "id": "f8a8931bfdf83922",
+            "id": "edc8be0a0fd86c7b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/ZENAIM/今後の進め方.md",
+                "file": "work/Riot/VAL/スキン一覧.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "今後の進め方"
-            }
-          },
-          {
-            "id": "3431557dcdae9aac",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "work/Riot/TGS/ガントチャート.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ガントチャート"
-            }
-          },
-          {
-            "id": "e2e397a7736fc114",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "work/Riot/TGS/9.16.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "9.16"
-            }
-          },
-          {
-            "id": "3e459c19976d950b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "work/モンハンnow/26年の取り組み.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "26年の取り組み"
+              "title": "スキン一覧"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -184,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/TGS/9.16.md",
+                "file": "work/Riot/VAL/スキン一覧.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "9.16のアウトライン"
+              "title": "スキン一覧のアウトライン"
             }
           },
           {
@@ -223,10 +180,14 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "e2e397a7736fc114",
+  "active": "edc8be0a0fd86c7b",
   "lastOpenFiles": [
-    "daily/2025-07-31-tasks.md",
+    "work/Riot/VAL/スキン一覧.md",
+    "work/モンハンnow/26年の取り組み.md",
+    "work/Riot/TGS/ガントチャート.md",
+    "work/Riot/VAL/VALORANT_スキンランキング結果.md",
     "work/Riot/TGS/9.16.md",
+    "daily/2025-07-31-tasks.md",
     "work/PGO/9.16.md",
     "work/PGO",
     "work/Riot/RGO/RGOオフライン.md",
@@ -234,8 +195,6 @@
     "Pasted image 20250830172244.png",
     "Pasted image 20250830172058.png",
     "Pasted image 20250830172019.png",
-    "work/モンハンnow/26年の取り組み.md",
-    "work/Riot/TGS/ガントチャート.md",
     "RGO キックオフ.md",
     "無題のフォルダ",
     "work/ZENAIM/今後の進め方.md",
@@ -262,8 +221,6 @@
     "work/Riot/TGS/乃村工藝社さん mtg.md",
     "Clippings",
     "work/Riot/TGS/7.29.md",
-    "work/Riot/TGS/2XKO TGSキックオフ.md",
-    "work/legion/資料作成.md",
     "Pasted image 20250725141618.png",
     "work/Riot/VAL",
     "work/Riot/LoL/無題のフォルダ",

@@ -57,3 +57,4 @@ This is primarily a knowledge management vault with one technical demo project. 
 
 - When using tags in Obsidian, use `#TGS` instead of `#TGSタスク`
 - Avoid redundant or unnecessary tags across the vault
+- TGSタグもつけておいてください
