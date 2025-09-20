@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" valorant_skin_analysis.py)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
