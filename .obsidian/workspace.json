@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/VAL/スキン分類統一結果.md",
+                "file": "work/Riot/TGS/2XKO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "スキン分類統一結果"
+              "title": "2XKO"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/VAL/スキン分類統一結果.md",
+                "file": "work/Riot/TGS/2XKO.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "スキン分類統一結果のアウトライン"
+              "title": "2XKOのアウトライン"
             }
           },
           {
@@ -182,8 +182,11 @@
   },
   "active": "edc8be0a0fd86c7b",
   "lastOpenFiles": [
-    "work/Riot/VAL/VALORANT_スキンランキング結果.md",
+    "work/Riot/TGS/9.16.md",
+    "work/Riot/TGS/2XKO.md",
+    "work/Riot/TGS/TGS VALO.md",
     "work/Riot/VAL/スキン分類統一結果.md",
+    "work/Riot/VAL/VALORANT_スキンランキング結果.md",
     "VALORANT_スキン表記統一分析レポート.md",
     "valorant_skin_classifier.py",
     "valorant_skin_analysis_new.py.tmp.6988.1758347331196",
@@ -193,7 +196,6 @@
     "work/Riot/VAL/スキン一覧.md",
     "work/モンハンnow/26年の取り組み.md",
     "work/Riot/TGS/ガントチャート.md",
-    "work/Riot/TGS/9.16.md",
     "daily/2025-07-31-tasks.md",
     "work/PGO/9.16.md",
     "work/PGO",
@@ -207,7 +209,6 @@
     "work/ZENAIM/今後の進め方.md",
     "work/Riot/RGO",
     "work/ZENAIM/zenaim火曜日提案.md",
-    "work/Riot/TGS/TGS VALO.md",
     "daily/2025-08-07.md",
     "daily/2025-08-01.md",
     "LiteratureNote/Kindle/他、O.SASAKI、M.MIZUTAMARI、T.NAKANO、T.UMENO、J.SEKIGUCHI、R.MURATA、M.HIRAMATSU-ブランディングの教科書.md",
@@ -222,7 +223,6 @@
     "work/Riot/TGS/swag.md",
     "CLAUDE.md.tmp.17892.1754116520328",
     "daily/2025-07-31-tasks.md.tmp.17892.1754116129416",
-    "LiteratureNote/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
     "Pasted image 20250725141618.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
