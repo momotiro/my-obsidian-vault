@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/VAL/VALORANT_スキンランキング結果.md",
+                "file": "work/Riot/VAL/スキン分類統一結果.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VALORANT_スキンランキング結果"
+              "title": "スキン分類統一結果"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/VAL/VALORANT_スキンランキング結果.md",
+                "file": "work/Riot/VAL/スキン分類統一結果.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "VALORANT_スキンランキング結果のアウトライン"
+              "title": "スキン分類統一結果のアウトライン"
             }
           },
           {
@@ -182,6 +182,7 @@
   },
   "active": "edc8be0a0fd86c7b",
   "lastOpenFiles": [
+    "work/Riot/VAL/VALORANT_スキンランキング結果.md",
     "work/Riot/VAL/スキン分類統一結果.md",
     "VALORANT_スキン表記統一分析レポート.md",
     "valorant_skin_classifier.py",
@@ -192,7 +193,6 @@
     "work/Riot/VAL/スキン一覧.md",
     "work/モンハンnow/26年の取り組み.md",
     "work/Riot/TGS/ガントチャート.md",
-    "work/Riot/VAL/VALORANT_スキンランキング結果.md",
     "work/Riot/TGS/9.16.md",
     "daily/2025-07-31-tasks.md",
     "work/PGO/9.16.md",
