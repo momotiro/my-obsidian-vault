@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "edc8be0a0fd86c7b",
+            "id": "41bec5b753ab8720",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/TGS/2XKO.md",
+                "file": "daily/2025-09-30.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2XKO"
+              "title": "2025-09-30"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/TGS/2XKO.md",
+                "file": "daily/2025-09-30.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2XKOのアウトライン"
+              "title": "2025-09-30のアウトライン"
             }
           },
           {
@@ -180,10 +180,12 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "edc8be0a0fd86c7b",
+  "active": "41bec5b753ab8720",
   "lastOpenFiles": [
-    "work/Riot/TGS/9.16.md",
+    "daily/2025-08-07.md",
+    "daily/2025-09-30.md",
     "work/Riot/TGS/2XKO.md",
+    "work/Riot/TGS/9.16.md",
     "work/Riot/TGS/TGS VALO.md",
     "work/Riot/VAL/スキン分類統一結果.md",
     "work/Riot/VAL/VALORANT_スキンランキング結果.md",
@@ -209,7 +211,6 @@
     "work/ZENAIM/今後の進め方.md",
     "work/Riot/RGO",
     "work/ZENAIM/zenaim火曜日提案.md",
-    "daily/2025-08-07.md",
     "daily/2025-08-01.md",
     "LiteratureNote/Kindle/他、O.SASAKI、M.MIZUTAMARI、T.NAKANO、T.UMENO、J.SEKIGUCHI、R.MURATA、M.HIRAMATSU-ブランディングの教科書.md",
     "LiteratureNote/Kindle/高広-コンセプトの教科書――あたらしい価値のつくりかた.md",
@@ -220,7 +221,6 @@
     "work/Riot/LoL/Discord.md",
     "work/Riot/TGS/VALO.md",
     "work/Riot/TGS/配信データ.md",
-    "work/Riot/TGS/swag.md",
     "CLAUDE.md.tmp.17892.1754116520328",
     "daily/2025-07-31-tasks.md.tmp.17892.1754116129416",
     "Pasted image 20250725141618.png",
