@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "daily/10.1.md",
+                "file": "daily/2025-09-30.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10.1"
+              "title": "2025-09-30"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/10.1.md",
+                "file": "daily/2025-09-30.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "10.1のアウトライン"
+              "title": "2025-09-30のアウトライン"
             }
           },
           {
@@ -183,14 +183,15 @@
   "active": "41bec5b753ab8720",
   "lastOpenFiles": [
     "work/Riot/TGS/ソーシャルリスニング.md",
+    "work/Riot/TGS/乃村工藝社さん mtg.md",
+    "work/Riot/TGS/TGS VALO.md",
+    "daily/2025-09-30.md",
     "daily/10.1.md",
     "work/Riot/TGS/ソーシャルリスニング.md.tmp.3024.1759292957969",
     "work/Riot/TGS/ソーシャルリスニング.md.tmp.3024.1759292908770",
-    "daily/2025-09-30.md",
     "daily/2025-08-07.md",
     "work/Riot/TGS/2XKO.md",
     "work/Riot/TGS/9.16.md",
-    "work/Riot/TGS/TGS VALO.md",
     "work/Riot/VAL/スキン分類統一結果.md",
     "work/Riot/VAL/VALORANT_スキンランキング結果.md",
     "VALORANT_スキン表記統一分析レポート.md",
@@ -222,7 +223,6 @@
     "LiteratureNote/Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
     "無題のファイル.canvas",
     "daily/2025-07-31-tasks.md.tmp.2656.1754317481855",
-    "work/Riot/LoL/Discord.md",
     "Pasted image 20250725141618.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
