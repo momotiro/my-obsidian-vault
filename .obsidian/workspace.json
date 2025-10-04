@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "2025-09-30"
             }
+          },
+          {
+            "id": "6e4e056213d0ea98",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.14"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.14"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -180,7 +193,7 @@
       "obsidian-kindle-plugin:Sync your Kindle highlights": false
     }
   },
-  "active": "41bec5b753ab8720",
+  "active": "6e4e056213d0ea98",
   "lastOpenFiles": [
     "work/Riot/TGS/ソーシャルリスニング.md",
     "work/Riot/TGS/乃村工藝社さん mtg.md",
