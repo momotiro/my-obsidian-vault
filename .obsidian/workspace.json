@@ -25,12 +25,14 @@
             "id": "6e4e056213d0ea98",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.9.14"
+                "file": "work/Riot/TGS/振り返り資料.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.9.14"
+              "icon": "lucide-file",
+              "title": "振り返り資料"
             }
           }
         ],
@@ -154,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "daily/2025-09-30.md",
+                "file": "work/Riot/TGS/振り返り資料.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2025-09-30のアウトライン"
+              "title": "振り返り資料のアウトライン"
             }
           },
           {
@@ -195,10 +197,11 @@
   },
   "active": "6e4e056213d0ea98",
   "lastOpenFiles": [
+    "daily/2025-09-30.md",
+    "work/Riot/TGS/振り返り資料.md",
     "work/Riot/TGS/ソーシャルリスニング.md",
     "work/Riot/TGS/乃村工藝社さん mtg.md",
     "work/Riot/TGS/TGS VALO.md",
-    "daily/2025-09-30.md",
     "daily/10.1.md",
     "work/Riot/TGS/ソーシャルリスニング.md.tmp.3024.1759292957969",
     "work/Riot/TGS/ソーシャルリスニング.md.tmp.3024.1759292908770",
@@ -233,7 +236,6 @@
     "LiteratureNote/Kindle/他、O.SASAKI、M.MIZUTAMARI、T.NAKANO、T.UMENO、J.SEKIGUCHI、R.MURATA、M.HIRAMATSU-ブランディングの教科書.md",
     "LiteratureNote/Kindle/高広-コンセプトの教科書――あたらしい価値のつくりかた.md",
     "LiteratureNote/Kindle/ドリー・クラーク、桜田直美、伊藤守-ロングゲーム 今、自分にとっていちばん意味のあることをするために.md",
-    "LiteratureNote/Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
     "無題のファイル.canvas",
     "daily/2025-07-31-tasks.md.tmp.2656.1754317481855",
     "Pasted image 20250725141618.png",
