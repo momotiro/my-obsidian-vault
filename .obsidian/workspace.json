@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "佐野さんとの会話.md",
+                "file": "VALORANT_スキン表記統一分析レポート.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "佐野さんとの会話"
+              "title": "VALORANT_スキン表記統一分析レポート"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "佐野さんとの会話.md",
+                "file": "VALORANT_スキン表記統一分析レポート.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "佐野さんとの会話のアウトライン"
+              "title": "VALORANT_スキン表記統一分析レポートのアウトライン"
             }
           },
           {
@@ -182,8 +182,8 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
-    "daily/2025-09-30.md",
     "佐野さんとの会話.md",
+    "daily/2025-09-30.md",
     "work/Riot/TGS/振り返り資料.md",
     "work/Riot/TGS/ソーシャルリスニング.md",
     "work/Riot/TGS/乃村工藝社さん mtg.md",
