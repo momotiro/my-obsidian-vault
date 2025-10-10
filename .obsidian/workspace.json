@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VALORANT_スキン表記統一分析レポート.md",
+                "file": "work/GALEON/gammee化計画.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VALORANT_スキン表記統一分析レポート"
+              "title": "gammee化計画"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "VALORANT_スキン表記統一分析レポート.md",
+                "file": "work/GALEON/gammee化計画.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "VALORANT_スキン表記統一分析レポートのアウトライン"
+              "title": "gammee化計画のアウトライン"
             }
           },
           {
@@ -182,6 +182,9 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
+    "VALORANT_スキン表記統一分析レポート.md",
+    "work/GALEON/gammee化計画.md",
+    "work/GALEON",
     "佐野さんとの会話.md",
     "daily/2025-09-30.md",
     "work/Riot/TGS/振り返り資料.md",
@@ -196,7 +199,6 @@
     "work/Riot/TGS/9.16.md",
     "work/Riot/VAL/スキン分類統一結果.md",
     "work/Riot/VAL/VALORANT_スキンランキング結果.md",
-    "VALORANT_スキン表記統一分析レポート.md",
     "valorant_skin_classifier.py",
     "valorant_skin_analysis_new.py.tmp.6988.1758347331196",
     "valorant_skin_analysis_new.py.tmp.6988.1758347311690",
@@ -220,9 +222,7 @@
     "work/ZENAIM/zenaim火曜日提案.md",
     "daily/2025-08-01.md",
     "LiteratureNote/Kindle/他、O.SASAKI、M.MIZUTAMARI、T.NAKANO、T.UMENO、J.SEKIGUCHI、R.MURATA、M.HIRAMATSU-ブランディングの教科書.md",
-    "LiteratureNote/Kindle/高広-コンセプトの教科書――あたらしい価値のつくりかた.md",
     "無題のファイル.canvas",
-    "daily/2025-07-31-tasks.md.tmp.2656.1754317481855",
     "Pasted image 20250725141618.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
