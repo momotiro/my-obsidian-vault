@@ -122,8 +122,6 @@ def search_web_articles(keywords: List[str], days: int = 2, max_results: int = 2
     """Web検索APIを使って記事を検索"""
     articles = []
 
-    # Google Custom Search API、Bing News API、またはNews APIを使用
-    # ここではNews API（https://newsapi.org/）を例に実装
     NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
 
     if not NEWS_API_KEY:
@@ -132,14 +130,48 @@ def search_web_articles(keywords: List[str], days: int = 2, max_results: int = 2
 
     try:
         from_date = (datetime.now() - timedelta(days=days)).strftime('%Y-%m-%d')
+        url = 'https://newsapi.org/v2/everything'
 
-        # 日本語記事を優先的に取得
-        for keyword in keywords:
-            # 日本語での検索
-            url = 'https://newsapi.org/v2/everything'
+        # 日本語キーワードで検索（言語指定なしで幅広く取得）
+        ja_keywords = ['コミュニティマーケティング', 'SNSマーケティング', 'インフルエンサーマーケティング', 'AI マーケティング', 'デジタルマーケティング']
+
+        for keyword in ja_keywords:
             params = {
                 'q': keyword,
-                'language': 'ja',
+                'from': from_date,
+                'sortBy': 'publishedAt',  # 最新順
+                'pageSize': 10,
+                'apiKey': NEWS_API_KEY
+            }
+
+            response = requests.get(url, params=params)
+            if response.status_code == 200:
+                data = response.json()
+                for item in data.get('articles', []):
+                    title = item.get('title', '')
+                    description = item.get('description', '')
+
+                    # 日本語が含まれているか判定
+                    is_japanese = any('\u3040' <= char <= '\u30ff' or '\u4e00' <= char <= '\u9faf'
+                                     for char in (title + description))
+
+                    article = Article(
+                        title=title,
+                        url=item.get('url', ''),
+                        summary=(description or '')[:200] + ('...' if description and len(description) > 200 else ''),
+                        tags=[keyword],
+                        source=item.get('source', {}).get('name', 'Unknown'),
+                        lang='ja' if is_japanese else 'en'
+                    )
+                    articles.append(article)
+
+        # 英語キーワードでも検索（少量）
+        en_keywords = ['community marketing', 'influencer marketing', 'AI marketing']
+
+        for keyword in en_keywords[:2]:
+            params = {
+                'q': keyword,
+                'language': 'en',
                 'from': from_date,
                 'sortBy': 'relevancy',
                 'pageSize': 5,
@@ -153,26 +185,7 @@ def search_web_articles(keywords: List[str], days: int = 2, max_results: int = 2
                     article = Article(
                         title=item.get('title', ''),
                         url=item.get('url', ''),
-                        summary=item.get('description', '')[:200] + '...',
-                        tags=[keyword],
-                        source=item.get('source', {}).get('name', 'Unknown'),
-                        lang='ja'
-                    )
-                    articles.append(article)
-
-        # 英語記事も少し取得
-        for keyword in keywords[:2]:  # 主要キーワードのみ
-            params['language'] = 'en'
-            params['pageSize'] = 2
-
-            response = requests.get(url, params=params)
-            if response.status_code == 200:
-                data = response.json()
-                for item in data.get('articles', []):
-                    article = Article(
-                        title=item.get('title', ''),
-                        url=item.get('url', ''),
-                        summary=item.get('description', '')[:200] + '...',
+                        summary=(item.get('description', '') or '')[:200] + '...',
                         tags=[keyword],
                         source=item.get('source', {}).get('name', 'Unknown'),
                         lang='en'
@@ -183,6 +196,47 @@ def search_web_articles(keywords: List[str], days: int = 2, max_results: int = 2
         print(f"Error searching web articles: {e}")
 
     return articles
+
+
+def load_learning_data() -> Dict:
+    """学習データを読み込む"""
+    try:
+        headers = {
+            'Authorization': f'token {GITHUB_TOKEN}',
+            'Accept': 'application/vnd.github.v3+json'
+        }
+        url = f'https://api.github.com/repos/{GITHUB_REPO}/contents/daily-news-bot/learning_data.json'
+        response = requests.get(url, headers=headers)
+
+        if response.status_code == 200:
+            content = response.json()['content']
+            import base64
+            decoded = base64.b64decode(content).decode('utf-8')
+            return json.loads(decoded)
+        else:
+            return {"preferences": {"liked_sources": {}, "liked_tags": {}, "liked_articles": []}}
+    except Exception as e:
+        print(f"Error loading learning data: {e}")
+        return {"preferences": {"liked_sources": {}, "liked_tags": {}, "liked_articles": []}}
+
+
+def calculate_article_score(article: Article, learning_data: Dict) -> float:
+    """学習データを元に記事のスコアを計算"""
+    score = 0.0
+    prefs = learning_data.get('preferences', {})
+
+    # ソースの好みスコア
+    liked_sources = prefs.get('liked_sources', {})
+    if article.source in liked_sources:
+        score += liked_sources[article.source] * 2.0
+
+    # タグの好みスコア
+    liked_tags = prefs.get('liked_tags', {})
+    for tag in article.tags:
+        if tag in liked_tags:
+            score += liked_tags[tag] * 1.5
+
+    return score
 
 
 def filter_and_rank_articles(articles: List[Article], sent_hashes: set, target_count: int = 5) -> List[Article]:
@@ -198,10 +252,34 @@ def filter_and_rank_articles(articles: List[Article], sent_hashes: set, target_c
             seen_urls.add(article.url)
             unique_articles.append(article)
 
-    # 日本語記事を優先的にソート
-    unique_articles.sort(key=lambda x: (x.lang != 'ja', x.source != '日経クロストレンド'))
+    # 学習データを読み込んでスコア計算
+    learning_data = load_learning_data()
 
-    return unique_articles[:target_count]
+    # 日本語と英語に分ける
+    ja_articles = [a for a in unique_articles if a.lang == 'ja']
+    en_articles = [a for a in unique_articles if a.lang == 'en']
+
+    # スコアでソート（日経クロストレンド優先 + 学習スコア）
+    ja_articles.sort(key=lambda x: (
+        x.source != '日経クロストレンド',
+        -calculate_article_score(x, learning_data)
+    ))
+
+    en_articles.sort(key=lambda x: -calculate_article_score(x, learning_data))
+
+    # 日本語3記事 + 英語2記事を選定
+    ja_count = min(max(3, target_count - 2), len(ja_articles))  # 最低3記事
+    en_count = min(target_count - ja_count, len(en_articles))
+
+    selected = ja_articles[:ja_count] + en_articles[:en_count]
+
+    # 足りない場合は残りを追加
+    if len(selected) < target_count:
+        remaining = [a for a in unique_articles if a not in selected]
+        remaining.sort(key=lambda x: -calculate_article_score(x, learning_data))
+        selected.extend(remaining[:target_count - len(selected)])
+
+    return selected[:target_count]
 
 
 def format_slack_message(articles: List[Article]) -> str:
@@ -224,13 +302,23 @@ def format_slack_message(articles: List[Article]) -> str:
     return message
 
 
-def post_to_slack(message: str):
-    """Slackにメッセージを投稿"""
+def post_to_slack(message: str, articles: List[Article] = None) -> str:
+    """Slackにメッセージを投稿し、記事情報をメタデータとして保存"""
     url = 'https://slack.com/api/chat.postMessage'
     headers = {
         'Authorization': f'Bearer {SLACK_BOT_TOKEN}',
         'Content-Type': 'application/json'
     }
+
+    # 記事情報をメタデータとして保存
+    metadata = None
+    if articles:
+        metadata = {
+            'event_type': 'daily_news',
+            'event_payload': {
+                'articles': [a.to_dict() for a in articles]
+            }
+        }
 
     payload = {
         'channel': SLACK_CHANNEL,
@@ -239,12 +327,17 @@ def post_to_slack(message: str):
         'unfurl_media': False
     }
 
+    if metadata:
+        payload['metadata'] = metadata
+
     response = requests.post(url, headers=headers, json=payload)
 
     if response.status_code == 200 and response.json().get('ok'):
         print("✅ Successfully posted to Slack")
+        return response.json().get('ts', '')
     else:
         print(f"❌ Failed to post to Slack: {response.text}")
+        return ''
 
 
 def main():
@@ -294,12 +387,13 @@ def main():
 
     # Slackに投稿
     message = format_slack_message(selected_articles)
-    post_to_slack(message)
+    message_ts = post_to_slack(message, selected_articles)
 
     # 既読リストに保存
     article_hashes = [a.hash for a in selected_articles]
     save_sent_articles(article_hashes)
 
+    print(f"Message timestamp: {message_ts}")
     print("=== Daily News Collector Finished ===")
 
 

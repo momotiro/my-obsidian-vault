@@ -26,6 +26,15 @@ jobs:
           cd daily-news-bot
           pip install -r requirements.txt
 
+      - name: Learn from reactions
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          cd daily-news-bot
+          python reaction_learner.py
+
       - name: Run news collector
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
@@ -36,10 +45,10 @@ jobs:
           cd daily-news-bot
           python news_collector.py
 
-      - name: Commit sent articles list
+      - name: Commit updates
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add daily-news-bot/sent_articles.json || true
-          git commit -m "Update sent articles $(date +'%Y-%m-%d')" || true
+          git add daily-news-bot/sent_articles.json daily-news-bot/learning_data.json || true
+          git commit -m "Update data $(date +'%Y-%m-%d')" || true
           git push || true
