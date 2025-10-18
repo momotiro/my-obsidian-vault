@@ -5,9 +5,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Repository Overview
 
 This is an Obsidian vault containing:
-- Personal notes and literature collection
+- Personal notes and daily work logs
 - A Claude Code multi-agent communication demo project (`Claude-Code-Communication/`)
-- Daily notes and work-related content
+- Development projects
+
+**Kindle/Literature Notes:** Moved to separate vault `../Obsidian-Kindle/` for better sync performance
 
 ## Key Projects
 
@@ -45,9 +47,10 @@ tmux attach-session -t president
 
 - `daily/` - Daily notes and work logs
 - `work/` - Work-related projects and analyses
-- `LiteratureNote/` - Book notes and research clippings
 - `Claude-Code-Communication/` - Multi-agent demo system
 - `develop/` - Development projects
+
+**Note:** Kindle highlights and literature notes have been moved to a separate vault at `../Obsidian-Kindle/` to improve sync performance.
 
 ## Working with this Repository
 

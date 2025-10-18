@@ -4,7 +4,12 @@
       "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" valorant_skin_analysis.py)",
       "Bash(python:*)",
       "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" \"C:\\Users\\80036\\Documents\\Obsidian Vault\\valorant_skin_analysis_new.py\")",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(xcopy:*)",
+      "Bash(robocopy:*)",
+      "Read(//c/Users/80036/Documents/**)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -c \"import shutil; shutil.copytree(''LiteratureNote'', ''../Obsidian-Kindle/LiteratureNote'')\")",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []
