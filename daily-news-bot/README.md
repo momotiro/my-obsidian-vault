@@ -27,14 +27,25 @@
 
 ## セットアップ
 
-### 1. 必要な環境変数
+### 1. Slack Bot権限の追加
+
+Slack Appの設定で以下の権限を追加してください：
+
+1. https://api.slack.com/apps であなたのアプリを開く
+2. **OAuth & Permissions** → **Bot Token Scopes** に以下を追加：
+   - `chat:write` - メッセージを投稿
+   - `chat:write.public` - パブリックチャンネルに投稿
+   - `reactions:write` - リアクションを追加（**新規追加**）
+3. **Reinstall to Workspace** をクリックして権限を再適用
+
+### 2. 必要な環境変数
 
 GitHub Secretsに以下を設定：
 
 - `SLACK_BOT_TOKEN`: Slack Bot Token (xoxb-...)
 - `NEWS_API_KEY`: News API Key (https://newsapi.org/ で取得)
 
-### 2. ローカルテスト
+### 3. ローカルテスト
 
 ```bash
 cd daily-news-bot
@@ -56,7 +67,7 @@ export GITHUB_REPOSITORY="username/repo"
 python news_collector.py
 ```
 
-### 3. GitHub Actionsで自動実行
+### 4. GitHub Actionsで自動実行
 
 `.github/workflows/daily-news.yml` が毎朝6時（JST）に自動実行されます。
 

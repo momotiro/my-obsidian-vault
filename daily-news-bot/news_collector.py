@@ -251,6 +251,8 @@ def is_valuable_article(article: Article) -> bool:
         '開催のお知らせ', '開催決定', 'イベント開催', '講演会',
         '募集開始', '応募受付', '参加者募集', '受講生募集',
         '発売開始', '新発売', '販売開始',
+        '有料会員', '有料記事', '会員限定', '有料プラン',
+        'subscription required', 'premium content', 'members only',
         '/release/', '/pr/', '/press/',
         'prtimes.jp', 'atpress.ne.jp', 'dreamnews.jp', 'jiji.com/jc/article'
     ]
@@ -343,6 +345,32 @@ def format_article_message(article: Article, index: int) -> str:
     message += f"🏷️ {' '.join(['#' + tag for tag in article.tags])} | 📰 {article.source}"
 
     return message
+
+
+def add_reaction(channel: str, timestamp: str, emoji: str) -> bool:
+    """メッセージにリアクションを追加"""
+    url = 'https://slack.com/api/reactions.add'
+    headers = {
+        'Authorization': f'Bearer {SLACK_BOT_TOKEN}',
+        'Content-Type': 'application/json'
+    }
+
+    payload = {
+        'channel': channel,
+        'timestamp': timestamp,
+        'name': emoji
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+
+    if response.status_code == 200 and response.json().get('ok'):
+        return True
+    else:
+        # 既にリアクション済みの場合はエラーにならない
+        error = response.json().get('error', '')
+        if error != 'already_reacted':
+            print(f"⚠️ Failed to add reaction {emoji}: {error}")
+        return False
 
 
 def post_to_slack(message: str, article: Article = None) -> str:
@@ -444,6 +472,12 @@ def main():
 
         if message_ts:
             print(f"✅ Posted article {idx+1}: {article.title[:50]}...")
+
+            # デフォルトリアクションを追加
+            time.sleep(0.3)
+            add_reaction(SLACK_CHANNEL, message_ts, 'thumbsup')
+            time.sleep(0.2)
+            add_reaction(SLACK_CHANNEL, message_ts, 'thumbsdown')
         else:
             print(f"❌ Failed to post article {idx+1}")
 
