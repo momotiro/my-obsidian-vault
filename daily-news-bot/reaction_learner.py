@@ -123,12 +123,16 @@ def save_learning_data(data: Dict):
         print(f"Error saving learning data: {e}")
 
 
-def update_preferences(articles: List[Dict], reactions: List[Dict], learning_data: Dict):
-    """リアクションを元に好みを更新"""
+def update_preferences_from_article(article: Dict, reactions: List[Dict], learning_data: Dict):
+    """個別記事のリアクションを元に好みを更新"""
     prefs = learning_data.get('preferences', {})
     liked_sources = prefs.get('liked_sources', {})
     liked_tags = prefs.get('liked_tags', {})
     liked_articles = prefs.get('liked_articles', [])
+
+    source = article.get('source', '')
+    tags = article.get('tags', [])
+    url = article.get('url', '')
 
     for reaction in reactions:
         reaction_name = reaction.get('name', '')
@@ -136,36 +140,26 @@ def update_preferences(articles: List[Dict], reactions: List[Dict], learning_dat
 
         # ポジティブリアクション
         if reaction_name in POSITIVE_REACTIONS:
-            # 全記事に対してスコアを加算
-            for article in articles:
-                source = article.get('source', '')
-                tags = article.get('tags', [])
+            # ソースのスコアを増やす
+            if source:
+                liked_sources[source] = liked_sources.get(source, 0) + count
 
-                # ソースのスコアを増やす
-                if source:
-                    liked_sources[source] = liked_sources.get(source, 0) + count
+            # タグのスコアを増やす
+            for tag in tags:
+                liked_tags[tag] = liked_tags.get(tag, 0) + count
 
-                # タグのスコアを増やす
-                for tag in tags:
-                    liked_tags[tag] = liked_tags.get(tag, 0) + count
-
-                # 記事URLを記録
-                url = article.get('url', '')
-                if url and url not in liked_articles:
-                    liked_articles.append(url)
+            # 記事URLを記録
+            if url and url not in liked_articles:
+                liked_articles.append(url)
 
         # ネガティブリアクション
         elif reaction_name in NEGATIVE_REACTIONS:
             # スコアを減らす
-            for article in articles:
-                source = article.get('source', '')
-                tags = article.get('tags', [])
+            if source:
+                liked_sources[source] = liked_sources.get(source, 0) - count
 
-                if source:
-                    liked_sources[source] = liked_sources.get(source, 0) - count
-
-                for tag in tags:
-                    liked_tags[tag] = liked_tags.get(tag, 0) - count
+            for tag in tags:
+                liked_tags[tag] = liked_tags.get(tag, 0) - count
 
     # 更新
     prefs['liked_sources'] = liked_sources
@@ -194,16 +188,18 @@ def main():
     for message in messages:
         # メタデータから記事情報を取得
         metadata = message.get('metadata', {})
-        if metadata.get('event_type') == 'daily_news':
-            articles = metadata.get('event_payload', {}).get('articles', [])
 
-            if articles:
+        # 個別記事メッセージの場合
+        if metadata.get('event_type') == 'daily_news_article':
+            article = metadata.get('event_payload', {}).get('article')
+
+            if article:
                 # リアクションを取得
                 reactions = message.get('reactions', [])
 
                 if reactions:
-                    print(f"Processing message with {len(reactions)} reactions and {len(articles)} articles")
-                    update_preferences(articles, reactions, learning_data)
+                    print(f"Processing article: {article.get('title', '')[:50]}... with {len(reactions)} reactions")
+                    update_preferences_from_article(article, reactions, learning_data)
                     updated = True
 
     if updated:

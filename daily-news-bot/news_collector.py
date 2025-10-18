@@ -239,10 +239,53 @@ def calculate_article_score(article: Article, learning_data: Dict) -> float:
     return score
 
 
+def is_valuable_article(article: Article) -> bool:
+    """有益な記事かどうかを判定（ニュースリリース・イベント告知を除外）"""
+    title_lower = article.title.lower()
+    summary_lower = (article.summary or '').lower()
+    url_lower = article.url.lower()
+
+    # 除外キーワード
+    exclude_keywords = [
+        'プレスリリース', 'ニュースリリース', 'press release',
+        '開催のお知らせ', '開催決定', 'イベント開催', '講演会',
+        '募集開始', '応募受付', '参加者募集', '受講生募集',
+        '発売開始', '新発売', '販売開始',
+        '/release/', '/pr/', '/press/',
+        'prtimes.jp', 'atpress.ne.jp', 'dreamnews.jp', 'jiji.com/jc/article'
+    ]
+
+    # タイトル・要約・URLに除外キーワードが含まれているかチェック
+    for keyword in exclude_keywords:
+        if keyword in title_lower or keyword in summary_lower or keyword in url_lower:
+            return False
+
+    # 有益な記事の特徴（これらが含まれていると加点）
+    valuable_keywords = [
+        '分析', 'データ', '調査', '研究', 'トレンド',
+        '戦略', '事例', 'ケーススタディ', 'インタビュー',
+        '解説', 'ノウハウ', '手法', '最新動向', 'ポイント',
+        'analysis', 'data', 'research', 'strategy', 'case study', 'interview'
+    ]
+
+    has_valuable = any(keyword in title_lower or keyword in summary_lower
+                       for keyword in valuable_keywords)
+
+    # 日経クロストレンドは常に有益
+    if article.source == '日経クロストレンド':
+        return True
+
+    # 除外キーワードがなく、有益なキーワードが含まれている場合はOK
+    return has_valuable or len(title_lower) > 20  # 短すぎるタイトルは除外
+
+
 def filter_and_rank_articles(articles: List[Article], sent_hashes: set, target_count: int = 5) -> List[Article]:
     """記事をフィルタリング・ランキングして上位を返す"""
     # 既読を除外
     filtered = [a for a in articles if a.hash not in sent_hashes]
+
+    # ニュースリリース・イベント告知を除外
+    filtered = [a for a in filtered if is_valuable_article(a)]
 
     # 重複URL除外
     seen_urls = set()
@@ -282,27 +325,27 @@ def filter_and_rank_articles(articles: List[Article], sent_hashes: set, target_c
     return selected[:target_count]
 
 
-def format_slack_message(articles: List[Article]) -> str:
-    """Slack投稿用のメッセージを整形"""
+def format_header_message() -> str:
+    """ヘッダーメッセージを生成"""
     today = datetime.now().strftime('%Y-%m-%d')
+    return f"📰 *今日のおすすめ記事* ({today})\n<@{SLACK_USER_ID}>\n\n良かった記事には👍リアクションをつけてください！"
 
-    message = f"📰 *今日のおすすめ記事* ({today})\n<@{SLACK_USER_ID}>\n\n"
 
+def format_article_message(article: Article, index: int) -> str:
+    """個別記事のメッセージを整形"""
     emojis = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣']
+    emoji = emojis[index] if index < len(emojis) else f"{index+1}."
+    lang_flag = '🇯🇵' if article.lang == 'ja' else '🇺🇸'
 
-    for idx, article in enumerate(articles):
-        emoji = emojis[idx] if idx < len(emojis) else f"{idx+1}."
-        lang_flag = '🇯🇵' if article.lang == 'ja' else '🇺🇸'
-
-        message += f"{emoji} *{article.title}* {lang_flag}\n"
-        message += f"🔗 {article.url}\n"
-        message += f"📝 {article.summary}\n"
-        message += f"🏷️ {' '.join(['#' + tag for tag in article.tags])} | 📰 {article.source}\n\n"
+    message = f"{emoji} *{article.title}* {lang_flag}\n"
+    message += f"🔗 {article.url}\n"
+    message += f"📝 {article.summary}\n"
+    message += f"🏷️ {' '.join(['#' + tag for tag in article.tags])} | 📰 {article.source}"
 
     return message
 
 
-def post_to_slack(message: str, articles: List[Article] = None) -> str:
+def post_to_slack(message: str, article: Article = None) -> str:
     """Slackにメッセージを投稿し、記事情報をメタデータとして保存"""
     url = 'https://slack.com/api/chat.postMessage'
     headers = {
@@ -312,11 +355,11 @@ def post_to_slack(message: str, articles: List[Article] = None) -> str:
 
     # 記事情報をメタデータとして保存
     metadata = None
-    if articles:
+    if article:
         metadata = {
-            'event_type': 'daily_news',
+            'event_type': 'daily_news_article',
             'event_payload': {
-                'articles': [a.to_dict() for a in articles]
+                'article': article.to_dict()
             }
         }
 
@@ -333,7 +376,6 @@ def post_to_slack(message: str, articles: List[Article] = None) -> str:
     response = requests.post(url, headers=headers, json=payload)
 
     if response.status_code == 200 and response.json().get('ok'):
-        print("✅ Successfully posted to Slack")
         return response.json().get('ts', '')
     else:
         print(f"❌ Failed to post to Slack: {response.text}")
@@ -385,15 +427,33 @@ def main():
         post_to_slack(message)
         return
 
-    # Slackに投稿
-    message = format_slack_message(selected_articles)
-    message_ts = post_to_slack(message, selected_articles)
+    # Slackに個別投稿
+    import time
+
+    # ヘッダーメッセージ（メンション付き）
+    header_message = format_header_message()
+    post_to_slack(header_message)
+    print("✅ Posted header message")
+
+    time.sleep(1)  # レート制限対策
+
+    # 各記事を個別に投稿
+    for idx, article in enumerate(selected_articles):
+        article_message = format_article_message(article, idx)
+        message_ts = post_to_slack(article_message, article)
+
+        if message_ts:
+            print(f"✅ Posted article {idx+1}: {article.title[:50]}...")
+        else:
+            print(f"❌ Failed to post article {idx+1}")
+
+        time.sleep(0.5)  # レート制限対策
 
     # 既読リストに保存
     article_hashes = [a.hash for a in selected_articles]
     save_sent_articles(article_hashes)
 
-    print(f"Message timestamp: {message_ts}")
+    print(f"Posted {len(selected_articles)} articles")
     print("=== Daily News Collector Finished ===")
 
 
