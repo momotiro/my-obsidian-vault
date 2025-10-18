@@ -1,0 +1,45 @@
+name: Daily News Collector
+
+on:
+  schedule:
+    # 毎日 21:00 UTC = 06:00 JST (UTC+9)
+    - cron: '0 21 * * *'
+  workflow_dispatch:  # 手動実行も可能
+
+jobs:
+  collect-and-send:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd daily-news-bot
+          pip install -r requirements.txt
+
+      - name: Run news collector
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          cd daily-news-bot
+          python news_collector.py
+
+      - name: Commit sent articles list
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add daily-news-bot/sent_articles.json || true
+          git commit -m "Update sent articles $(date +'%Y-%m-%d')" || true
+          git push || true
