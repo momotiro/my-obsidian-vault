@@ -145,22 +145,16 @@ def search_nikkei_xtrend(keywords: List[str], days: int = 2) -> List[Article]:
                     import re
                     summary = re.sub(r'<[^>]+>', '', summary)
 
-                    # キーワードに関連する記事のみ
-                    keywords_lower = [k.lower() for k in keywords]
-                    title_lower = title.lower()
-                    summary_lower = summary.lower()
-
-                    if any(keyword in title_lower or keyword in summary_lower
-                           for keyword in keywords_lower):
-                        article = Article(
-                            title=title,
-                            url=url,
-                            summary=summary[:200] + ('...' if len(summary) > 200 else ''),
-                            tags=['マーケティング'],
-                            source='日経クロストレンド',
-                            lang='ja'
-                        )
-                        articles.append(article)
+                    # 日経クロストレンドの記事は全て取得（フィルタリングは後で行う）
+                    article = Article(
+                        title=title,
+                        url=url,
+                        summary=summary[:200] + ('...' if len(summary) > 200 else ''),
+                        tags=['マーケティング'],
+                        source='日経クロストレンド',
+                        lang='ja'
+                    )
+                    articles.append(article)
 
             except Exception as e:
                 print(f"Error fetching RSS {rss_url}: {e}")
