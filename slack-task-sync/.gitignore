@@ -1,0 +1,13 @@
+# 環境変数ファイル（機密情報）
+.env
+
+# ログファイル
+bot.log
+
+# 状態ファイル
+sync_state.json
+
+# Python関連
+__pycache__/
+*.pyc
+*.pyo

@@ -5,6 +5,7 @@ Slack Task Sync Bot - Slackのメッセージを絵文字リアクションで�
 """
 import os
 import re
+import sys
 from datetime import datetime
 from pathlib import Path
 from slack_sdk import WebClient
@@ -18,6 +19,25 @@ from dotenv import load_dotenv
 
 # .envファイルを読み込み
 load_dotenv()
+
+# ログファイル設定
+LOG_FILE = Path(__file__).parent / "bot.log"
+
+def log(message):
+    """ログを出力"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_message = f"[{timestamp}] {message}"
+
+    # コンソールに出力
+    print(log_message)
+    sys.stdout.flush()
+
+    # ファイルに出力
+    try:
+        with open(LOG_FILE, 'a', encoding='utf-8') as f:
+            f.write(log_message + '\n')
+    except Exception as e:
+        print(f"ログ書き込みエラー: {e}")
 
 class SlackTaskSync:
     def __init__(self, token, vault_path, default_tags=None):
@@ -317,26 +337,26 @@ class RealtimeSlackTaskSync(SlackTaskSync):
                         self.state["processed_task_ids"] = processed_ids[-1000:]
                         self.save_state()
 
-                        print(f"[OK] タスク追加: {message_text[:50]}...")
+                        log(f"[OK] タスク追加: {message_text[:50]}...")
 
                 except SlackApiError as e:
-                    print(f"エラー: {e.response['error']}")
+                    log(f"エラー: {e.response['error']}")
 
     def start_realtime_sync(self):
         """リアルタイム同期を開始"""
         # 起動時に過去24時間分のタスクを取得（オフライン時の対応）
-        print("起動時チェック: 過去24時間分のタスクを確認中...")
+        log("起動時チェック: 過去24時間分のタスクを確認中...")
         tasks = self.get_task_messages(emoji=self.emoji, lookback_hours=24)
         if tasks:
-            print(f"{len(tasks)}件の未処理タスクを見つけました")
+            log(f"{len(tasks)}件の未処理タスクを見つけました")
             self.append_to_task_master(tasks)
         else:
-            print("未処理タスクはありません")
+            log("未処理タスクはありません")
 
         # リアルタイム同期開始
         self.socket_client.socket_mode_request_listeners.append(self.handle_reaction_added)
-        print("リアルタイム同期を開始しました。絵文字でリアクションするとタスクが追加されます。")
-        print("終了するにはCtrl+Cを押してください。")
+        log("リアルタイム同期を開始しました。絵文字でリアクションするとタスクが追加されます。")
+        log("終了するにはCtrl+Cを押してください。")
         self.socket_client.connect()
 
         # 接続を維持
@@ -344,48 +364,59 @@ class RealtimeSlackTaskSync(SlackTaskSync):
             from threading import Event
             Event().wait()
         except KeyboardInterrupt:
-            print("\n同期を終了します...")
+            log("\n同期を終了します...")
             self.socket_client.disconnect()
+        except Exception as e:
+            log(f"予期しないエラー: {e}")
+            raise
 
 
 def main():
     """メイン関数"""
-    import argparse
+    try:
+        import argparse
 
-    parser = argparse.ArgumentParser(description='Slack Task Sync Bot')
-    parser.add_argument('--realtime', action='store_true', help='リアルタイム同期モード')
-    parser.add_argument('--tags', nargs='+', help='デフォルトタグ（複数指定可）例: --tags TGS 緊急')
-    parser.add_argument('--emoji', default='white_check_mark', help='リアクション絵文字（デフォルト: white_check_mark）')
-    args = parser.parse_args()
+        parser = argparse.ArgumentParser(description='Slack Task Sync Bot')
+        parser.add_argument('--realtime', action='store_true', help='リアルタイム同期モード')
+        parser.add_argument('--tags', nargs='+', help='デフォルトタグ（複数指定可）例: --tags TGS 緊急')
+        parser.add_argument('--emoji', default='white_check_mark', help='リアクション絵文字（デフォルト: white_check_mark）')
+        args = parser.parse_args()
 
-    # 環境変数から設定を取得
-    slack_token = os.getenv("SLACK_BOT_TOKEN")
-    app_token = os.getenv("SLACK_APP_TOKEN")  # Socket Modeで必要
-    vault_path = os.getenv("OBSIDIAN_VAULT_PATH", r"c:\Users\80036\Documents\Obsidian Vault")
-    channel_id = os.getenv("SLACK_CHANNEL_ID")  # オプション
+        # 環境変数から設定を取得
+        slack_token = os.getenv("SLACK_BOT_TOKEN")
+        app_token = os.getenv("SLACK_APP_TOKEN")  # Socket Modeで必要
+        vault_path = os.getenv("OBSIDIAN_VAULT_PATH", r"c:\Users\80036\Documents\Obsidian Vault")
+        channel_id = os.getenv("SLACK_CHANNEL_ID")  # オプション
 
-    # デフォルトタグを環境変数またはコマンドラインから取得
-    default_tags = args.tags
-    if not default_tags:
-        tags_str = os.getenv("DEFAULT_TAGS", "")
-        default_tags = [t.strip() for t in tags_str.split(",") if t.strip()]
+        # デフォルトタグを環境変数またはコマンドラインから取得
+        default_tags = args.tags
+        if not default_tags:
+            tags_str = os.getenv("DEFAULT_TAGS", "")
+            default_tags = [t.strip() for t in tags_str.split(",") if t.strip()]
 
-    if not slack_token:
-        print("エラー: SLACK_BOT_TOKEN環境変数が設定されていません")
-        return
-
-    if args.realtime:
-        # リアルタイム同期モード
-        if not app_token:
-            print("エラー: リアルタイムモードにはSLACK_APP_TOKEN環境変数が必要です")
+        if not slack_token:
+            log("エラー: SLACK_BOT_TOKEN環境変数が設定されていません")
             return
 
-        bot = RealtimeSlackTaskSync(slack_token, app_token, vault_path, default_tags, args.emoji)
-        bot.start_realtime_sync()
-    else:
-        # バッチ同期モード
-        bot = SlackTaskSync(slack_token, vault_path, default_tags)
-        bot.sync(channel_id)
+        if args.realtime:
+            # リアルタイム同期モード
+            if not app_token:
+                log("エラー: リアルタイムモードにはSLACK_APP_TOKEN環境変数が必要です")
+                return
+
+            log("Bot起動中...")
+            bot = RealtimeSlackTaskSync(slack_token, app_token, vault_path, default_tags, args.emoji)
+            bot.start_realtime_sync()
+        else:
+            # バッチ同期モード
+            bot = SlackTaskSync(slack_token, vault_path, default_tags)
+            bot.sync(channel_id)
+
+    except Exception as e:
+        log(f"致命的エラー: {e}")
+        import traceback
+        log(traceback.format_exc())
+        raise
 
 
 if __name__ == "__main__":
