@@ -14,6 +14,10 @@ from slack_sdk.socket_mode.request import SocketModeRequest
 from slack_sdk.socket_mode.response import SocketModeResponse
 import time
 import json
+from dotenv import load_dotenv
+
+# .envファイルを読み込み
+load_dotenv()
 
 class SlackTaskSync:
     def __init__(self, token, vault_path, default_tags=None):
@@ -249,7 +253,7 @@ class RealtimeSlackTaskSync(SlackTaskSync):
 
                         # Obsidianに追加
                         self.append_to_task_master([task])
-                        print(f"✓ タスク追加: {message_text[:50]}...")
+                        print(f"[OK] タスク追加: {message_text[:50]}...")
 
                 except SlackApiError as e:
                     print(f"エラー: {e.response['error']}")
@@ -257,7 +261,7 @@ class RealtimeSlackTaskSync(SlackTaskSync):
     def start_realtime_sync(self):
         """リアルタイム同期を開始"""
         self.socket_client.socket_mode_request_listeners.append(self.handle_reaction_added)
-        print("リアルタイム同期を開始しました。📝絵文字でリアクションするとタスクが追加されます。")
+        print("リアルタイム同期を開始しました。絵文字でリアクションするとタスクが追加されます。")
         print("終了するにはCtrl+Cを押してください。")
         self.socket_client.connect()
 

@@ -16,7 +16,8 @@
       "Bash(git push:*)",
       "Bash(curl:*)",
       "Bash(pip install:*)",
-      "Bash(copy .env.example .env)"
+      "Bash(copy .env.example .env)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" \"c:\\Users\\80036\\Documents\\Obsidian Vault\\slack-task-sync\\slack_task_bot.py\" --realtime)"
     ],
     "deny": [],
     "ask": []

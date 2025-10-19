@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声"
+              "title": "tasks"
             }
           }
         ]
@@ -74,7 +74,8 @@
               "title": "ブックマーク"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -141,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声のアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -182,6 +183,10 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
+    "無題のファイル.base",
+    "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
+    "tasks.md",
+    "slack-task-sync/slack_task_bot.py.tmp.29324.1760872316591",
     "slack-task-sync/slack_task_bot.py.tmp.29324.1760871454283",
     "slack-task-sync/slack_task_bot.py.tmp.29324.1760871180880",
     "slack-task-sync/slack_task_bot.py.tmp.29324.1760871179831",
@@ -191,12 +196,8 @@
     "slack-task-sync/requirements.txt",
     "slack-task-sync/slack_task_bot.py",
     "slack-task-sync",
-    "daily-news-bot/news_collector.py.tmp.22176.1760861171638",
     "daily-news-bot/README.md",
-    "daily-news-bot/learning_data.json",
-    "daily-news-bot/sent_articles.json",
     "Clippings/ガンダムアプリゲームが爆発的ヒット 裏に三段構えのターゲット戦略.md",
-    "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
     "Clippings/パナソニック コネクトが失注企業に理由を深掘り　N＝1を基に営業改革.md",
     "Clippings/「N＝1マーケ」でノース・フェイスが成長加速　“虫の目”でインサイト見極め.md",
     "Clippings/N＝1分析は0から1を生む戦略　インサイト発見成功への突破口.md",
@@ -217,7 +218,6 @@
     "Clippings/Clippings/ガンダムアプリゲームが爆発的ヒット 裏に三段構えのターゲット戦略.md",
     "Clippings/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
     "Clippings/Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
-    "Clippings/Clippings/AI Autonomous Development with Claude Code.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250830172058.png",
