@@ -33,7 +33,10 @@
       "Bash(git stash:*)",
       "Bash(git reset:*)",
       "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" slack_task_bot.py --realtime)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\pythonw.exe\" slack_task_bot.py --realtime)",
+      "Bash(timeout:*)",
+      "Read(//c/Users/80036/Desktop/**)"
     ],
     "deny": [],
     "ask": []

@@ -2,6 +2,10 @@
 
 ## 2025-10-19
 
+
+- [ ] s 📅10/19
+- [ ] i 📅10/19
+- [ ] t 📅10/19
 - [ ] 近畿日本ツーリスト連絡 #TGS 
 - [ ] 【雑務】 LoL Discord SoW
 - [ ] 週明け鉄拳追いかけ
@@ -15,5 +19,5 @@
 - [ ] GALEON 
 	- [ ] 市場分析
 	- [ ] ビジネスモデル等カヤックに聞く 
-- [ ] OW2 JP 11月のイベントスケジュール [Slack](https://gloe-workspace.slack.com/archives/C09M891TXAR/p1760872558905399)
-- [ ] テストタスク [Slack](https://gloe-workspace.slack.com/archives/C09M891TXAR/p1760872481198659)
+- [ ] OW2 JP 11月のイベントスケジュール
+- [ ] テストタスク
