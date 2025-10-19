@@ -81,12 +81,19 @@ class SlackTaskSync:
             else:
                 result = self.client.conversations_list(types="public_channel,private_channel")
                 channels = result["channels"]
+                log(f"検索対象チャンネル数: {len(channels)}")
 
             # 過去lookback_hours時間のタイムスタンプを計算
             oldest_time = time.time() - (lookback_hours * 3600)
+            log(f"検索期間: 過去{lookback_hours}時間")
+
+            total_messages = 0
+            messages_with_reactions = 0
+            matching_emoji_count = 0
 
             for channel in channels:
                 ch_id = channel["id"]
+                ch_name = channel.get("name", ch_id)
 
                 # 過去lookback_hours時間分のメッセージを取得
                 result = self.client.conversations_history(
@@ -94,16 +101,22 @@ class SlackTaskSync:
                     oldest=str(oldest_time)
                 )
 
-                for message in result.get("messages", []):
+                messages = result.get("messages", [])
+                total_messages += len(messages)
+
+                for message in messages:
                     # リアクションをチェック
                     if "reactions" in message:
+                        messages_with_reactions += 1
                         for reaction in message["reactions"]:
                             if reaction["name"] == emoji:
+                                matching_emoji_count += 1
                                 # タスクIDを生成（重複チェック用）
                                 task_id = f"{ch_id}_{message.get('ts', '')}"
 
                                 # 既に処理済みの場合はスキップ
                                 if task_id in processed_ids:
+                                    log(f"  スキップ (処理済み): {message.get('text', '')[:30]}...")
                                     continue
 
                                 # タスク情報を抽出
@@ -119,9 +132,12 @@ class SlackTaskSync:
                                 }
                                 tasks.append(task)
                                 processed_ids.append(task_id)
+                                log(f"  新規タスク検出: {message_text[:30]}...")
+
+            log(f"メッセージ統計: 合計={total_messages}, リアクション付き={messages_with_reactions}, {emoji}付き={matching_emoji_count}")
 
         except SlackApiError as e:
-            print(f"Error: {e.response['error']}")
+            log(f"Slack API エラー: {e.response['error']}")
 
         # 処理済みIDを保存（最新1000件のみ保持）
         self.state["processed_task_ids"] = processed_ids[-1000:]
@@ -258,15 +274,20 @@ class SlackTaskSync:
 
     def sync(self, channel_id=None, emoji="white_check_mark"):
         """タスクを同期"""
-        print("Slackからタスクを取得中...")
+        log("Slackからタスクを取得中...")
+        log(f"検索対象: チャンネル={channel_id or '全チャンネル'}, 絵文字={emoji}")
+        log(f"処理済みタスク数: {len(self.state.get('processed_task_ids', []))}")
+
         tasks = self.get_task_messages(channel_id, emoji)
 
         if tasks:
-            print(f"{len(tasks)}件のタスクを見つけました")
+            log(f"{len(tasks)}件の新しいタスクを見つけました")
+            for i, task in enumerate(tasks):
+                log(f"  タスク{i+1}: {task['text'][:50]}...")
             task_file = self.append_to_task_master(tasks)
-            print(f"タスクを {task_file} に追加しました")
+            log(f"タスクを {task_file} に追加しました")
         else:
-            print("新しいタスクはありません")
+            log("新しいタスクはありません")
 
         # 状態を更新
         self.state["last_check"] = time.time()

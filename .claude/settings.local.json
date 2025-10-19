@@ -27,7 +27,9 @@
       "Bash(schtasks:*)",
       "Bash(git filter-branch:*)",
       "Bash(git checkout:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" slack_task_bot.py)",
+      "Bash(git rebase:*)"
     ],
     "deny": [],
     "ask": []
