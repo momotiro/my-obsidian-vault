@@ -5,173 +5,197 @@ Slack Reaction Learner
 リアクションから記事の好みを学習
 """
 
-import os
 import json
-import requests
+import time
 from datetime import datetime, timedelta
 from typing import Dict, List
-import base64
+import requests
 
-# 環境変数
-SLACK_BOT_TOKEN = os.environ.get('SLACK_BOT_TOKEN')
-SLACK_CHANNEL = 'news'
-GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
-GITHUB_REPO = os.environ.get('GITHUB_REPOSITORY')
 
 # リアクション定義
 POSITIVE_REACTIONS = ['thumbsup', '+1', 'heart', 'fire', 'star-struck', 'eyes', '100']
 NEGATIVE_REACTIONS = ['thumbsdown', '-1', 'disappointed']
 
 
-def github_get_file(file_path: str):
-    """GitHubからファイル取得"""
-    try:
-        headers = {
-            'Authorization': f'token {GITHUB_TOKEN}',
-            'Accept': 'application/vnd.github.v3+json'
-        }
-        url = f'https://api.github.com/repos/{GITHUB_REPO}/contents/{file_path}'
-        response = requests.get(url, headers=headers, timeout=10)
+class ReactionLearner:
+    """リアクション学習クラス"""
 
-        if response.status_code == 200:
-            content = response.json()['content']
-            decoded = base64.b64decode(content).decode('utf-8')
+    def __init__(self, slack_token: str, channel: str = "news"):
+        self.slack_token = slack_token
+        self.channel = channel
+        self.base_url = "https://slack.com/api"
+        self.learning_data = self.load_learning_data()
+
+    def load_learning_data(self) -> Dict:
+        """学習データを読み込み"""
+        try:
+            with open('learning_data.json', 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except FileNotFoundError:
             return {
-                'data': json.loads(decoded),
-                'sha': response.json()['sha']
+                "preferences": {
+                    "liked_sources": {},
+                    "liked_tags": {},
+                    "liked_articles": []
+                }
             }
-        return None
-    except Exception as e:
-        print(f"Error getting file: {e}")
-        return None
 
+    def save_learning_data(self):
+        """学習データを保存"""
+        self.learning_data["last_updated"] = datetime.now().isoformat()
+        with open('learning_data.json', 'w', encoding='utf-8') as f:
+            json.dump(self.learning_data, f, ensure_ascii=False, indent=2)
 
-def github_save_file(file_path: str, data: Dict, sha: str = None):
-    """GitHubにファイル保存"""
-    try:
+    def get_channel_id(self) -> str:
+        """チャンネル名からIDを取得"""
+        url = f"{self.base_url}/conversations.list"
         headers = {
-            'Authorization': f'token {GITHUB_TOKEN}',
-            'Accept': 'application/vnd.github.v3+json'
+            "Authorization": f"Bearer {self.slack_token}",
+            "Content-Type": "application/json"
         }
-        url = f'https://api.github.com/repos/{GITHUB_REPO}/contents/{file_path}'
 
-        content = base64.b64encode(json.dumps(data, ensure_ascii=False, indent=2).encode()).decode()
+        try:
+            response = requests.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
+            data = response.json()
 
-        payload = {
-            'message': f'Update {file_path} - {datetime.now().strftime("%Y-%m-%d")}',
-            'content': content,
+            if data.get('ok'):
+                for channel in data.get('channels', []):
+                    if channel.get('name') == self.channel:
+                        return channel.get('id')
+
+        except Exception as e:
+            print(f"Error getting channel ID: {e}")
+
+        return self.channel
+
+    def get_recent_messages(self, days: int = 7) -> List[Dict]:
+        """過去N日間のメッセージを取得"""
+        channel_id = self.get_channel_id()
+        url = f"{self.base_url}/conversations.history"
+        headers = {
+            "Authorization": f"Bearer {self.slack_token}",
+            "Content-Type": "application/json"
         }
-        if sha:
-            payload['sha'] = sha
 
-        response = requests.put(url, headers=headers, json=payload, timeout=10)
-        return response.status_code in [200, 201]
-    except Exception as e:
-        print(f"Error saving file: {e}")
-        return False
+        oldest = (datetime.now() - timedelta(days=days)).timestamp()
 
+        params = {
+            "channel": channel_id,
+            "oldest": oldest,
+            "limit": 100
+        }
 
-def get_recent_messages(days: int = 7) -> List[Dict]:
-    """最近のメッセージ取得"""
-    url = 'https://slack.com/api/conversations.history'
-    headers = {
-        'Authorization': f'Bearer {SLACK_BOT_TOKEN}',
-        'Content-Type': 'application/json'
-    }
+        try:
+            response = requests.get(url, headers=headers, params=params, timeout=10)
+            response.raise_for_status()
+            data = response.json()
 
-    oldest = (datetime.now() - timedelta(days=days)).timestamp()
+            if data.get('ok'):
+                return data.get('messages', [])
 
-    params = {
-        'channel': SLACK_CHANNEL,
-        'oldest': oldest,
-        'limit': 100
-    }
+        except Exception as e:
+            print(f"Error getting messages: {e}")
 
-    response = requests.get(url, headers=headers, params=params, timeout=10)
+        return []
 
-    if response.status_code == 200 and response.json().get('ok'):
-        return response.json().get('messages', [])
-    return []
+    def update_preferences(self, article_data: Dict, reactions: List[Dict]):
+        """記事のリアクションから好みを更新"""
+        prefs = self.learning_data.get('preferences', {})
+        liked_sources = prefs.get('liked_sources', {})
+        liked_tags = prefs.get('liked_tags', {})
+        liked_articles = prefs.get('liked_articles', [])
 
+        source = article_data.get('source', '')
+        tags = article_data.get('tags', [])
+        url = article_data.get('url', '')
 
-def update_preferences(article: Dict, reactions: List[Dict], learning_data: Dict):
-    """好みを更新"""
-    prefs = learning_data.get('preferences', {})
-    liked_sources = prefs.get('liked_sources', {})
-    liked_tags = prefs.get('liked_tags', {})
-    liked_articles = prefs.get('liked_articles', [])
+        for reaction in reactions:
+            name = reaction.get('name', '')
+            count = reaction.get('count', 0)
 
-    source = article.get('source', '')
-    tags = article.get('tags', [])
-    url = article.get('url', '')
+            if name in POSITIVE_REACTIONS:
+                # ポジティブリアクション
+                if source:
+                    liked_sources[source] = liked_sources.get(source, 0) + count * 2.0
 
-    for reaction in reactions:
-        name = reaction.get('name', '')
-        count = reaction.get('count', 0)
+                for tag in tags:
+                    liked_tags[tag] = liked_tags.get(tag, 0) + count * 1.5
 
-        if name in POSITIVE_REACTIONS:
-            if source:
-                liked_sources[source] = liked_sources.get(source, 0) + count
-            for tag in tags:
-                liked_tags[tag] = liked_tags.get(tag, 0) + count
-            if url and url not in liked_articles:
-                liked_articles.append(url)
+                if url and url not in liked_articles:
+                    liked_articles.append(url)
 
-        elif name in NEGATIVE_REACTIONS:
-            if source:
-                liked_sources[source] = liked_sources.get(source, 0) - count
-            for tag in tags:
-                liked_tags[tag] = liked_tags.get(tag, 0) - count
+            elif name in NEGATIVE_REACTIONS:
+                # ネガティブリアクション
+                if source:
+                    liked_sources[source] = liked_sources.get(source, 0) - count
 
-    prefs['liked_sources'] = liked_sources
-    prefs['liked_tags'] = liked_tags
-    prefs['liked_articles'] = liked_articles[-100:]
+                for tag in tags:
+                    liked_tags[tag] = liked_tags.get(tag, 0) - count
 
-    learning_data['preferences'] = prefs
-    learning_data['last_updated'] = datetime.now().isoformat()
+        # 最新100件のみ保持
+        prefs['liked_sources'] = liked_sources
+        prefs['liked_tags'] = liked_tags
+        prefs['liked_articles'] = liked_articles[-100:]
+
+        self.learning_data['preferences'] = prefs
+
+    def learn_from_reactions(self):
+        """Slackのリアクションから学習"""
+        print("Fetching recent messages...")
+        messages = self.get_recent_messages(days=7)
+        print(f"Found {len(messages)} messages")
+
+        updated = False
+
+        for msg in messages:
+            metadata = msg.get('metadata', {})
+
+            # daily_news_articleタイプのメッセージのみ処理
+            if metadata.get('event_type') == 'daily_news_article':
+                event_payload = metadata.get('event_payload', {})
+                reactions = msg.get('reactions', [])
+
+                if reactions:
+                    print(f"Processing article from {event_payload.get('source', 'Unknown')}")
+                    self.update_preferences(event_payload, reactions)
+                    updated = True
+                    time.sleep(0.2)  # レート制限対策
+
+        if updated:
+            self.save_learning_data()
+            print("✅ Learning data updated")
+        else:
+            print("ℹ️  No new reactions to learn from")
+
+        # 現在の好みを表示
+        prefs = self.learning_data.get('preferences', {})
+        print("\n=== Current Preferences ===")
+        print("Liked Sources:")
+        for source, score in sorted(prefs.get('liked_sources', {}).items(), key=lambda x: x[1], reverse=True):
+            print(f"  {source}: {score:.1f}")
+
+        print("\nLiked Tags:")
+        for tag, score in sorted(prefs.get('liked_tags', {}).items(), key=lambda x: x[1], reverse=True):
+            print(f"  {tag}: {score:.1f}")
 
 
 def main():
     """メイン処理"""
+    import os
+
+    slack_token = os.getenv('SLACK_BOT_TOKEN')
+    if not slack_token:
+        print("Error: SLACK_BOT_TOKEN not set")
+        return
+
     print("=== Reaction Learner Started ===")
+    print(f"Time: {datetime.now().isoformat()}")
 
-    # 学習データ読み込み
-    file_data = github_get_file('daily-news-bot/learning_data.json')
-    learning_data = file_data['data'] if file_data else {
-        "preferences": {"liked_sources": {}, "liked_tags": {}, "liked_articles": []}
-    }
+    learner = ReactionLearner(slack_token)
+    learner.learn_from_reactions()
 
-    # メッセージ取得
-    messages = get_recent_messages(days=7)
-    print(f"Found {len(messages)} messages")
-
-    updated = False
-
-    for msg in messages:
-        metadata = msg.get('metadata', {})
-        if metadata.get('event_type') == 'daily_news_article':
-            article = metadata.get('event_payload', {}).get('article')
-            reactions = msg.get('reactions', [])
-
-            if article and reactions:
-                print(f"Processing: {article.get('title', '')[:50]}...")
-                update_preferences(article, reactions, learning_data)
-                updated = True
-
-    if updated:
-        sha = file_data['sha'] if file_data else None
-        if github_save_file('daily-news-bot/learning_data.json', learning_data, sha):
-            print("✅ Learning data updated")
-    else:
-        print("ℹ️ No new reactions")
-
-    # 現在の好み表示
-    prefs = learning_data.get('preferences', {})
-    print("\n=== Current Preferences ===")
-    print("Sources:", prefs.get('liked_sources', {}))
-    print("Tags:", prefs.get('liked_tags', {}))
-
-    print("=== Finished ===")
+    print("\n=== Reaction Learner Completed ===")
 
 
 if __name__ == '__main__':

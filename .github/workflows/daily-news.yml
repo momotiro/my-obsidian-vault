@@ -31,8 +31,6 @@ jobs:
       - name: Learn from reactions
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           cd daily-news-bot
           python reaction_learner.py
@@ -40,9 +38,6 @@ jobs:
       - name: Collect and send news
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           cd daily-news-bot
           python news_collector.py
