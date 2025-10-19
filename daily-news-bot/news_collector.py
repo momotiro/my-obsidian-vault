@@ -110,11 +110,67 @@ def save_sent_articles(article_hashes: List[str]):
 
 
 def search_nikkei_xtrend(keywords: List[str], days: int = 2) -> List[Article]:
-    """日経クロストレンドから記事を検索（ダミー実装）"""
-    # 注: 実際のスクレイピングはRobot.txtとAPIを確認する必要があります
-    # ここでは構造のみ提供
+    """日経クロストレンドのRSSフィードから記事を取得"""
     articles = []
-    print("日経クロストレンドからの記事取得は手動実装が必要です")
+
+    try:
+        import feedparser
+        from datetime import datetime, timedelta
+
+        # 日経クロストレンドのRSSフィード
+        rss_urls = [
+            'https://xtrend.nikkei.com/rss/atcl/new.rdf',  # 新着記事
+            'https://xtrend.nikkei.com/rss/atcl/feature.rdf',  # 特集
+        ]
+
+        cutoff_date = datetime.now() - timedelta(days=days)
+
+        for rss_url in rss_urls:
+            try:
+                feed = feedparser.parse(rss_url)
+
+                for entry in feed.entries[:20]:  # 最新20件
+                    # 公開日をチェック
+                    published = entry.get('published_parsed')
+                    if published:
+                        pub_date = datetime(*published[:6])
+                        if pub_date < cutoff_date:
+                            continue
+
+                    title = entry.get('title', '')
+                    url = entry.get('link', '')
+                    summary = entry.get('summary', '')
+
+                    # HTMLタグを除去
+                    import re
+                    summary = re.sub(r'<[^>]+>', '', summary)
+
+                    # キーワードに関連する記事のみ
+                    keywords_lower = [k.lower() for k in keywords]
+                    title_lower = title.lower()
+                    summary_lower = summary.lower()
+
+                    if any(keyword in title_lower or keyword in summary_lower
+                           for keyword in keywords_lower):
+                        article = Article(
+                            title=title,
+                            url=url,
+                            summary=summary[:200] + ('...' if len(summary) > 200 else ''),
+                            tags=['マーケティング'],
+                            source='日経クロストレンド',
+                            lang='ja'
+                        )
+                        articles.append(article)
+
+            except Exception as e:
+                print(f"Error fetching RSS {rss_url}: {e}")
+                continue
+
+        print(f"Found {len(articles)} articles from Nikkei X-Trend RSS")
+
+    except Exception as e:
+        print(f"Error in search_nikkei_xtrend: {e}")
+
     return articles
 
 
@@ -132,15 +188,21 @@ def search_web_articles(keywords: List[str], days: int = 2, max_results: int = 2
         from_date = (datetime.now() - timedelta(days=days)).strftime('%Y-%m-%d')
         url = 'https://newsapi.org/v2/everything'
 
-        # 日本語キーワードで検索（言語指定なしで幅広く取得）
-        ja_keywords = ['コミュニティマーケティング', 'SNSマーケティング', 'インフルエンサーマーケティング', 'AI マーケティング', 'デジタルマーケティング']
+        # 日本語ドメインを優先的に検索
+        ja_keywords = [
+            'マーケティング AND (コミュニティ OR SNS OR インフルエンサー OR AI)',
+            'デジタルマーケティング',
+            'コミュニティ 戦略'
+        ]
+
+        ja_domains = 'markezine.jp OR itmedia.co.jp OR business.nikkei.com OR xtrend.nikkei.com'
 
         for keyword in ja_keywords:
             params = {
-                'q': keyword,
+                'q': f'{keyword} AND ({ja_domains})',
                 'from': from_date,
-                'sortBy': 'publishedAt',  # 最新順
-                'pageSize': 10,
+                'sortBy': 'publishedAt',
+                'pageSize': 15,
                 'apiKey': NEWS_API_KEY
             }
 
@@ -155,15 +217,16 @@ def search_web_articles(keywords: List[str], days: int = 2, max_results: int = 2
                     is_japanese = any('\u3040' <= char <= '\u30ff' or '\u4e00' <= char <= '\u9faf'
                                      for char in (title + description))
 
-                    article = Article(
-                        title=title,
-                        url=item.get('url', ''),
-                        summary=(description or '')[:200] + ('...' if description and len(description) > 200 else ''),
-                        tags=[keyword],
-                        source=item.get('source', {}).get('name', 'Unknown'),
-                        lang='ja' if is_japanese else 'en'
-                    )
-                    articles.append(article)
+                    if is_japanese:  # 日本語記事のみ追加
+                        article = Article(
+                            title=title,
+                            url=item.get('url', ''),
+                            summary=(description or '')[:200] + ('...' if description and len(description) > 200 else ''),
+                            tags=[keyword.split(' AND ')[0]],  # 最初のキーワードのみ
+                            source=item.get('source', {}).get('name', 'Unknown'),
+                            lang='ja'
+                        )
+                        articles.append(article)
 
         # 英語キーワードでも検索（少量）
         en_keywords = ['community marketing', 'influencer marketing', 'AI marketing']
@@ -433,14 +496,14 @@ def main():
     # 記事収集
     all_articles = []
 
+    # 日経クロストレンド（最優先）
+    nikkei_articles = search_nikkei_xtrend(keywords, days=3)
+    all_articles.extend(nikkei_articles)
+
     # Web検索
     web_articles = search_web_articles(keywords, days=2, max_results=30)
     all_articles.extend(web_articles)
-    print(f"Found {len(web_articles)} articles from web search")
-
-    # 日経クロストレンド（手動実装が必要）
-    # nikkei_articles = search_nikkei_xtrend(keywords, days=2)
-    # all_articles.extend(nikkei_articles)
+    print(f"Found {len(nikkei_articles)} from Nikkei X-Trend, {len(web_articles)} from web search")
 
     # フィルタリング・ランキング
     selected_articles = filter_and_rank_articles(all_articles, sent_hashes, target_count=5)
