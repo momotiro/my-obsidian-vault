@@ -17,7 +17,17 @@
       "Bash(curl:*)",
       "Bash(pip install:*)",
       "Bash(copy .env.example .env)",
-      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" \"c:\\Users\\80036\\Documents\\Obsidian Vault\\slack-task-sync\\slack_task_bot.py\" --realtime)"
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" \"c:\\Users\\80036\\Documents\\Obsidian Vault\\slack-task-sync\\slack_task_bot.py\" --realtime)",
+      "Bash(copy:*)",
+      "Bash(powershell:*)",
+      "Bash(cscript:*)",
+      "Bash(tasklist)",
+      "Bash(findstr:*)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\pythonw.exe\" \"c:\\Users\\80036\\Documents\\Obsidian Vault\\slack-task-sync\\slack_task_bot.py\" --realtime)",
+      "Bash(schtasks:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []
