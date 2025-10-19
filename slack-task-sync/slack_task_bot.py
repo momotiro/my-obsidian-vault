@@ -65,6 +65,32 @@ class SlackTaskSync:
         tags = re.findall(r'#(\w+)', text)
         return tags
 
+    def get_watched_channels(self):
+        """監視対象チャンネルのみ取得"""
+        watched = os.getenv("WATCHED_CHANNELS", "").split(",")
+        watched = [c.strip() for c in watched if c.strip()]
+
+        if not watched:
+            # 未指定なら全チャンネル
+            result = self.client.conversations_list(types="public_channel,private_channel")
+            log(f"監視対象: 全チャンネル ({len(result['channels'])}チャンネル)")
+            return result["channels"]
+
+        channels = []
+        all_channels = self.client.conversations_list(types="public_channel,private_channel")["channels"]
+
+        for identifier in watched:
+            if identifier.startswith("C"):  # Channel ID
+                channels.append({"id": identifier, "name": identifier})
+            else:  # Channel name
+                for ch in all_channels:
+                    if ch.get("name") == identifier:
+                        channels.append(ch)
+                        break
+
+        log(f"監視対象: {len(channels)}チャンネル ({', '.join([c.get('name', c.get('id')) for c in channels])})")
+        return channels
+
     def get_task_messages(self, channel_id=None, emoji="white_check_mark", lookback_hours=24):
         """
         タスク絵文字でリアクションされたメッセージを取得
@@ -75,13 +101,11 @@ class SlackTaskSync:
         processed_ids = self.state.get("processed_task_ids", [])
 
         try:
-            # チャンネル指定がない場合は全チャンネルから検索
+            # チャンネル指定がない場合は監視対象チャンネルから検索
             if channel_id:
                 channels = [{"id": channel_id}]
             else:
-                result = self.client.conversations_list(types="public_channel,private_channel")
-                channels = result["channels"]
-                log(f"検索対象チャンネル数: {len(channels)}")
+                channels = self.get_watched_channels()
 
             # 過去lookback_hours時間のタイムスタンプを計算
             oldest_time = time.time() - (lookback_hours * 3600)
