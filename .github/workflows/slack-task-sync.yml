@@ -48,6 +48,7 @@ jobs:
           git add -A
           if ! git diff --quiet || ! git diff --staged --quiet; then
             git commit -m "🤖 Update tasks from Slack [skip ci]"
+            git pull --rebase origin main
             git push
           else
             echo "No changes to commit"
