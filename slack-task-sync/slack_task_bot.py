@@ -253,9 +253,8 @@ class SlackTaskSync:
         return f"- [ ] {cleaned_text} 📅{due_date_with_weekday}"
 
     def append_to_task_master(self, tasks):
-        """単一のタスクマスターファイルにタスクを追加"""
+        """タグごとにセクション分けしてタスクを追加（期日順にソート）"""
         task_file = self.vault_path / "tasks.md"
-        today = datetime.now().strftime("%Y-%m-%d")
 
         # タスクファイルが存在しない場合は作成
         if not task_file.exists():
@@ -268,55 +267,111 @@ class SlackTaskSync:
 
         lines = content.split('\n')
 
-        # 今日の日付セクションを探す
-        today_section_index = -1
-        for i, line in enumerate(lines):
-            if line.strip() == f"## {today}":
-                today_section_index = i
-                break
+        # 新しいタスクを追加
+        for task in tasks:
+            task_text = task["text"]
+            tags = self.extract_tags_from_message(task_text)
 
-        task_lines = [self.format_task_for_obsidian(task) for task in tasks]
+            # タグがない場合はデフォルトタグを使用
+            if not tags:
+                tags = self.default_tags if self.default_tags else ["タスク"]
 
-        if today_section_index != -1:
-            # 今日のセクションが既に存在する場合、その直後に追加
-            insert_index = today_section_index + 1
-            # 空行をスキップ
-            while insert_index < len(lines) and lines[insert_index].strip() == "":
-                insert_index += 1
+            # 各タグに対してタスクを追加
+            for tag in tags:
+                tag_section = f"## #{tag}"
+                tag_section_index = -1
 
-            # タスクを挿入
-            for task_line in task_lines:
-                lines.insert(insert_index, task_line)
-                insert_index += 1
-        else:
-            # 新しい日付セクションを作成（ファイルの先頭、タイトルの直後に挿入）
-            # "# タスク管理"の後に挿入
-            title_index = -1
-            for i, line in enumerate(lines):
-                if line.startswith("# "):
-                    title_index = i
-                    break
+                # タグセクションを探す
+                for i, line in enumerate(lines):
+                    if line.strip() == tag_section:
+                        tag_section_index = i
+                        break
 
-            if title_index != -1:
-                # タイトルの直後に新しいセクションを挿入
-                insert_index = title_index + 1
-                # 空行をスキップ
-                while insert_index < len(lines) and lines[insert_index].strip() == "":
-                    insert_index += 1
+                # タスク行を作成
+                task_line = self.format_task_for_obsidian(task)
 
-                # 新しい日付セクションとタスクを挿入
-                new_section = [f"## {today}", ""] + task_lines + [""]
-                for item in reversed(new_section):
-                    lines.insert(insert_index, item)
-            else:
-                # タイトルが見つからない場合、末尾に追加
-                lines.extend([f"## {today}", ""] + task_lines + [""])
+                if tag_section_index != -1:
+                    # セクションが存在する場合、期日順に挿入
+                    self._insert_task_sorted(lines, tag_section_index, task_line)
+                else:
+                    # 新しいタグセクションを作成
+                    title_index = -1
+                    for i, line in enumerate(lines):
+                        if line.startswith("# "):
+                            title_index = i
+                            break
+
+                    if title_index != -1:
+                        # タイトルの直後に新しいセクションを挿入
+                        insert_index = title_index + 1
+                        while insert_index < len(lines) and lines[insert_index].strip() == "":
+                            insert_index += 1
+
+                        new_section = [tag_section, task_line, ""]
+                        for item in reversed(new_section):
+                            lines.insert(insert_index, item)
+                    else:
+                        lines.extend([tag_section, task_line, ""])
 
         # ファイルに書き込み
         with open(task_file, 'w', encoding='utf-8') as f:
             f.write('\n'.join(lines))
 
         return task_file
+
+    def _insert_task_sorted(self, lines, section_index, new_task_line):
+        """タスクを期日順にソートして挿入"""
+        import re
+
+        # 新しいタスクの期日を抽出
+        new_date = self._extract_date_from_task_line(new_task_line)
+
+        # セクション内のタスクを探す
+        insert_index = section_index + 1
+        while insert_index < len(lines) and lines[insert_index].strip() == "":
+            insert_index += 1
+
+        # 期日順に挿入位置を探す
+        while insert_index < len(lines):
+            line = lines[insert_index]
+
+            # 次のセクションまたは空行に到達したら終了
+            if line.startswith("##") or (line.strip() == "" and insert_index + 1 < len(lines) and lines[insert_index + 1].startswith("##")):
+                break
+
+            # タスク行の場合、期日を比較
+            if line.strip().startswith("- [ ]"):
+                existing_date = self._extract_date_from_task_line(line)
+
+                # 新しいタスクの方が早い期日なら、この位置に挿入
+                if new_date and existing_date and new_date < existing_date:
+                    lines.insert(insert_index, new_task_line)
+                    return
+                elif not new_date and existing_date:
+                    # 新しいタスクに期日がない場合は後ろに
+                    insert_index += 1
+                    continue
+
+            insert_index += 1
+
+        # 最後に挿入
+        lines.insert(insert_index, new_task_line)
+
+    def _extract_date_from_task_line(self, task_line):
+        """タスク行から期日を抽出してdatetimeオブジェクトに変換"""
+        import re
+
+        # 📅10/20(月) のようなパターンを抽出
+        match = re.search(r'📅(\d{1,2})/(\d{1,2})', task_line)
+        if match:
+            month = int(match.group(1))
+            day = int(match.group(2))
+            current_year = datetime.now().year
+            try:
+                return datetime(current_year, month, day)
+            except:
+                return None
+        return None
 
     def sync(self, channel_id=None, emoji="white_check_mark"):
         """タスクを同期"""
