@@ -65,6 +65,25 @@ class SlackTaskSync:
         tags = re.findall(r'#(\w+)', text)
         return tags
 
+    def add_weekday_to_date(self, date_str):
+        """日付に曜日を追加（例: 10/20 → 10/20(月)）"""
+        try:
+            # 現在の年を取得
+            current_year = datetime.now().year
+
+            # date_strをパース（例: 10/20）
+            month, day = date_str.split('/')
+            date_obj = datetime(current_year, int(month), int(day))
+
+            # 曜日を取得
+            weekdays = ['月', '火', '水', '木', '金', '土', '日']
+            weekday = weekdays[date_obj.weekday()]
+
+            return f"{date_str}({weekday})"
+        except:
+            # パースに失敗した場合はそのまま返す
+            return date_str
+
     def get_watched_channels(self):
         """監視対象チャンネルのみ取得"""
         watched = os.getenv("WATCHED_CHANNELS", "").split(",")
@@ -226,9 +245,12 @@ class SlackTaskSync:
             # 先頭の0を削除（例: 09/05 → 9/5）
             due_date = due_date.lstrip('0').replace('/0', '/')
 
+        # 曜日を追加（10/20 → 10/20(月)）
+        due_date_with_weekday = self.add_weekday_to_date(due_date)
+
         # タグは既にcleaned_textに含まれているので、追加しない
         # フォーマット（Slackリンクなし）
-        return f"- [ ] {cleaned_text} 📅{due_date}"
+        return f"- [ ] {cleaned_text} 📅{due_date_with_weekday}"
 
     def append_to_task_master(self, tasks):
         """単一のタスクマスターファイルにタスクを追加"""
