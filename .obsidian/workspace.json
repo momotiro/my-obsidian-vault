@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/legion/資料作成.md",
+                "file": "work/Riot/RGO/IM部キックオフ.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "資料作成"
+              "title": "IM部キックオフ"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/legion/資料作成.md",
+                "file": "work/Riot/RGO/IM部キックオフ.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "資料作成のアウトライン"
+              "title": "IM部キックオフのアウトライン"
             }
           },
           {
@@ -181,11 +181,19 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
+    "work/Riot/VAL/スカーミッシュQ-nineさん.md",
+    "work/Riot/RGO/IM部キックオフ.md",
+    "tasks.md",
+    "VALORANT_スキン表記統一分析レポート.md",
+    "Pasted image 20250830172244.png",
+    "Pasted image 20250725141618.png",
+    "Pasted image 20250830172019.png",
+    "N＝1マーケ.md",
+    "slack-task-sync/README.md",
+    "work/legion/資料作成.md",
     "work/2025年上期デジタルマーケティング市場動向.md",
     "work/legion/4月.md",
     "work/legion/7.24議事録.md",
-    "N＝1マーケ.md",
-    "tasks.md",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924718003",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924541869",
     "slack-task-sync/create_two_shortcuts.ps1.tmp.14064.1760922989821",
@@ -198,7 +206,6 @@
     "slack-task-sync/sync_state.json",
     "無題のファイル.canvas",
     "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
-    "slack-task-sync/README.md",
     "daily-news-bot/README.md",
     "Clippings/ガンダムアプリゲームが爆発的ヒット 裏に三段構えのターゲット戦略.md",
     "Clippings/パナソニック コネクトが失注企業に理由を深掘り　N＝1を基に営業改革.md",
@@ -214,15 +221,8 @@
     "Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
     "Clippings/AI Autonomous Development with Claude Code.md",
     "Clippings/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
-    "Clippings/Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
-    "Clippings/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
-    "Clippings/Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
-    "Clippings/Clippings/ガンダムアプリゲームが爆発的ヒット 裏に三段構えのターゲット戦略.md",
     "Pasted image 20250830172315.png",
-    "Pasted image 20250830172244.png",
     "Pasted image 20250830172058.png",
-    "Pasted image 20250830172019.png",
-    "Pasted image 20250725141618.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
   ]
