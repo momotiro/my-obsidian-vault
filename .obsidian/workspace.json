@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "work/legion/資料作成.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "資料作成"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks.md",
+                "file": "work/legion/資料作成.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "tasksのアウトライン"
+              "title": "資料作成のアウトライン"
             }
           },
           {
@@ -181,6 +181,11 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
+    "work/2025年上期デジタルマーケティング市場動向.md",
+    "work/legion/4月.md",
+    "work/legion/7.24議事録.md",
+    "N＝1マーケ.md",
+    "tasks.md",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924718003",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924541869",
     "slack-task-sync/create_two_shortcuts.ps1.tmp.14064.1760922989821",
@@ -191,9 +196,7 @@
     "slack-task-sync/slack_task_bot.py.tmp.21632.1760880413209",
     "slack-task-sync/create_startup.ps1",
     "slack-task-sync/sync_state.json",
-    "無題のファイル.base",
     "無題のファイル.canvas",
-    "tasks.md",
     "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
     "slack-task-sync/README.md",
     "daily-news-bot/README.md",
@@ -204,7 +207,6 @@
     "Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "Clippings/西口一希氏が直伝するN＝1分析の理論と実践　3つの必要性と5つの罠.md",
     "Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
-    "N＝1マーケ.md",
     "work/Riot/RGO/ブリーフィング資料.md",
     "Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
     "Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
@@ -216,8 +218,6 @@
     "Clippings/Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "Clippings/Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
     "Clippings/Clippings/ガンダムアプリゲームが爆発的ヒット 裏に三段構えのターゲット戦略.md",
-    "Clippings/Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
-    "Clippings/Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250830172058.png",
