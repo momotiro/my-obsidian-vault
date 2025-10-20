@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "work/PGO/PGO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "PGO"
             }
           }
         ]
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks.md",
+                "file": "work/PGO/PGO.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "tasksのアウトライン"
+              "title": "PGOのアウトライン"
             }
           },
           {
@@ -181,9 +181,10 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
+    "tasks.md",
+    "work/PGO/PGO.md",
     "work/Riot/RGO/IM部キックオフ.md",
     "work/Riot/VAL/スカーミッシュQ-nineさん.md",
-    "tasks.md",
     "VALORANT_スキン表記統一分析レポート.md",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
@@ -220,7 +221,6 @@
     "Clippings/『ポケモンユナイト』リリースから4年　誕生の裏にあった2つの狙い.md",
     "Clippings/SNSでインサイトを見つける検索術　顧客の本音でCEPsが浮き彫りに.md",
     "Clippings/AI Autonomous Development with Claude Code.md",
-    "Clippings/Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172058.png",
     "Pasted image 20250725141732.png",

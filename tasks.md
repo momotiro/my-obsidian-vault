@@ -13,7 +13,6 @@
 	- [ ] しゃるる杯のDiscord連携について
 
 
-
 ## #LOLDiscord
 - [ ] 【雑務】 LoL Discord SoW 📅10/20
 
