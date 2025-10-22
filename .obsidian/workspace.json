@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/PGO/PGO 26年名古屋.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PGO 26年名古屋"
+              "title": "tasks"
             }
           }
         ],
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/PGO/PGO 26年名古屋.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "PGO 26年名古屋のアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -196,6 +196,7 @@
   },
   "active": "3f77ac9a17d11364",
   "lastOpenFiles": [
+    "work/PGO/PGO 26年名古屋.md",
     "tasks.md",
     "slack-task-sync/slack_task_bot.py.tmp.17800.1761095517345",
     "CLAUDE.md.tmp.17800.1761095121199",
@@ -206,7 +207,6 @@
     "Pasted image 20250830172315.png",
     "tasks.md.tmp.14064.1760968148988",
     "work/Riot/VAL/スカーミッシュQ-nineさん.md",
-    "work/PGO/PGO 26年名古屋.md",
     "RGO キックオフ.md",
     "work/Riot/RGO/IM部キックオフ.md",
     "VALORANT_スキン表記統一分析レポート.md",
