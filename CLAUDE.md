@@ -61,3 +61,30 @@ This is primarily a knowledge management vault with one technical demo project. 
 - When using tags in Obsidian, use `#TGS` instead of `#TGSタスク`
 - Avoid redundant or unnecessary tags across the vault
 - TGSタグもつけておいてください
+
+## Task Management Commands
+
+### `完了タスク整理`
+When the user says **「完了タスク整理」**, perform the following operation on `tasks.md`:
+
+1. Find all completed tasks (`- [x]`) in the upper section (before `---`)
+2. Move them to the `## 完了済み` section at the bottom
+3. Organize by tag subsections (e.g., `### #LOLCN`, `### #RGO`, etc.)
+4. Keep only incomplete tasks (`- [ ]`) in the upper section
+
+**Example:**
+```markdown
+# タスク管理
+
+## #LOLCN
+- [ ] Incomplete task 1
+- [ ] Incomplete task 2
+
+---
+
+## 完了済み
+
+### #LOLCN
+- [x] Completed task 1 ✅ 2025-10-21
+- [x] Completed task 2 ✅ 2025-10-20
+```
