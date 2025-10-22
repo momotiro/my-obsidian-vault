@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/PGO/PGO 26年名古屋.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PGO 26年名古屋"
+              "title": "tasks"
             }
           }
         ],
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/PGO/PGO 26年名古屋.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "PGO 26年名古屋のアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -196,9 +196,12 @@
   },
   "active": "3f77ac9a17d11364",
   "lastOpenFiles": [
+    "tasks.md.tmp.17800.1761112183717",
+    "tasks.md.tmp.17800.1761112171216",
+    "tasks.md.tmp.17800.1761112164684",
+    "work/PGO/PGO 26年名古屋.md",
     "work/PGO/2025 Oct22.md",
     "tasks.md",
-    "work/PGO/PGO 26年名古屋.md",
     "slack-task-sync/slack_task_bot.py.tmp.17800.1761095517345",
     "CLAUDE.md.tmp.17800.1761095121199",
     "CLAUDE.md.tmp.14064.1761054778347",
@@ -222,8 +225,6 @@
     "work/legion/7.24議事録.md",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924718003",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924541869",
-    "slack-task-sync/create_two_shortcuts.ps1.tmp.14064.1760922989821",
-    "slack-task-sync/slack_task_bot.py.tmp.14064.1760922420919",
     "無題のファイル.canvas",
     "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
     "daily-news-bot/README.md",
@@ -236,7 +237,6 @@
     "Clippings/コミュニティーマーケが失敗する理由　ファンではなく推奨者を増やせ.md",
     "work/Riot/RGO/ブリーフィング資料.md",
     "Clippings/推奨UGCを増やす取り組みを実践　食品ブランドを例に具体策を徹底解説.md",
-    "Clippings/人を動かし夢中にさせる「ゲームフルデザイン」101の手法とは.md",
     "Pasted image 20250830172058.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
