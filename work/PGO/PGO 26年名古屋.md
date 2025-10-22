@@ -9,12 +9,16 @@
 	- 造作
 		- オブジェ
 - コンテンツ案
-	- 近くのルート
-	- デイリータスクをオリジナルで作る
-	- [https://pokemongo.gamewith.jp/article/show/522275](https://pokemongo.gamewith.jp/article/show/522275)
 	- コンテンツ
 		- アンバサダーが主導をして以下コンテンツを実施
 			- ルート探索
 			- 限定レイドを倒す
 			- 交換会を実施する
 		- 上記ノベルティに参加を全てした人は、ノベルティを貰える
+
+
+
+- 別案
+	- 近くのルート
+	- デイリータスクをオリジナルで作る
+	- 	- [https://pokemongo.gamewith.jp/article/show/522275](https://pokemongo.gamewith.jp/article/show/522275)

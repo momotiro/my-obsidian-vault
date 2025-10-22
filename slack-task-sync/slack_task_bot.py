@@ -335,8 +335,8 @@ class SlackTaskSync:
         while insert_index < len(lines):
             line = lines[insert_index]
 
-            # 次のセクションまたは空行に到達したら終了
-            if line.startswith("##") or (line.strip() == "" and insert_index + 1 < len(lines) and lines[insert_index + 1].startswith("##")):
+            # --- (区切り線) または次のセクションに到達したら終了
+            if line.strip() == "---" or line.startswith("##") or (line.strip() == "" and insert_index + 1 < len(lines) and lines[insert_index + 1].startswith("##")):
                 break
 
             # タスク行の場合、期日を比較
@@ -354,7 +354,7 @@ class SlackTaskSync:
 
             insert_index += 1
 
-        # 最後に挿入
+        # 最後に挿入（ただし---の前に）
         lines.insert(insert_index, new_task_line)
 
     def _extract_date_from_task_line(self, task_line):

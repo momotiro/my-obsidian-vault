@@ -64,8 +64,8 @@ This is primarily a knowledge management vault with one technical demo project. 
 
 ## Task Management Commands
 
-### `完了タスク整理`
-When the user says **「完了タスク整理」**, perform the following operation on `tasks.md`:
+### `タスク整理`
+When the user says **「タスク整理」**, perform the following operation on `tasks.md`:
 
 1. Find all completed tasks (`- [x]`) in the upper section (before `---`)
 2. Move them to the `## 完了済み` section at the bottom
@@ -88,3 +88,16 @@ When the user says **「完了タスク整理」**, perform the following operat
 - [x] Completed task 1 ✅ 2025-10-21
 - [x] Completed task 2 ✅ 2025-10-20
 ```
+
+### `タスク起動`
+When the user says **「タスク起動」**, start the Slack-Obsidian task sync bot:
+
+```bash
+cd "c:\Users\80036\Documents\Obsidian Vault\slack-task-sync" && "C:\Users\80036\AppData\Local\Programs\Python\Python313\python.exe" slack_task_bot.py --realtime
+```
+
+Run this command in the background using `run_in_background: true`. The bot will:
+- Monitor Slack channel C09M891TXAR for ✅ reactions
+- Automatically add tasks to tasks.md organized by tags
+- Sort tasks by due date within each tag section
+- Add weekday information to dates (e.g., 📅10/21(火))

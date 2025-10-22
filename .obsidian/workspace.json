@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "work/PGO/PGO 26年名古屋.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "PGO 26年名古屋"
             }
           }
         ],
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks.md",
+                "file": "work/PGO/PGO 26年名古屋.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "tasksのアウトライン"
+              "title": "PGO 26年名古屋のアウトライン"
             }
           },
           {
@@ -196,9 +196,11 @@
   },
   "active": "3f77ac9a17d11364",
   "lastOpenFiles": [
+    "tasks.md",
+    "slack-task-sync/slack_task_bot.py.tmp.17800.1761095517345",
+    "CLAUDE.md.tmp.17800.1761095121199",
     "CLAUDE.md.tmp.14064.1761054778347",
     "面接：杉山さん.md",
-    "tasks.md",
     "tasks.md.tmp.14064.1761016425788",
     "tasks.md.tmp.14064.1761016424979",
     "Pasted image 20250830172315.png",
@@ -221,9 +223,6 @@
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760924541869",
     "slack-task-sync/create_two_shortcuts.ps1.tmp.14064.1760922989821",
     "slack-task-sync/slack_task_bot.py.tmp.14064.1760922420919",
-    "slack-task-sync/slack_task_bot.py.tmp.14064.1760922420077",
-    "slack-task-sync/create_two_shortcuts.ps1",
-    "slack-task-sync/create_desktop_shortcut.ps1",
     "無題のファイル.canvas",
     "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
     "daily-news-bot/README.md",
