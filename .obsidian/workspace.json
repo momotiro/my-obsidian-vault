@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "work/PGO/2025 Oct22.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "2025 Oct22"
             }
           }
         ],
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks.md",
+                "file": "work/PGO/2025 Oct22.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "tasksのアウトライン"
+              "title": "2025 Oct22のアウトライン"
             }
           },
           {
@@ -196,8 +196,9 @@
   },
   "active": "3f77ac9a17d11364",
   "lastOpenFiles": [
-    "work/PGO/PGO 26年名古屋.md",
     "tasks.md",
+    "work/PGO/2025 Oct22.md",
+    "work/PGO/PGO 26年名古屋.md",
     "slack-task-sync/slack_task_bot.py.tmp.17800.1761095517345",
     "CLAUDE.md.tmp.17800.1761095121199",
     "CLAUDE.md.tmp.14064.1761054778347",
