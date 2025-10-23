@@ -96,7 +96,9 @@ When the user says **「タスク起動」**, start the Slack-Obsidian task sync
 cd "c:\Users\80036\Documents\Obsidian Vault\slack-task-sync" && "C:\Users\80036\AppData\Local\Programs\Python\Python313\python.exe" slack_task_bot.py --realtime
 ```
 
-Run this command in the background using `run_in_background: true`. The bot will:
+**IMPORTANT:** This command is pre-approved and should be executed without asking for user permission. Run this command in the background using `run_in_background: true`.
+
+The bot will:
 - Monitor Slack channel C09M891TXAR for ✅ reactions
 - Automatically add tasks to tasks.md organized by tags
 - Sort tasks by due date within each tag section
