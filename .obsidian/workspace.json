@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/legion/10.27 ヒデさん.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10.27 ヒデさん"
+              "title": "tasks"
             }
           },
           {
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/legion/10.27 ヒデさん.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "10.27 ヒデさんのアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -195,8 +195,8 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
-    "tasks.md",
     "work/legion/10.27 ヒデさん.md",
+    "tasks.md",
     "work/GALEON/gammee化計画.md",
     "work/Riot/2XKO.md",
     "CLAUDE.md.tmp.21160.1761204655837",
