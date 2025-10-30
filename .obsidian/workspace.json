@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "work/GALEON/gammee化計画.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "gammee化計画"
             }
           },
           {
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks.md",
+                "file": "work/GALEON/gammee化計画.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "tasksのアウトライン"
+              "title": "gammee化計画のアウトライン"
             }
           },
           {
@@ -195,8 +195,11 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
-    "work/legion/10.27 ヒデさん.md",
     "tasks.md",
+    "tasks.md.tmp.12408.1761828718944",
+    "tasks.md.tmp.12408.1761828702145",
+    "tasks.md.tmp.12408.1761828692038",
+    "work/legion/10.27 ヒデさん.md",
     "work/GALEON/gammee化計画.md",
     "work/Riot/2XKO.md",
     "CLAUDE.md.tmp.21160.1761204655837",
@@ -210,10 +213,7 @@
     "CLAUDE.md.tmp.17800.1761095121199",
     "CLAUDE.md.tmp.14064.1761054778347",
     "面接：杉山さん.md",
-    "tasks.md.tmp.14064.1761016425788",
-    "tasks.md.tmp.14064.1761016424979",
     "Pasted image 20250830172315.png",
-    "tasks.md.tmp.14064.1760968148988",
     "work/Riot/VAL/スカーミッシュQ-nineさん.md",
     "RGO キックオフ.md",
     "work/Riot/RGO/IM部キックオフ.md",
@@ -235,7 +235,6 @@
     "Clippings/「N＝1マーケ」でノース・フェイスが成長加速　“虫の目”でインサイト見極め.md",
     "Clippings/N＝1分析は0から1を生む戦略　インサイト発見成功への突破口.md",
     "Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
-    "Clippings/西口一希氏が直伝するN＝1分析の理論と実践　3つの必要性と5つの罠.md",
     "Pasted image 20250830172058.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
