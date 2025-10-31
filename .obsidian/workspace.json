@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/GALEON/gammee化計画.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "gammee化計画"
+              "title": "tasks"
             }
           },
           {
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/GALEON/gammee化計画.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "gammee化計画のアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -195,13 +195,13 @@
   },
   "active": "91864bebd05311bc",
   "lastOpenFiles": [
+    "work/GALEON/gammee化計画.md",
     "tasks.md.tmp.4180.1761890150575",
     "tasks.md",
     "tasks.md.tmp.12408.1761828718944",
     "tasks.md.tmp.12408.1761828702145",
     "tasks.md.tmp.12408.1761828692038",
     "work/legion/10.27 ヒデさん.md",
-    "work/GALEON/gammee化計画.md",
     "work/Riot/2XKO.md",
     "CLAUDE.md.tmp.21160.1761204655837",
     "lenovo 10.22 電通.md",
@@ -212,7 +212,6 @@
     "work/PGO/2025 Oct22.md",
     "slack-task-sync/slack_task_bot.py.tmp.17800.1761095517345",
     "CLAUDE.md.tmp.17800.1761095121199",
-    "CLAUDE.md.tmp.14064.1761054778347",
     "面接：杉山さん.md",
     "Pasted image 20250830172315.png",
     "work/Riot/VAL/スカーミッシュQ-nineさん.md",
