@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "work/Riot/2XKO.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "2XKO"
             }
           },
           {
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "tasks.md",
+                "file": "work/Riot/2XKO.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "tasksのアウトライン"
+              "title": "2XKOのアウトライン"
             }
           },
           {
@@ -193,13 +193,27 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "91864bebd05311bc",
+  "active": "a0dc5dff108633ff",
   "lastOpenFiles": [
+    "work/Riot/TGS/redbullさまお打ち合わせ.md",
+    "work/Riot/TGS/swag.md",
+    "work/Riot/TGS/TGS VALO.md",
+    "work/Riot/TGS/VALO.md",
+    "work/Riot/TGS/ガントチャート.md",
+    "work/Riot/TGS/ソーシャルリスニング.md",
+    "work/Riot/TGS/配信データ.md",
+    "work/Riot/TGS/乃村工藝社さん mtg.md",
+    "work/Riot/TGS/2XKO.md",
+    "work/Riot/TGS/2XKO TGSキックオフ.md",
+    "work/Riot/TGS/7.29.md",
+    "work/Riot/TGS/9.16.md",
+    "work/Riot/TGS/2025-07-22議事録.md",
+    "work/Riot/TGS/振り返り資料.md",
+    "tasks.md",
     "tasks.md.tmp.17372.1762486714623",
     "tasks.md.tmp.17372.1762486702039",
     "tasks.md.tmp.17372.1762486695792",
     "work/GALEON/gammee化計画.md",
-    "tasks.md",
     "tasks.md.tmp.4180.1761890150575",
     "tasks.md.tmp.12408.1761828718944",
     "tasks.md.tmp.12408.1761828702145",
@@ -210,7 +224,6 @@
     "lenovo 10.22 電通.md",
     "tasks.md.tmp.17800.1761112183717",
     "tasks.md.tmp.17800.1761112171216",
-    "tasks.md.tmp.17800.1761112164684",
     "work/PGO/PGO 26年名古屋.md",
     "work/PGO/2025 Oct22.md",
     "面接：杉山さん.md",
@@ -222,20 +235,7 @@
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
     "Pasted image 20250830172019.png",
-    "N＝1マーケ.md",
-    "slack-task-sync/README.md",
-    "work/legion/資料作成.md",
-    "work/2025年上期デジタルマーケティング市場動向.md",
-    "work/legion/4月.md",
-    "work/legion/7.24議事録.md",
     "無題のファイル.canvas",
-    "Clippings/ロート製薬の組織で動くN＝1　「デオコ」開発にたった1人の顧客の声.md",
-    "daily-news-bot/README.md",
-    "Clippings/ガンダムアプリゲームが爆発的ヒット 裏に三段構えのターゲット戦略.md",
-    "Clippings/パナソニック コネクトが失注企業に理由を深掘り　N＝1を基に営業改革.md",
-    "Clippings/「N＝1マーケ」でノース・フェイスが成長加速　“虫の目”でインサイト見極め.md",
-    "Clippings/N＝1分析は0から1を生む戦略　インサイト発見成功への突破口.md",
-    "Clippings/コミュニティー施策の落とし穴　企業は「消費者主導の場」にお邪魔せよ.md",
     "Pasted image 20250830172058.png",
     "Pasted image 20250725141732.png",
     "daily/Pasted image 20250706113003.png"
