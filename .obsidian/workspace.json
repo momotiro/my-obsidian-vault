@@ -35,7 +35,8 @@
               "title": "tasks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -155,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "work/Riot/2XKO.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "2XKOのアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -193,8 +194,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a0dc5dff108633ff",
+  "active": "9bb52767d4b30b0d",
   "lastOpenFiles": [
+    "work/Riot/2XKO.md",
     "tasks.md.tmp.17372.1762857846664",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/swag.md",
@@ -220,11 +222,9 @@
     "tasks.md.tmp.12408.1761828702145",
     "tasks.md.tmp.12408.1761828692038",
     "work/legion/10.27 ヒデさん.md",
-    "work/Riot/2XKO.md",
     "CLAUDE.md.tmp.21160.1761204655837",
     "lenovo 10.22 電通.md",
     "tasks.md.tmp.17800.1761112183717",
-    "tasks.md.tmp.17800.1761112171216",
     "work/PGO/PGO 26年名古屋.md",
     "work/PGO/2025 Oct22.md",
     "面接：杉山さん.md",
