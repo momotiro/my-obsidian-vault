@@ -41,16 +41,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "未来合宿.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "未来合宿"
+              "title": "tasks"
+            }
+          },
+          {
+            "id": "1fe0136951a98851",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.3"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.3"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -170,13 +182,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "未来合宿.md",
+                "file": "tasks.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "未来合宿のアウトライン"
+              "title": "tasksのアウトライン"
             }
           },
           {
@@ -209,10 +221,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c004cf04f73a9a65",
+  "active": "1fe0136951a98851",
   "lastOpenFiles": [
-    "tasks.md",
     "未来合宿.md",
+    "tasks.md",
     "tasks.md.tmp.8256.1763013568799",
     "tasks.md.tmp.8256.1763013560985",
     "tasks.md.tmp.8256.1763013542576",
