@@ -96,7 +96,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#LOLDiscord",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,7 +117,8 @@
               "title": "ブックマーク"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -223,7 +224,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1fe0136951a98851",
+  "active": "cb601a8a69f83ffd",
   "lastOpenFiles": [
     "未来合宿.md",
     "tasks.md",
