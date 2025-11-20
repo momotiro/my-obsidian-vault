@@ -8,20 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "91864bebd05311bc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "work/Riot/2XKO.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2XKO"
-            }
-          },
-          {
             "id": "9bb52767d4b30b0d",
             "type": "leaf",
             "state": {
@@ -36,35 +22,21 @@
             }
           },
           {
-            "id": "c004cf04f73a9a65",
+            "id": "207bc7d97f39e3c1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "ドズル社さま.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
-            }
-          },
-          {
-            "id": "1fe0136951a98851",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tasks.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tasks"
+              "title": "ドズル社さま"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -96,7 +68,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#LOLDiscord",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -224,15 +196,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cb601a8a69f83ffd",
+  "active": "207bc7d97f39e3c1",
   "lastOpenFiles": [
-    "未来合宿.md",
+    "ドズル社さま.md",
     "tasks.md",
+    "work/Riot/2XKO.md",
+    "未来合宿.md",
     "tasks.md.tmp.8256.1763013568799",
     "tasks.md.tmp.8256.1763013560985",
     "tasks.md.tmp.8256.1763013542576",
     "tasks.md.tmp.8256.1763013535594",
-    "work/Riot/2XKO.md",
     "tasks.md.tmp.17372.1762857846664",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/swag.md",
@@ -262,7 +235,6 @@
     "Pasted image 20250830172315.png",
     "work/Riot/VAL/スカーミッシュQ-nineさん.md",
     "RGO キックオフ.md",
-    "work/Riot/RGO/IM部キックオフ.md",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
     "Pasted image 20250830172019.png",
