@@ -35,8 +35,7 @@
               "title": "ドズル社さま"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -196,7 +195,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "207bc7d97f39e3c1",
+  "active": "9bb52767d4b30b0d",
   "lastOpenFiles": [
     "ドズル社さま.md",
     "tasks.md",
