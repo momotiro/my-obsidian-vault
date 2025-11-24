@@ -35,7 +35,8 @@
               "title": "ドズル社さま"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -88,8 +89,7 @@
               "title": "ブックマーク"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -195,14 +195,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9bb52767d4b30b0d",
+  "active": "a0dc5dff108633ff",
   "lastOpenFiles": [
+    "tasks.md",
     "tasks.md.tmp.22556.1763642682967",
     "tasks.md.tmp.22556.1763642641753",
     "tasks.md.tmp.22556.1763642623475",
     "tasks.md.tmp.22556.1763642615422",
     "ドズル社さま.md",
-    "tasks.md",
     "work/Riot/2XKO.md",
     "未来合宿.md",
     "tasks.md.tmp.8256.1763013568799",
@@ -225,7 +225,6 @@
     "work/Riot/TGS/2025-07-22議事録.md",
     "work/Riot/TGS/振り返り資料.md",
     "tasks.md.tmp.17372.1762486714623",
-    "tasks.md.tmp.17372.1762486702039",
     "work/GALEON/gammee化計画.md",
     "work/legion/10.27 ヒデさん.md",
     "lenovo 10.22 電通.md",
