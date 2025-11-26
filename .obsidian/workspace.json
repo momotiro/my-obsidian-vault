@@ -49,8 +49,7 @@
               "title": "ドズル社提案"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,10 +208,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "43a7c63fe320ccb7",
+  "active": "9bb52767d4b30b0d",
   "lastOpenFiles": [
-    "ドズル社さま.md",
     "ドズル社提案.md",
+    "ドズル社さま.md",
     "コミュニティーマーケティング.md",
     "tasks.md",
     "tasks.md.tmp.22556.1763642682967",
