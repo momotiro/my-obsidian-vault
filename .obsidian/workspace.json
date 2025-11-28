@@ -22,6 +22,18 @@
             }
           },
           {
+            "id": "8df722f0ec01a322",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.10.6"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.10.6"
+            }
+          },
+          {
             "id": "06e189c0873eacd7",
             "type": "leaf",
             "state": {
@@ -63,7 +75,8 @@
               "title": "ドズル社提案"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -222,7 +235,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9bb52767d4b30b0d",
+  "active": "8df722f0ec01a322",
   "lastOpenFiles": [
     "配信.md",
     "tasks.md",
