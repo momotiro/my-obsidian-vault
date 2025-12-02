@@ -63,8 +63,7 @@
               "title": "ドズル社提案"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -96,7 +95,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#MHN",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -117,7 +116,8 @@
               "title": "ブックマーク"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -223,10 +223,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "06e189c0873eacd7",
+  "active": "9bb52767d4b30b0d",
   "lastOpenFiles": [
-    "配信.md",
     "11.28 未来合宿.md",
+    "配信.md",
     "tasks.md",
     "ドズル社提案.md",
     "ドズル社さま.md",
