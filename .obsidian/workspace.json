@@ -8,62 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9bb52767d4b30b0d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "tasks.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "tasks"
-            }
-          },
-          {
-            "id": "06e189c0873eacd7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "11.28 未来合宿.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "11.28 未来合宿"
-            }
-          },
-          {
-            "id": "207bc7d97f39e3c1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ドズル社さま.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ドズル社さま"
-            }
-          },
-          {
-            "id": "43a7c63fe320ccb7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ドズル社提案.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ドズル社提案"
-            }
-          },
-          {
             "id": "ed8b2b4c34087af6",
             "type": "leaf",
             "state": {
@@ -77,8 +21,7 @@
               "title": "kayacリーダー会議"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
