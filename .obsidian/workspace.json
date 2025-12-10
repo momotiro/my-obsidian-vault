@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kayacリーダー会議.md",
+                "file": "work/モンハンnow/12.10.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "kayacリーダー会議"
-            }
-          },
-          {
-            "id": "a4e51a0c0ee528f3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ZENAIM.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ZENAIM"
+              "title": "12.10"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -89,8 +74,7 @@
               "title": "ブックマーク"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -196,10 +180,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a4e51a0c0ee528f3",
+  "active": "ed8b2b4c34087af6",
   "lastOpenFiles": [
-    "ZENAIM.md",
     "kayacリーダー会議.md",
+    "work/モンハンnow/12.10.md",
+    "ZENAIM.md",
     "tasks.md",
     "11.28 未来合宿.md",
     "配信.md",
@@ -233,7 +218,6 @@
     "work/Riot/TGS/振り返り資料.md",
     "tasks.md.tmp.17372.1762486714623",
     "work/GALEON/gammee化計画.md",
-    "work/legion/10.27 ヒデさん.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
