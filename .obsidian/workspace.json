@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "kayacリーダー会議"
             }
+          },
+          {
+            "id": "a4e51a0c0ee528f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ZENAIM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ZENAIM"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -181,8 +196,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ed8b2b4c34087af6",
+  "active": "a4e51a0c0ee528f3",
   "lastOpenFiles": [
+    "ZENAIM.md",
     "kayacリーダー会議.md",
     "tasks.md",
     "11.28 未来合宿.md",
@@ -218,7 +234,6 @@
     "tasks.md.tmp.17372.1762486714623",
     "work/GALEON/gammee化計画.md",
     "work/legion/10.27 ヒデさん.md",
-    "lenovo 10.22 電通.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
