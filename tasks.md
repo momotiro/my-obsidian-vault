@@ -2,6 +2,10 @@
 
 ## #鉄拳
 
+## #ZENAIM
+- [ ] Discord 提案 📅 2025-12-15
+
+
 ## #VALO
 
 ## #LOLCN
