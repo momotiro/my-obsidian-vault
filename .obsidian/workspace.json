@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/モンハンnow/12.10.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "12.10"
+              "title": "tasks"
             }
           },
           {
@@ -35,8 +35,7 @@
               "title": "AGF"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,8 +194,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c2d344518b21823a",
+  "active": "ed8b2b4c34087af6",
   "lastOpenFiles": [
+    "tasks.md.tmp.13936.1765523785895",
+    "tasks.md.tmp.13936.1765523756063",
+    "tasks.md.tmp.13936.1765523748115",
+    "tasks.md.tmp.13936.1765523717650",
     "work/モンハンnow/12.10.md",
     "AGF.md",
     "kayacリーダー会議.md",
@@ -216,8 +219,6 @@
     "tasks.md.tmp.8256.1763013568799",
     "tasks.md.tmp.8256.1763013560985",
     "tasks.md.tmp.8256.1763013542576",
-    "tasks.md.tmp.8256.1763013535594",
-    "tasks.md.tmp.17372.1762857846664",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/swag.md",
     "work/Riot/TGS/TGS VALO.md",
@@ -231,8 +232,6 @@
     "work/Riot/TGS/7.29.md",
     "work/Riot/TGS/9.16.md",
     "work/Riot/TGS/2025-07-22議事録.md",
-    "work/Riot/TGS/振り返り資料.md",
-    "tasks.md.tmp.17372.1762486714623",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
