@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tasks.md",
+                "file": "ZENAIM.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tasks"
+              "title": "ZENAIM"
             }
           },
           {
@@ -196,6 +196,7 @@
   },
   "active": "ed8b2b4c34087af6",
   "lastOpenFiles": [
+    "tasks.md",
     "tasks.md.tmp.13936.1765523785895",
     "tasks.md.tmp.13936.1765523756063",
     "tasks.md.tmp.13936.1765523748115",
@@ -204,7 +205,6 @@
     "AGF.md",
     "kayacリーダー会議.md",
     "ZENAIM.md",
-    "tasks.md",
     "11.28 未来合宿.md",
     "配信.md",
     "ドズル社提案.md",
@@ -218,7 +218,6 @@
     "未来合宿.md",
     "tasks.md.tmp.8256.1763013568799",
     "tasks.md.tmp.8256.1763013560985",
-    "tasks.md.tmp.8256.1763013542576",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/swag.md",
     "work/Riot/TGS/TGS VALO.md",
