@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ZENAIM.md",
+                "file": "work/Riot/LoL/Discord.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ZENAIM"
+              "title": "Discord"
             }
           },
           {
@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AGF.md",
+                "file": "tasks.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AGF"
+              "title": "tasks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,17 +195,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ed8b2b4c34087af6",
+  "active": "c2d344518b21823a",
   "lastOpenFiles": [
+    "tasks.md.tmp.28572.1766366236826",
+    "tasks.md.tmp.28572.1766366228730",
+    "tasks.md.tmp.28572.1766366220306",
+    "AGF.md",
+    "work/Riot/LoL/Discord.md",
+    "work/Riot/LoL/LoL温泉.md",
+    "ZENAIM.md",
     "tasks.md",
     "tasks.md.tmp.13936.1765523785895",
     "tasks.md.tmp.13936.1765523756063",
     "tasks.md.tmp.13936.1765523748115",
     "tasks.md.tmp.13936.1765523717650",
     "work/モンハンnow/12.10.md",
-    "AGF.md",
     "kayacリーダー会議.md",
-    "ZENAIM.md",
     "11.28 未来合宿.md",
     "配信.md",
     "ドズル社提案.md",
@@ -216,8 +222,6 @@
     "tasks.md.tmp.22556.1763642615422",
     "work/Riot/2XKO.md",
     "未来合宿.md",
-    "tasks.md.tmp.8256.1763013568799",
-    "tasks.md.tmp.8256.1763013560985",
     "work/Riot/TGS/redbullさまお打ち合わせ.md",
     "work/Riot/TGS/swag.md",
     "work/Riot/TGS/TGS VALO.md",
@@ -229,8 +233,6 @@
     "work/Riot/TGS/2XKO.md",
     "work/Riot/TGS/2XKO TGSキックオフ.md",
     "work/Riot/TGS/7.29.md",
-    "work/Riot/TGS/9.16.md",
-    "work/Riot/TGS/2025-07-22議事録.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
