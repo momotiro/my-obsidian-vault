@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -209,10 +209,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "66be759fcbc1cb4a",
+  "active": "c2d344518b21823a",
   "lastOpenFiles": [
-    "tasks.md",
     "RiotとのMTG.md",
+    "tasks.md",
     "tasks.md.tmp.28572.1766366236826",
     "tasks.md.tmp.28572.1766366228730",
     "tasks.md.tmp.28572.1766366220306",
