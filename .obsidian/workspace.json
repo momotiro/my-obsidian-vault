@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "work/Riot/LoL/Discord.md",
+                "file": "work/ZENAIM/売れ行き.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Discord"
+              "title": "売れ行き"
             }
           },
           {
@@ -49,8 +49,7 @@
               "title": "RiotとのMTG"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -209,17 +208,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c2d344518b21823a",
+  "active": "ed8b2b4c34087af6",
   "lastOpenFiles": [
-    "RiotとのMTG.md",
+    "Pasted image 20251224141824.png",
+    "ZENAIM.md",
+    "work/ZENAIM/売れ行き.md",
+    "work/Riot/LoL/Discord.md",
     "tasks.md",
+    "RiotとのMTG.md",
     "tasks.md.tmp.28572.1766366236826",
     "tasks.md.tmp.28572.1766366228730",
     "tasks.md.tmp.28572.1766366220306",
     "AGF.md",
-    "work/Riot/LoL/Discord.md",
     "work/Riot/LoL/LoL温泉.md",
-    "ZENAIM.md",
     "tasks.md.tmp.13936.1765523785895",
     "tasks.md.tmp.13936.1765523756063",
     "tasks.md.tmp.13936.1765523748115",
@@ -245,8 +246,6 @@
     "work/Riot/TGS/配信データ.md",
     "work/Riot/TGS/乃村工藝社さん mtg.md",
     "work/Riot/TGS/2XKO.md",
-    "work/Riot/TGS/2XKO TGSキックオフ.md",
-    "work/Riot/TGS/7.29.md",
     "Pasted image 20250830172315.png",
     "Pasted image 20250830172244.png",
     "Pasted image 20250725141618.png",
