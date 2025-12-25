@@ -49,7 +49,8 @@
               "title": "RiotとのMTG"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#組織",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,7 +103,8 @@
               "title": "ブックマーク"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -208,11 +210,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ed8b2b4c34087af6",
+  "active": "cb601a8a69f83ffd",
   "lastOpenFiles": [
+    "work/ZENAIM/12.24 売れ行き.md",
     "Pasted image 20251224141824.png",
     "ZENAIM.md",
-    "work/ZENAIM/12.24 売れ行き.md",
     "work/Riot/LoL/Discord.md",
     "tasks.md",
     "RiotとのMTG.md",
