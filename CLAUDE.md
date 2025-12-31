@@ -170,14 +170,23 @@ erDiagram
 **Development Commands:**
 ```bash
 cd develop/discord-monitor-report
-npm install
-npx prisma generate
-npx prisma db push
-npm run dev                # Start development server
-npm run lint               # Run ESLint
-npm run tsc                # TypeScript type check
-npm run test               # Run Vitest tests
-npm run build              # Build for production
+make help                  # Show all available commands
+make install               # Install dependencies
+make dev                   # Start development server
+make lint                  # Run ESLint
+make tsc                   # TypeScript type check
+make test                  # Run Vitest tests
+make check                 # Run lint + tsc + test
+make build                 # Build for production
+```
+
+**Deployment Commands:**
+```bash
+make setup-gcloud          # Set up Google Cloud configuration
+make docker-build          # Build Docker image
+make deploy                # Deploy to Cloud Run
+make logs                  # Show Cloud Run logs
+make deploy-url            # Show deployment URL
 ```
 
 **Environment Variables:**
@@ -186,6 +195,12 @@ DATABASE_URL=              # Database connection string
 JWT_SECRET=                # JWT secret key
 NEXT_PUBLIC_API_URL=       # API base URL
 ```
+
+**CI/CD:**
+- GitHub Actions workflow (`.github/workflows/deploy.yml`)
+- Automatic deployment on push to `main` branch
+- Lint, type check, and test before deployment
+- Docker image pushed to GCR and deployed to Cloud Run
 
 ## File Structure
 
