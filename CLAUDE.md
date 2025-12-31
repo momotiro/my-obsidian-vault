@@ -118,9 +118,13 @@ Located in `develop/discord-monitor-report/`, this is a daily report management 
 - Track Problems and Plans (PPP methodology)
 
 **Tech Stack:**
-- **Frontend:** TBD (React/Next.js recommended)
-- **Backend:** REST API (Node.js/Express or similar)
-- **Database:** PostgreSQL/MySQL/MongoDB
+- **Language:** TypeScript
+- **Framework:** Next.js (App Router)
+- **UI Components:** shadcn/ui + Tailwind CSS
+- **API Schema:** OpenAPI with Zod validation
+- **Database ORM:** Prisma.js
+- **Testing:** Vitest
+- **Deployment:** Google Cloud Run
 - **Authentication:** JWT
 
 **Features:**
@@ -162,6 +166,26 @@ erDiagram
 **Permissions:**
 - **Staff (担当者)**: Create/edit own reports, view own reports
 - **Manager (上長)**: View all reports, post comments, manage masters
+
+**Development Commands:**
+```bash
+cd develop/discord-monitor-report
+npm install
+npx prisma generate
+npx prisma db push
+npm run dev                # Start development server
+npm run lint               # Run ESLint
+npm run tsc                # TypeScript type check
+npm run test               # Run Vitest tests
+npm run build              # Build for production
+```
+
+**Environment Variables:**
+```env
+DATABASE_URL=              # Database connection string
+JWT_SECRET=                # JWT secret key
+NEXT_PUBLIC_API_URL=       # API base URL
+```
 
 ## File Structure
 
