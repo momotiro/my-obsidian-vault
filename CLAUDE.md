@@ -18,7 +18,7 @@ Located in `Claude-Code-Communication/`, this is a tmux-based multi-agent system
 
 **Architecture:**
 - **PRESIDENT** (separate session): Project overseer
-- **boss1** (multiagent session): Team leader  
+- **boss1** (multiagent session): Team leader
 - **worker1,2,3** (multiagent session): Task executors
 
 **Communication Flow:**
@@ -42,6 +42,126 @@ tmux attach-session -t president
 - PRESIDENT: Follow `instructions/president.md`
 - boss1: Follow `instructions/boss.md`
 - workers: Follow `instructions/worker.md`
+
+### TFT Pengu Chatbot
+Located in `develop/tft-pengu-chatbot/`, this is a web-based AI chatbot for Teamfight Tactics entertainment.
+
+**Purpose:**
+- Entertainment-focused TFT chatbot with Pengu personality
+- Provides strategy advice, meta information, and composition suggestions
+- Speaks in Pengu's characteristic voice and tone
+
+**Tech Stack:**
+- **Frontend & Backend:** Next.js App Router
+- **AI:** Claude API via Mastraフレームワーク
+- **Database:** MongoDB with Prisma ORM
+- **Deployment:** Vercel (frontend) + MongoDB Atlas (database)
+
+**Features:**
+- Real-time conversational AI chat interface
+- Session-based conversation history (preserved in DB for analytics)
+- Pengu personality system prompt
+- Responsive web design
+
+**Architecture:**
+```
+Next.js App Router
+├── app/
+│   ├── api/chat/          # Claude API endpoints
+│   └── page.tsx           # Chat UI
+├── lib/
+│   ├── mastra/            # Mastra AI agent setup
+│   ├── prisma.ts          # Prisma client
+│   └── mongodb.ts         # MongoDB connection
+└── prisma/
+    └── schema.prisma      # Database schema
+```
+
+**Database Schema:**
+- `Session`: Stores chat sessions with metadata
+- `Message`: Stores individual messages for analytics
+- TTL index for automatic cleanup (optional)
+
+**System Prompt Guidelines:**
+- Pengu persona: Cute, enthusiastic TFT mascot
+- Provides helpful TFT advice in character
+- Uses Pengu-style expressions and emotes
+- Knowledgeable about TFT mechanics, meta, and strategies
+
+**Development Commands:**
+```bash
+cd develop/tft-pengu-chatbot
+npm install
+npx prisma generate
+npx prisma db push
+npm run dev                # Start development server
+```
+
+**Environment Variables:**
+```env
+ANTHROPIC_API_KEY=         # Claude API key
+DATABASE_URL=              # MongoDB connection string
+```
+
+**Deployment:**
+- Deploy to Vercel for free hosting
+- Use MongoDB Atlas free tier (M0)
+- Set environment variables in Vercel dashboard
+
+### Discord監視日報システム
+Located in `develop/discord-monitor-report/`, this is a daily report management system for Discord monitoring operations.
+
+**Purpose:**
+- Manage daily reports of Discord server monitoring activities
+- Allow staff to report monitored servers and findings
+- Enable managers to review and comment on reports
+- Track Problems and Plans (PPP methodology)
+
+**Tech Stack:**
+- **Frontend:** TBD (React/Next.js recommended)
+- **Backend:** REST API (Node.js/Express or similar)
+- **Database:** PostgreSQL/MySQL/MongoDB
+- **Authentication:** JWT
+
+**Features:**
+- Multi-server monitoring reports (multiple entries per day)
+- Problem and Plan tracking with manager comments
+- Server master and user master management
+- Role-based access control (Staff vs Manager)
+- Japanese interface
+
+**Documentation:**
+- [画面定義書](develop/discord-monitor-report/画面定義書.md) - Screen specifications
+- [API仕様書](develop/discord-monitor-report/API仕様書.md) - API specifications
+- [テスト仕様書](develop/discord-monitor-report/テスト仕様書.md) - Test specifications
+
+**Database Schema (ER Diagram):**
+```mermaid
+erDiagram
+    User ||--o{ DailyReport : "作成"
+    User ||--o{ Comment : "投稿"
+    DailyReport ||--o{ MonitoringRecord : "含む"
+    DailyReport ||--o{ Comment : "受ける"
+    DiscordServer ||--o{ MonitoringRecord : "監視される"
+```
+
+**Key Tables:**
+- `User` - Staff and managers
+- `DiscordServer` - Server master data
+- `DailyReport` - Daily reports with Problem/Plan
+- `MonitoringRecord` - Server monitoring entries (multiple per report)
+- `Comment` - Manager comments on Problem/Plan
+
+**API Endpoints:**
+- `/api/auth/*` - Authentication (login, logout, user info)
+- `/api/reports/*` - Daily reports (CRUD)
+- `/api/reports/{id}/comments` - Comments
+- `/api/masters/servers/*` - Server master management
+- `/api/masters/users/*` - User master management
+
+**Permissions:**
+- **Staff (担当者)**: Create/edit own reports, view own reports
+- **Manager (上長)**: View all reports, post comments, manage masters
 
 ## File Structure
 
