@@ -97,11 +97,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json(response, { status: 200 });
   } catch (error) {
-    console.error("Login error:", error);
+    // Log error without sensitive information
+    console.error("Login error:", {
+      errorType: error instanceof Error ? error.constructor.name : "Unknown",
+      timestamp: new Date().toISOString(),
+    });
+
     return NextResponse.json(
       {
         error: "Internal server error",
-        message: error instanceof Error ? error.message : "Unknown error",
+        message: "An unexpected error occurred during login",
       },
       { status: 500 }
     );

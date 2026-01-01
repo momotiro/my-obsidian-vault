@@ -1,9 +1,9 @@
 import { z } from "zod";
 
 const envSchema = z.object({
-  DATABASE_URL: z.string().min(1),
-  JWT_SECRET: z.string().min(1),
-  NEXT_PUBLIC_API_URL: z.string().url(),
+  DATABASE_URL: z.string().min(1, "DATABASE_URL is required"),
+  JWT_SECRET: z.string().min(32, "JWT_SECRET must be at least 32 characters for security"),
+  NEXT_PUBLIC_API_URL: z.string().url("NEXT_PUBLIC_API_URL must be a valid URL"),
   NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
 });
 

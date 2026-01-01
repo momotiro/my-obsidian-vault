@@ -40,7 +40,11 @@ export async function comparePassword(password: string, hash: string): Promise<b
 
 /**
  * Validate password strength
- * Password must be at least 8 characters long
+ * Password must meet the following requirements:
+ * - At least 8 characters long
+ * - At least one uppercase letter
+ * - At least one lowercase letter
+ * - At least one number
  * @param password - Password to validate
  * @returns true if password meets requirements, false otherwise
  */
@@ -50,11 +54,20 @@ export function validatePasswordStrength(password: string): boolean {
     return false;
   }
 
-  // Add more validation rules as needed:
-  // - At least one uppercase letter
-  // - At least one lowercase letter
-  // - At least one number
-  // - At least one special character
+  // At least one uppercase letter
+  if (!/[A-Z]/.test(password)) {
+    return false;
+  }
+
+  // At least one lowercase letter
+  if (!/[a-z]/.test(password)) {
+    return false;
+  }
+
+  // At least one number
+  if (!/[0-9]/.test(password)) {
+    return false;
+  }
 
   return true;
 }
@@ -64,5 +77,5 @@ export function validatePasswordStrength(password: string): boolean {
  * @returns Error message describing password requirements
  */
 export function getPasswordRequirements(): string {
-  return "Password must be at least 8 characters long";
+  return "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number";
 }
