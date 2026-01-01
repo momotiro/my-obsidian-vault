@@ -53,7 +53,7 @@ describe("GET /api/reports/:id", () => {
         method: "GET",
       });
 
-      const response = await GET(request, { params: { id: "1" } });
+      const response = await GET(request, { params: Promise.resolve({ id: "1" }) });
       expect(response.status).toBe(401);
     });
   });
@@ -67,7 +67,7 @@ describe("GET /api/reports/:id", () => {
       });
 
       const request = createRequest(token, "invalid");
-      const response = await GET(request, { params: { id: "invalid" } });
+      const response = await GET(request, { params: Promise.resolve({ id: "invalid" }) });
       const data = await response.json();
 
       expect(response.status).toBe(400);
@@ -87,7 +87,7 @@ describe("GET /api/reports/:id", () => {
       vi.mocked(prisma.dailyReport.findUnique).mockResolvedValue(null);
 
       const request = createRequest(token, "999");
-      const response = await GET(request, { params: { id: "999" } });
+      const response = await GET(request, { params: Promise.resolve({ id: "999" }) });
       const data = await response.json();
 
       expect(response.status).toBe(404);
@@ -118,7 +118,7 @@ describe("GET /api/reports/:id", () => {
       vi.mocked(prisma.dailyReport.findUnique).mockResolvedValue(mockReport as any);
 
       const request = createRequest(token, "1");
-      const response = await GET(request, { params: { id: "1" } });
+      const response = await GET(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(403);
@@ -166,7 +166,7 @@ describe("GET /api/reports/:id", () => {
       vi.mocked(prisma.dailyReport.findUnique).mockResolvedValue(mockReport as any);
 
       const request = createRequest(token, "1");
-      const response = await GET(request, { params: { id: "1" } });
+      const response = await GET(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(200);
@@ -201,7 +201,7 @@ describe("GET /api/reports/:id", () => {
       vi.mocked(prisma.dailyReport.findUnique).mockResolvedValue(mockReport as any);
 
       const request = createRequest(token, "1");
-      const response = await GET(request, { params: { id: "1" } });
+      const response = await GET(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(200);
@@ -240,7 +240,7 @@ describe("PUT /api/reports/:id", () => {
         monitoringRecords: [{ serverId: 1, monitoringContent: "Test" }],
       });
 
-      const response = await PUT(request, { params: { id: "999" } });
+      const response = await PUT(request, { params: Promise.resolve({ id: "999" }) });
       const data = await response.json();
 
       expect(response.status).toBe(404);
@@ -263,7 +263,7 @@ describe("PUT /api/reports/:id", () => {
         monitoringRecords: [{ serverId: 1, monitoringContent: "Test" }],
       });
 
-      const response = await PUT(request, { params: { id: "1" } });
+      const response = await PUT(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(403);
@@ -286,7 +286,7 @@ describe("PUT /api/reports/:id", () => {
         monitoringRecords: [{ serverId: 1, monitoringContent: "Test" }],
       });
 
-      const response = await PUT(request, { params: { id: "1" } });
+      const response = await PUT(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(403);
@@ -310,7 +310,7 @@ describe("PUT /api/reports/:id", () => {
         monitoringRecords: [],
       });
 
-      const response = await PUT(request, { params: { id: "1" } });
+      const response = await PUT(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(400);
@@ -335,7 +335,7 @@ describe("PUT /api/reports/:id", () => {
         monitoringRecords: [{ serverId: 999, monitoringContent: "Test" }],
       });
 
-      const response = await PUT(request, { params: { id: "1" } });
+      const response = await PUT(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(400);
@@ -388,7 +388,7 @@ describe("PUT /api/reports/:id", () => {
         ],
       });
 
-      const response = await PUT(request, { params: { id: "1" } });
+      const response = await PUT(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(200);
@@ -424,7 +424,7 @@ describe("DELETE /api/reports/:id", () => {
       vi.mocked(prisma.dailyReport.findUnique).mockResolvedValue(null);
 
       const request = createRequest(token, "999");
-      const response = await DELETE(request, { params: { id: "999" } });
+      const response = await DELETE(request, { params: Promise.resolve({ id: "999" }) });
       const data = await response.json();
 
       expect(response.status).toBe(404);
@@ -444,7 +444,7 @@ describe("DELETE /api/reports/:id", () => {
       } as any);
 
       const request = createRequest(token, "1");
-      const response = await DELETE(request, { params: { id: "1" } });
+      const response = await DELETE(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(403);
@@ -464,7 +464,7 @@ describe("DELETE /api/reports/:id", () => {
       } as any);
 
       const request = createRequest(token, "1");
-      const response = await DELETE(request, { params: { id: "1" } });
+      const response = await DELETE(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(403);
@@ -487,7 +487,7 @@ describe("DELETE /api/reports/:id", () => {
       vi.mocked(prisma.dailyReport.delete).mockResolvedValue({} as any);
 
       const request = createRequest(token, "1");
-      const response = await DELETE(request, { params: { id: "1" } });
+      const response = await DELETE(request, { params: Promise.resolve({ id: "1" }) });
       const data = await response.json();
 
       expect(response.status).toBe(200);

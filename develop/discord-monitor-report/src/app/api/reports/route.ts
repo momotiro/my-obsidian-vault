@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { authenticate } from "@/lib/middleware/auth";
 import { prisma } from "@/lib/prisma";
-import { UserRole } from "@prisma/client";
+import { UserRole, Prisma } from "@prisma/client";
 import {
   createReportSchema,
   listReportsQuerySchema,
@@ -31,7 +31,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       return NextResponse.json(
         {
           error: "Validation failed",
-          details: validationResult.error.errors,
+          details: validationResult.error.issues,
         },
         { status: 400 }
       );
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     }
 
     // Build where clause
-    const where: any = {};
+    const where: Prisma.DailyReportWhereInput = {};
     if (userId !== undefined) {
       where.userId = userId;
     }
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           error: {
             code: "VALIDATION_ERROR",
             message: "Validation failed",
-            details: validationResult.error.errors,
+            details: validationResult.error.issues,
           },
         },
         { status: 400 }

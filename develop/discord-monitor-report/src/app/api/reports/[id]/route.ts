@@ -12,7 +12,7 @@ import { updateReportSchema } from "@/lib/validation/reports";
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
     // Authenticate user
@@ -21,7 +21,8 @@ export async function GET(
       return error || NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const reportId = parseInt(params.id, 10);
+    const { id } = await params;
+    const reportId = parseInt(id, 10);
     if (isNaN(reportId)) {
       return NextResponse.json(
         {
@@ -163,7 +164,7 @@ export async function GET(
  */
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
     // Authenticate user
@@ -172,7 +173,8 @@ export async function PUT(
       return error || NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const reportId = parseInt(params.id, 10);
+    const { id } = await params;
+    const reportId = parseInt(id, 10);
     if (isNaN(reportId)) {
       return NextResponse.json(
         {
@@ -197,7 +199,7 @@ export async function PUT(
           error: {
             code: "VALIDATION_ERROR",
             message: "Validation failed",
-            details: validationResult.error.errors,
+            details: validationResult.error.issues,
           },
         },
         { status: 400 }
@@ -326,7 +328,7 @@ export async function PUT(
  */
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse> {
   try {
     // Authenticate user
@@ -335,7 +337,8 @@ export async function DELETE(
       return error || NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const reportId = parseInt(params.id, 10);
+    const { id } = await params;
+    const reportId = parseInt(id, 10);
     if (isNaN(reportId)) {
       return NextResponse.json(
         {
