@@ -83,7 +83,8 @@
       "Bash(rsync:*)",
       "Bash(find:*)",
       "Bash(ln:*)",
-      "Bash(Select-Object -First 100)"
+      "Bash(Select-Object -First 100)",
+      "Bash(where gcloud)"
     ],
     "deny": [],
     "ask": []
