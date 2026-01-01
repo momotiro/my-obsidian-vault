@@ -7,6 +7,11 @@ const globalForPrisma = globalThis as unknown as {
   pool: Pool | undefined;
 };
 
+// Validate DATABASE_URL environment variable
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL environment variable is not defined");
+}
+
 // Create database connection pool
 const pool =
   globalForPrisma.pool ??

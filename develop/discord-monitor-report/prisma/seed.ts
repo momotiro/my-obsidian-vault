@@ -1,4 +1,5 @@
 import { PrismaClient, UserRole, CommentTarget } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -14,13 +15,17 @@ async function main() {
 
   console.log("🧹 Cleaned existing data");
 
+  // Hash password for all seed users (password: "password123")
+  const defaultPasswordHash = await bcrypt.hash("password123", 10);
+  console.log("🔐 Generated password hash for seed users");
+
   // Create Users
   const users = await Promise.all([
     prisma.user.create({
       data: {
         name: "山田太郎",
         email: "yamada@example.com",
-        passwordHash: "$2a$10$XQqZQqZQqZQqZQqZQqZQqeu5vVJqVJqVJqVJqVJqVJqVJqVJqVJ", // dummy hash
+        passwordHash: defaultPasswordHash,
         role: UserRole.STAFF,
       },
     }),
@@ -28,7 +33,7 @@ async function main() {
       data: {
         name: "佐藤花子",
         email: "sato@example.com",
-        passwordHash: "$2a$10$XQqZQqZQqZQqZQqZQqZQqeu5vVJqVJqVJqVJqVJqVJqVJqVJqVJ", // dummy hash
+        passwordHash: defaultPasswordHash,
         role: UserRole.STAFF,
       },
     }),
@@ -36,7 +41,7 @@ async function main() {
       data: {
         name: "鈴木一郎",
         email: "suzuki@example.com",
-        passwordHash: "$2a$10$XQqZQqZQqZQqZQqZQqZQqeu5vVJqVJqVJqVJqVJqVJqVJqVJqVJ", // dummy hash
+        passwordHash: defaultPasswordHash,
         role: UserRole.STAFF,
       },
     }),
@@ -44,7 +49,7 @@ async function main() {
       data: {
         name: "田中部長",
         email: "tanaka@example.com",
-        passwordHash: "$2a$10$XQqZQqZQqZQqZQqZQqZQqeu5vVJqVJqVJqVJqVJqVJqVJqVJqVJ", // dummy hash
+        passwordHash: defaultPasswordHash,
         role: UserRole.MANAGER,
       },
     }),
@@ -52,7 +57,7 @@ async function main() {
       data: {
         name: "高橋課長",
         email: "takahashi@example.com",
-        passwordHash: "$2a$10$XQqZQqZQqZQqZQqZQqZQqeu5vVJqVJqVJqVJqVJqVJqVJqVJqVJ", // dummy hash
+        passwordHash: defaultPasswordHash,
         role: UserRole.MANAGER,
       },
     }),
