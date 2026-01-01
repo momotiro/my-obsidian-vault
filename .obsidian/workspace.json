@@ -197,6 +197,8 @@
   },
   "active": "c2d344518b21823a",
   "lastOpenFiles": [
+    "src/test/setup.ts",
+    "src/test",
     "develop/discord-monitor-report/node_modules/@types/pg/lib/type-overrides.d.ts",
     "develop/discord-monitor-report/node_modules/@types/pg/lib/connection-parameters.d.ts",
     "develop/discord-monitor-report/node_modules/@types/pg/lib",
@@ -208,8 +210,6 @@
     "develop/discord-monitor-report/node_modules/@types/pg",
     "develop/discord-monitor-report/next-env.d.ts",
     "develop/discord-monitor-report/node_modules/@types/jsonwebtoken/README.md",
-    "develop/discord-monitor-report/node_modules/@types/jsonwebtoken/LICENSE",
-    "develop/discord-monitor-report/node_modules/@types/jsonwebtoken/package.json",
     "develop/discord-monitor-report/node_modules/jwa/README.md",
     "develop/discord-monitor-report/node_modules/xtend/README.md",
     "develop/discord-monitor-report/node_modules/@types/ms/README.md",
