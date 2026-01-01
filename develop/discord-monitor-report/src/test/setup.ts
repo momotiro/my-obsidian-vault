@@ -10,6 +10,7 @@ beforeAll(() => {
   process.env.DATABASE_URL = "postgresql://test:test@localhost:5432/test";
   process.env.JWT_SECRET = "test-jwt-secret-key-that-is-at-least-32-characters-long";
   process.env.NEXT_PUBLIC_API_URL = "http://localhost:3000";
+  // @ts-ignore - NODE_ENV is set by the test environment
   process.env.NODE_ENV = "test";
 });
 
