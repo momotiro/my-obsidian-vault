@@ -84,7 +84,13 @@
       "Bash(find:*)",
       "Bash(ln:*)",
       "Bash(Select-Object -First 100)",
-      "Bash(where gcloud)"
+      "Bash(where gcloud)",
+      "Bash(gcloud sql instances create:*)",
+      "Bash(openssl rand:*)",
+      "Bash(set DATABASE_URL=postgresql://neondb_owner:npg_GIqfKw36AMLl@ep-red-shadow-a1aqyw7u-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require)",
+      "Bash(npx tsx:*)",
+      "Bash(docker build:*)",
+      "Bash(docker push:*)"
     ],
     "deny": [],
     "ask": []
