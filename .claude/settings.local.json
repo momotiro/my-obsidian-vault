@@ -90,7 +90,9 @@
       "Bash(set DATABASE_URL=postgresql://neondb_owner:npg_GIqfKw36AMLl@ep-red-shadow-a1aqyw7u-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require)",
       "Bash(npx tsx:*)",
       "Bash(docker build:*)",
-      "Bash(docker push:*)"
+      "Bash(docker push:*)",
+      "Bash(docker tag:*)",
+      "Read(//c/Users/80036/.docker/**)"
     ],
     "deny": [],
     "ask": []
