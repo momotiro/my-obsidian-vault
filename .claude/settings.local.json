@@ -92,7 +92,8 @@
       "Bash(docker build:*)",
       "Bash(docker push:*)",
       "Bash(docker tag:*)",
-      "Read(//c/Users/80036/.docker/**)"
+      "Read(//c/Users/80036/.docker/**)",
+      "Bash(npx shadcn@latest add:*)"
     ],
     "deny": [],
     "ask": []
