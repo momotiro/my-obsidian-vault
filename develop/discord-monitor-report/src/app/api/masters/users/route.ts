@@ -1,3 +1,4 @@
+import { UserRole } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
@@ -26,7 +27,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const token = authHeader.substring(7);
     const payload = verifyToken(token);
 
-    if (!payload || payload.role !== "manager") {
+    if (!payload || payload.role !== UserRole.MANAGER) {
       return NextResponse.json(
         { error: "Forbidden: Manager role required" },
         { status: 403 }
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const token = authHeader.substring(7);
     const payload = verifyToken(token);
 
-    if (!payload || payload.role !== "manager") {
+    if (!payload || payload.role !== UserRole.MANAGER) {
       return NextResponse.json(
         { error: "Forbidden: Manager role required" },
         { status: 403 }

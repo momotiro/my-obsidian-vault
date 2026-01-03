@@ -1,3 +1,4 @@
+import { UserRole } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
@@ -30,7 +31,7 @@ export async function POST(
       return NextResponse.json({ error: "Invalid token" }, { status: 401 });
     }
 
-    if (payload.role !== "manager") {
+    if (payload.role !== UserRole.MANAGER) {
       return NextResponse.json(
         { error: "Forbidden: Manager role required" },
         { status: 403 }
