@@ -38,10 +38,14 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(request.url);
     const roleParam = searchParams.get("role");
 
-    const where =
-      roleParam && (roleParam === "staff" || roleParam === "manager")
-        ? { role: roleParam }
-        : undefined;
+    let where: { role?: UserRole } | undefined = undefined;
+    if (roleParam) {
+      if (roleParam === "staff") {
+        where = { role: UserRole.STAFF };
+      } else if (roleParam === "manager") {
+        where = { role: UserRole.MANAGER };
+      }
+    }
 
     const users = await prisma.user.findMany({
       where,
@@ -136,7 +140,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         name,
         email,
         passwordHash,
-        role,
+        role: role === "staff" ? UserRole.STAFF : UserRole.MANAGER,
       },
     });
 
