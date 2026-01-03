@@ -30,8 +30,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const storedUser = localStorage.getItem("user");
 
     if (storedToken && storedUser) {
-      setToken(storedToken);
-      setUser(JSON.parse(storedUser));
+      try {
+        // Validate JSON structure before parsing to prevent XSS
+        const parsedUser = JSON.parse(storedUser);
+
+        // Validate user object structure
+        if (
+          parsedUser &&
+          typeof parsedUser === "object" &&
+          typeof parsedUser.id === "number" &&
+          typeof parsedUser.name === "string" &&
+          typeof parsedUser.email === "string" &&
+          (parsedUser.role === "staff" || parsedUser.role === "manager")
+        ) {
+          setToken(storedToken);
+          setUser(parsedUser);
+        } else {
+          // Invalid user data, clear localStorage
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+        }
+      } catch (error) {
+        // Invalid JSON, clear localStorage
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+      }
     }
 
     setIsLoading(false);
