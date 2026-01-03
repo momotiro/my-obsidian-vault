@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(npm run:*)"
     ],
     "deny": [],
     "ask": []
