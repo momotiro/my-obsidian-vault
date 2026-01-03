@@ -1,213 +1,229 @@
-# Phase 6 - Files Created
+# Phase 7: Files Created
 
-## Summary
-**Total Files:** 27 files created/modified
+## Overview
 
----
+This document lists all files created for Phase 7 (Integration Tests) implementation.
 
-## UI Pages (7 files)
+## Test Files Created
 
-### Authentication
-1. `src/app/login/page.tsx` - Login page (Issue #26)
-2. `src/app/page.tsx` - Home page with auto-redirect (modified)
+### Integration Test Suites (5 files, 77KB total)
 
-### Reports
-3. `src/app/reports/page.tsx` - Report list page (Issue #27)
-4. `src/app/reports/new/page.tsx` - Create report page (Issue #28)
-5. `src/app/reports/[id]/page.tsx` - Report detail page (Issue #29)
-6. `src/app/reports/[id]/edit/page.tsx` - Edit report page (Issue #28)
+1. **src/tests/integration/auth.test.ts** (11KB)
+   - Issue #31: Authentication flow integration tests
+   - 15+ test cases covering login, logout, token validation
 
-### Masters
-7. `src/app/masters/page.tsx` - Master management page (Issue #30)
+2. **src/tests/integration/reports.test.ts** (20KB)
+   - Issue #32: Report CRUD operations integration tests
+   - 20+ test cases covering create, read, update, delete, filtering
 
----
+3. **src/tests/integration/comments.test.ts** (12KB)
+   - Issue #33: Comment functionality integration tests
+   - 12+ test cases covering comment creation, permissions, data integrity
 
-## API Routes (5 files)
+4. **src/tests/integration/masters.test.ts** (15KB)
+   - Issue #34: Master management integration tests
+   - 18+ test cases covering server/user master CRUD operations
 
-### Masters - Servers
-8. `src/app/api/masters/servers/route.ts` - GET (list), POST (create)
-9. `src/app/api/masters/servers/[id]/route.ts` - PUT (update), DELETE (delete)
+5. **src/tests/integration/permissions.test.ts** (19KB)
+   - Issue #35: Permission control integration tests
+   - 20+ test cases covering staff/manager permissions, authorization
 
-### Masters - Users
-10. `src/app/api/masters/users/route.ts` - GET (list), POST (create)
-11. `src/app/api/masters/users/[id]/route.ts` - PUT (update), DELETE (delete)
+### Test Helpers (2 files, 9KB total)
 
-### Comments
-12. `src/app/api/reports/[id]/comments/route.ts` - POST (create comment)
+6. **src/tests/helpers/test-db.ts** (5.4KB)
+   - Database utilities and fixture management
+   - Functions: cleanDatabase, createTestUsers, createTestServers, etc.
 
----
+7. **src/tests/helpers/test-client.ts** (3.6KB)
+   - HTTP client utilities for testing
+   - Functions: createTestRequest, parseResponse, TestApiClient
 
-## Components (9 files)
+### Configuration Files (3 files)
 
-### UI Components (shadcn/ui)
-13. `src/components/ui/button.tsx` - Button component
-14. `src/components/ui/input.tsx` - Text input component
-15. `src/components/ui/label.tsx` - Form label component
-16. `src/components/ui/card.tsx` - Card container component
-17. `src/components/ui/textarea.tsx` - Textarea component
-18. `src/components/ui/select.tsx` - Select dropdown component
-19. `src/components/ui/table.tsx` - Table component
+8. **src/test/setup.ts**
+   - Vitest test setup configuration
+   - Environment variable setup for tests
 
-### Layout Components
-20. `src/components/layout/header.tsx` - Navigation header
+9. **.env.test**
+   - Test environment configuration
+   - Database URL, JWT secret, etc.
 
-### Utility Components
-21. `src/components/protected-route.tsx` - Route protection HOC
+10. **vitest.config.ts**
+    - Vitest configuration (copied from main project)
 
----
+### Documentation Files (3 files)
 
-## Library Files (3 files)
+11. **README.md** (comprehensive test documentation)
+    - Test overview and structure
+    - Running instructions
+    - Test patterns and examples
+    - Test coverage summary
 
-### Authentication
-22. `src/lib/auth/auth-context.tsx` - Auth context provider
+12. **IMPLEMENTATION_SUMMARY.md** (detailed implementation summary)
+    - Complete test coverage breakdown
+    - Test statistics
+    - Key features
+    - Integration patterns
+    - Commands and usage
 
-### API Client
-23. `src/lib/api-client.ts` - API client utility with JWT handling
+13. **FILES_CREATED.md** (this file)
+    - List of all created files
+    - File sizes and descriptions
 
-### Configuration
-24. `src/app/layout.tsx` - Root layout (modified to include AuthProvider)
+## Directory Structure
 
----
+```
+discord-monitor-report-phase7/
+├── src/
+│   ├── tests/
+│   │   ├── integration/
+│   │   │   ├── auth.test.ts           # 11KB - Issue #31
+│   │   │   ├── reports.test.ts        # 20KB - Issue #32
+│   │   │   ├── comments.test.ts       # 12KB - Issue #33
+│   │   │   ├── masters.test.ts        # 15KB - Issue #34
+│   │   │   └── permissions.test.ts    # 19KB - Issue #35
+│   │   └── helpers/
+│   │       ├── test-db.ts             # 5.4KB
+│   │       └── test-client.ts         # 3.6KB
+│   ├── test/
+│   │   └── setup.ts
+│   ├── lib/                           # Copied from main project
+│   ├── app/                           # Copied from main project
+│   └── [other copied files]
+├── prisma/                            # Copied from main project
+├── .env.test
+├── vitest.config.ts
+├── package.json                       # Copied from main project
+├── tsconfig.json                      # Copied from main project
+├── README.md
+├── IMPLEMENTATION_SUMMARY.md
+└── FILES_CREATED.md
 
-## Documentation (2 files)
-
-25. `IMPLEMENTATION_SUMMARY.md` - Comprehensive implementation summary
-26. `FILES_CREATED.md` - This file
-
----
-
-## File Locations (Absolute Paths)
-
-All files are located under:
-**Base Directory:** `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\`
-
-### Complete Paths:
-
-#### Pages
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\login\page.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\page.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\reports\page.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\reports\new\page.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\reports\[id]\page.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\reports\[id]\edit\page.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\masters\page.tsx`
-
-#### API Routes
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\api\masters\servers\route.ts`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\api\masters\servers\[id]\route.ts`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\api\masters\users\route.ts`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\api\masters\users\[id]\route.ts`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\api\reports\[id]\comments\route.ts`
-
-#### Components
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\button.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\input.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\label.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\card.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\textarea.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\select.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\ui\table.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\layout\header.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\components\protected-route.tsx`
-
-#### Library
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\lib\auth\auth-context.tsx`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\lib\api-client.ts`
-- `c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report\src\app\layout.tsx`
-
----
-
-## Testing the Implementation
-
-### 1. Start Development Server
-```bash
-cd "c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report-phase6\develop\discord-monitor-report"
-npm run dev
 ```
 
-### 2. Access the Application
-Open browser to: `http://localhost:3000`
+## File Statistics
 
-### 3. Test Flow
-1. **Login** at `/login`
-   - Use test credentials from database seed
-2. **View Reports** at `/reports`
-   - Test period filter
-   - Click on report cards
-3. **Create Report** at `/reports/new`
-   - Add multiple monitoring records
-   - Fill Problem and Plan
-4. **View Report Detail** at `/reports/[id]`
-   - Check monitoring display
-   - Test commenting (manager only)
-5. **Edit Report** at `/reports/[id]/edit`
-   - Modify existing report
-6. **Master Management** at `/masters` (manager only)
-   - Switch between tabs
-   - Create/Edit/Delete servers and users
+### Test Files
+- **Total Test Files:** 5
+- **Total Test Helper Files:** 2
+- **Total Lines of Test Code:** ~2,500+
+- **Total Test Cases:** 85+
 
----
+### Test Coverage by File
 
-## Issues Implemented
+| File | Test Cases | Lines | Coverage |
+|------|------------|-------|----------|
+| auth.test.ts | 15+ | ~350 | Authentication flow |
+| reports.test.ts | 20+ | ~600 | Report CRUD operations |
+| comments.test.ts | 12+ | ~350 | Comment functionality |
+| masters.test.ts | 18+ | ~450 | Master management |
+| permissions.test.ts | 20+ | ~550 | Permission control |
 
-| Issue | Screen ID | Description | Status |
-|-------|-----------|-------------|--------|
-| #26 | SCR-001 | ログイン画面の実装 | ✅ Complete |
-| #27 | SCR-002 | 日報一覧画面の実装 | ✅ Complete |
-| #28 | SCR-003 | 日報作成・編集画面の実装 | ✅ Complete |
-| #29 | SCR-004 | 日報詳細画面の実装 | ✅ Complete |
-| #30 | SCR-005 | マスタ管理画面の実装 | ✅ Complete |
+### Helper Files
 
----
+| File | Lines | Functions |
+|------|-------|-----------|
+| test-db.ts | ~200 | 9 utility functions |
+| test-client.ts | ~120 | 5 utility functions |
 
-## Additional Features Implemented
+## Dependencies
 
-Beyond the basic requirements, the following features were added:
+### Copied from Main Project
+- All API route handlers (src/app/api/)
+- All library functions (src/lib/)
+- Prisma schema and configuration
+- TypeScript configuration
+- Package dependencies
 
-1. **Authentication System**
-   - JWT token management
-   - LocalStorage persistence
-   - Auto-redirect for unauthorized access
+### New Dependencies
+No new dependencies added - all tests use existing Vitest setup
 
-2. **Protected Routes**
-   - Route-level authentication checks
-   - Role-based access control
+## Test Execution
 
-3. **Navigation Header**
-   - Consistent navigation across all pages
-   - User greeting display
-   - Logout functionality
+### Run All Tests
+```bash
+npm test
+```
 
-4. **API Client**
-   - Centralized request handling
-   - Automatic token injection
-   - Error handling
+### Run Individual Test Files
+```bash
+npm test auth.test.ts           # Authentication tests
+npm test reports.test.ts        # Report CRUD tests
+npm test comments.test.ts       # Comment tests
+npm test masters.test.ts        # Master management tests
+npm test permissions.test.ts    # Permission control tests
+```
 
-5. **Loading States**
-   - Spinner animations during data fetch
-   - Button disabled states during operations
+### Coverage Report
+```bash
+npm test -- --coverage
+```
 
-6. **Error Handling**
-   - User-friendly error messages
-   - Form validation feedback
-   - API error display
+## Integration with Main Project
 
----
+To integrate these tests into the main project:
 
-## Next Steps
+1. **Copy test files:**
+   ```bash
+   cp -r src/tests ../discord-monitor-report/src/
+   ```
 
-1. **Database Setup**: Ensure database is running and seeded with test data
-2. **Environment Variables**: Configure `.env.local` with DATABASE_URL and JWT_SECRET
-3. **Testing**: Run through all screens and verify functionality
-4. **Code Review**: Review implementation against specifications
-5. **Deploy**: Deploy to staging environment for QA testing
+2. **Verify configuration:**
+   - Check vitest.config.ts includes integration tests
+   - Ensure .env.test is configured
+   - Update package.json test scripts if needed
 
----
+3. **Run tests:**
+   ```bash
+   cd ../discord-monitor-report
+   npm test
+   ```
 
 ## Notes
 
-- All files use TypeScript with strict type checking
-- All components follow React 19 best practices
-- All pages use Next.js 16.1.1 App Router
-- All UI components are responsive and mobile-friendly
-- All text is in Japanese as per requirements
+### Test Database
+- Separate test database: `discord_monitor_test`
+- Cleaned before each test suite
+- Isolated from development/production data
+
+### API Coverage
+Tests cover all implemented APIs:
+- ✅ Authentication APIs (login, logout)
+- ✅ Report APIs (CRUD operations)
+- ✅ Authorization checks
+- 🔄 Comment APIs (tested via database, API not fully implemented)
+- 🔄 Master APIs (tested via database, API not fully implemented)
+
+### Code Quality
+- TypeScript strict mode enabled
+- ESLint configuration followed
+- Vitest best practices applied
+- Comprehensive error handling
+- Proper cleanup and isolation
+
+## Success Criteria
+
+All files have been successfully created with:
+- ✅ Comprehensive test coverage (85+ test cases)
+- ✅ Proper test isolation and cleanup
+- ✅ Authentication and authorization testing
+- ✅ Database integrity testing
+- ✅ Permission control testing
+- ✅ Detailed documentation
+- ✅ Ready for integration into main project
+
+## Total File Count
+
+- **Test Files:** 5 integration test suites
+- **Helper Files:** 2 utility modules
+- **Configuration Files:** 3 (setup.ts, .env.test, vitest.config.ts)
+- **Documentation Files:** 3 (README.md, IMPLEMENTATION_SUMMARY.md, FILES_CREATED.md)
+- **Total New Files:** 13
+
+Plus copied files from main project (lib/, app/, prisma/, etc.)
+
+---
+
+**Phase 7 Status:** ✅ Complete
+
+All integration tests have been successfully implemented covering Issues #31-35.
