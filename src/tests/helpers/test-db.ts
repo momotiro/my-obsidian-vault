@@ -31,12 +31,19 @@ export function getTestPrisma(): PrismaClient {
 export async function cleanDatabase() {
   const prisma = getTestPrisma();
 
-  // Delete in correct order to respect foreign key constraints
-  await prisma.comment.deleteMany();
-  await prisma.monitoringRecord.deleteMany();
-  await prisma.dailyReport.deleteMany();
-  await prisma.discordServer.deleteMany();
-  await prisma.user.deleteMany();
+  try {
+    // Delete in correct order to respect foreign key constraints
+    await prisma.comment.deleteMany();
+    await prisma.monitoringRecord.deleteMany();
+    await prisma.dailyReport.deleteMany();
+    await prisma.discordServer.deleteMany();
+    await prisma.user.deleteMany();
+  } catch (error) {
+    console.error("Failed to clean database:", error);
+    throw new Error(
+      `Database cleanup failed: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
 }
 
 /**
@@ -50,18 +57,19 @@ export async function disconnectTestDb() {
 }
 
 /**
- * Create test user fixtures
+ * Create test user fixtures with unique identifiers
  */
 export async function createTestUsers() {
   const prisma = getTestPrisma();
+  const testRunId = Date.now();
 
   const staffPassword = await hashPassword("staff123");
   const managerPassword = await hashPassword("manager123");
 
   const staff = await prisma.user.create({
     data: {
-      name: "Test Staff",
-      email: "staff@test.com",
+      name: `Test Staff ${testRunId}`,
+      email: `staff-${testRunId}@test.com`,
       passwordHash: staffPassword,
       role: UserRole.STAFF,
     },
@@ -69,8 +77,8 @@ export async function createTestUsers() {
 
   const staff2 = await prisma.user.create({
     data: {
-      name: "Test Staff 2",
-      email: "staff2@test.com",
+      name: `Test Staff 2 ${testRunId}`,
+      email: `staff2-${testRunId}@test.com`,
       passwordHash: staffPassword,
       role: UserRole.STAFF,
     },
@@ -78,8 +86,8 @@ export async function createTestUsers() {
 
   const manager = await prisma.user.create({
     data: {
-      name: "Test Manager",
-      email: "manager@test.com",
+      name: `Test Manager ${testRunId}`,
+      email: `manager-${testRunId}@test.com`,
       passwordHash: managerPassword,
       role: UserRole.MANAGER,
     },
