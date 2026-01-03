@@ -26,38 +26,50 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Load token and user from localStorage on mount
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    const storedUser = localStorage.getItem("user");
+    // Ensure we're in the browser
+    if (typeof window === "undefined") {
+      setIsLoading(false);
+      return;
+    }
 
-    if (storedToken && storedUser) {
-      try {
-        // Validate JSON structure before parsing to prevent XSS
-        const parsedUser = JSON.parse(storedUser);
+    try {
+      const storedToken = localStorage.getItem("token");
+      const storedUser = localStorage.getItem("user");
 
-        // Validate user object structure
-        if (
-          parsedUser &&
-          typeof parsedUser === "object" &&
-          typeof parsedUser.id === "number" &&
-          typeof parsedUser.name === "string" &&
-          typeof parsedUser.email === "string" &&
-          (parsedUser.role === "staff" || parsedUser.role === "manager")
-        ) {
-          setToken(storedToken);
-          setUser(parsedUser);
-        } else {
-          // Invalid user data, clear localStorage
+      if (storedToken && storedUser) {
+        try {
+          // Validate JSON structure before parsing to prevent XSS
+          const parsedUser = JSON.parse(storedUser);
+
+          // Validate user object structure
+          if (
+            parsedUser &&
+            typeof parsedUser === "object" &&
+            typeof parsedUser.id === "number" &&
+            typeof parsedUser.name === "string" &&
+            typeof parsedUser.email === "string" &&
+            (parsedUser.role === "staff" || parsedUser.role === "manager")
+          ) {
+            setToken(storedToken);
+            setUser(parsedUser);
+          } else {
+            // Invalid user data, clear localStorage
+            localStorage.removeItem("token");
+            localStorage.removeItem("user");
+          }
+        } catch (parseError) {
+          // Invalid JSON, clear localStorage
+          console.error("Failed to parse stored user data:", parseError);
           localStorage.removeItem("token");
           localStorage.removeItem("user");
         }
-      } catch (error) {
-        // Invalid JSON, clear localStorage
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
       }
+    } catch (error) {
+      // localStorage access error
+      console.error("Failed to access localStorage:", error);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   }, []);
 
   const login = async (email: string, password: string) => {
@@ -76,17 +88,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const data = await response.json();
 
-    // Store token and user
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
+    // Store token and user (only in browser)
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+      } catch (error) {
+        console.error("Failed to save to localStorage:", error);
+      }
+    }
 
     setToken(data.token);
     setUser(data.user);
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    // Clear localStorage (only in browser)
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+      } catch (error) {
+        console.error("Failed to clear localStorage:", error);
+      }
+    }
+
     setToken(null);
     setUser(null);
   };
