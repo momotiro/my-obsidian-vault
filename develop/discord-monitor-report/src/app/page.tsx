@@ -1,13 +1,28 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/auth/auth-context";
+
 export default function Home() {
+  const router = useRouter();
+  const { user, isLoading } = useAuth();
+
+  useEffect(() => {
+    if (!isLoading) {
+      if (user) {
+        router.push("/reports");
+      } else {
+        router.push("/login");
+      }
+    }
+  }, [user, isLoading, router]);
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">
-          Discord監視日報システム
-        </h1>
-        <p className="text-gray-600">
-          Phase 1: セットアップ完了
-        </p>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+        <p className="mt-4 text-gray-600">リダイレクト中...</p>
       </div>
     </div>
   );
