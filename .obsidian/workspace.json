@@ -89,7 +89,8 @@
               "title": "ブックマーク"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -195,7 +196,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c2d344518b21823a",
+  "active": "cb601a8a69f83ffd",
   "lastOpenFiles": [
     "develop/discord-monitor-report/node_modules/@radix-ui/react-slot/dist/index.mjs.map",
     "develop/discord-monitor-report/node_modules/@radix-ui/react-slot/dist/index.mjs",

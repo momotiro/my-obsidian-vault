@@ -7,13 +7,15 @@ async function main() {
   console.log("Starting production seed...");
   console.log("DATABASE_URL:", process.env.DATABASE_URL ? "Set" : "Not set");
 
-  // Create initial users
-  const staffPassword = await hashPassword("staff123");
-  const managerPassword = await hashPassword("manager123");
+  // Create initial users with strong passwords
+  const staffPassword = await hashPassword("StaffTest2024!@#");
+  const managerPassword = await hashPassword("ManagerTest2024!@#");
 
   const staff = await prisma.user.upsert({
     where: { email: "staff@example.com" },
-    update: {},
+    update: {
+      passwordHash: staffPassword,
+    },
     create: {
       name: "担当者テスト",
       email: "staff@example.com",
@@ -24,7 +26,9 @@ async function main() {
 
   const manager = await prisma.user.upsert({
     where: { email: "manager@example.com" },
-    update: {},
+    update: {
+      passwordHash: managerPassword,
+    },
     create: {
       name: "上長テスト",
       email: "manager@example.com",
@@ -34,10 +38,10 @@ async function main() {
   });
 
   console.log("✓ Created users:");
-  console.log(`  - Staff: ${staff.email} (password: staff123)`);
-  console.log(`  - Manager: ${manager.email} (password: manager123)`);
+  console.log(`  - Staff: ${staff.email} (password: StaffTest2024!@#)`);
+  console.log(`  - Manager: ${manager.email} (password: ManagerTest2024!@#)`);
 
-  // Create initial Discord servers (using createMany which skips duplicates)
+  // Create initial Discord servers (using upsert for idempotency)
   const servers = [
     {
       serverName: "メインコミュニティ",
@@ -78,8 +82,8 @@ async function main() {
 
   console.log("\n✅ Production seed completed!");
   console.log("\nLogin credentials:");
-  console.log("  Staff:   staff@example.com / staff123");
-  console.log("  Manager: manager@example.com / manager123");
+  console.log("  Staff:   staff@example.com / StaffTest2024!@#");
+  console.log("  Manager: manager@example.com / ManagerTest2024!@#");
   console.log("\nApplication URL:");
   console.log("  https://discord-monitor-report-528834221704.asia-northeast1.run.app");
 }
