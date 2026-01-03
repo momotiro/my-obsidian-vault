@@ -1,380 +1,272 @@
-# Discord監視日報システム - デプロイ手順書
+# Discord監視日報システム - デプロイガイド
 
-## 📋 前提条件
+## 概要
 
-### 必要なツール
-- [ ] Google Cloud CLI (gcloud) インストール済み
-- [ ] Docker Desktop インストール済み
-- [ ] 本番用データベース（PostgreSQL）準備済み
-- [ ] Google Cloud プロジェクト作成済み
+このドキュメントは、Discord監視日報システムの本番環境へのデプロイ手順を記載しています。
 
----
+## 前提条件
 
-## 🔧 1. 環境変数の準備
+- Google Cloud Project の作成
+- Google Cloud CLI (`gcloud`) のインストール
+- Docker Desktop のインストール  
+- Neon PostgreSQL アカウント（または任意のPostgreSQL）
+- Node.js 20.x 以上
 
-### 本番環境用の環境変数を設定
+## 環境変数
 
-以下の環境変数を準備してください：
+### 必須環境変数
 
-```bash
-# データベース接続URL（本番環境のPostgreSQL）
-export DATABASE_URL="postgresql://username:password@host:port/database?sslmode=require"
-
-# JWT署名用シークレット（32文字以上のランダム文字列）
-export JWT_SECRET="your-secure-random-secret-key-min-32-characters"
-
-# APIのベースURL（デプロイ後のCloud Run URL）
-export NEXT_PUBLIC_API_URL="https://discord-monitor-report-xxx.run.app"
+```env
+DATABASE_URL="postgresql://user:password@host/database?sslmode=require"
+JWT_SECRET="your-secret-key-at-least-32-characters-long"
+NEXT_PUBLIC_API_URL="https://your-app-url.run.app"
 ```
 
-### JWT_SECRETの生成方法
+### 環境変数の生成
 
+**JWT_SECRET の生成:**
 ```bash
-# Linuxの場合
 openssl rand -base64 32
-
-# Windowsの場合（PowerShell）
-[Convert]::ToBase64String((1..32 | ForEach-Object { Get-Random -Maximum 256 }))
 ```
 
----
+## デプロイ手順
 
-## 🗄️ 2. データベースのセットアップ
+### 1. データベースのセットアップ
 
-### 本番用PostgreSQLデータベースの準備
+#### Neon PostgreSQL を使用する場合
 
-#### オプション1: Google Cloud SQL (推奨)
+1. [Neon Console](https://console.neon.tech/) にアクセス
+2. 新しいプロジェクトを作成
+3. リージョンを選択（推奨: Asia Pacific）
+4. 接続文字列をコピー
+
+#### マイグレーションの実行
 
 ```bash
-# Cloud SQL Postgresインスタンスを作成
-gcloud sql instances create discord-monitor-db \
-  --database-version=POSTGRES_15 \
-  --tier=db-f1-micro \
-  --region=asia-northeast1
+# プロジェクトディレクトリに移動
+cd develop/discord-monitor-report
 
-# データベースを作成
-gcloud sql databases create discord_monitor \
-  --instance=discord-monitor-db
+# .env.production ファイルを作成
+cp .env.example .env.production
 
-# ユーザーを作成
-gcloud sql users create dbuser \
-  --instance=discord-monitor-db \
-  --password=<strong-password>
+# DATABASE_URL を設定
+# .env.production を編集
 
-# 接続情報を取得
-gcloud sql instances describe discord-monitor-db
-```
-
-#### オプション2: Supabase (無料枠あり)
-
-1. https://supabase.com にアクセス
-2. 新しいプロジェクトを作成
-3. Settings → Database → Connection stringを取得
-4. `DATABASE_URL`として使用
-
-#### オプション3: Neon (無料枠あり)
-
-1. https://neon.tech にアクセス
-2. 新しいプロジェクトを作成
-3. Connection stringを取得
-4. `DATABASE_URL`として使用
-
-### Prismaマイグレーションの実行
-
-```bash
-cd "c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report"
-
-# 本番DBのURLを設定
-export DATABASE_URL="postgresql://..."
+# Prisma クライアント生成
+npm run db:generate
 
 # マイグレーション実行
 npx prisma migrate deploy
-
-# シードデータ投入（初回のみ）
-npx prisma db seed
 ```
 
----
+### 2. 初期データの投入
 
-## 🐳 3. Google Cloud の設定
+```bash
+# 本番用シードデータを投入
+npx tsx prisma/seed-production.ts
+```
 
-### Google Cloud CLIのインストール
+**作成されるユーザー:**
+- Staff: `staff@example.com` / `staff123`
+- Manager: `manager@example.com` / `manager123`
 
-Windowsの場合：
-```powershell
-# Google Cloud CLI インストーラーをダウンロード
-# https://cloud.google.com/sdk/docs/install
+**作成されるサーバー:**
+- メインコミュニティ（Active）
+- サブコミュニティ（Active）
+- テストサーバー（Inactive）
 
-# インストール後、初期化
+### 3. Google Cloud の設定
+
+#### プロジェクト初期化
+
+```bash
+# gcloud CLI 初期化
 gcloud init
+
+# プロジェクト ID を設定
+gcloud config set project YOUR_PROJECT_ID
+
+# 必要な API を有効化
+gcloud services enable run.googleapis.com
+gcloud services enable artifactregistry.googleapis.com
 ```
 
-### プロジェクトの設定
+#### Artifact Registry リポジトリ作成
 
 ```bash
-# プロジェクトIDを設定
-gcloud config set project discord-management-482906
-
-# 認証
-gcloud auth login
-
-# Docker認証設定
-gcloud auth configure-docker
+gcloud artifacts repositories create discord-monitor-report \
+  --repository-format=docker \
+  --location=asia-northeast1 \
+  --description="Discord Monitor Report Docker Repository"
 ```
 
----
-
-## 🚀 4. デプロイ実行
-
-### 方法1: Makefileを使用（推奨）
+#### Docker 認証設定
 
 ```bash
-cd "c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report"
-
-# 環境変数を設定
-export DATABASE_URL="postgresql://..."
-export JWT_SECRET="your-secret-key"
-export NEXT_PUBLIC_API_URL="https://discord-monitor-report-xxx.run.app"
-
-# デプロイ実行
-make deploy
+gcloud auth configure-docker asia-northeast1-docker.pkg.dev
 ```
 
-### 方法2: 手動デプロイ
+### 4. Docker イメージのビルドとプッシュ
 
 ```bash
-# 1. Dockerイメージをビルド
-docker build -t gcr.io/discord-management-482906/discord-monitor-report:latest .
+# プロジェクトディレクトリで実行
+cd develop/discord-monitor-report
 
-# 2. イメージをプッシュ
-docker push gcr.io/discord-management-482906/discord-monitor-report:latest
+# .next ディレクトリをクリーンアップ
+rm -rf .next
 
-# 3. Cloud Runにデプロイ
+# Docker イメージをビルド
+docker build -t asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest .
+
+# Artifact Registry にログイン（Windows PowerShell）
+gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://asia-northeast1-docker.pkg.dev
+
+# イメージをプッシュ
+docker push asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest
+```
+
+### 5. Cloud Run へのデプロイ
+
+```bash
 gcloud run deploy discord-monitor-report \
-  --image gcr.io/discord-management-482906/discord-monitor-report:latest \
-  --region asia-northeast1 \
+  --image asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest \
   --platform managed \
+  --region asia-northeast1 \
   --allow-unauthenticated \
-  --set-env-vars DATABASE_URL="${DATABASE_URL}" \
-  --set-env-vars JWT_SECRET="${JWT_SECRET}" \
-  --set-env-vars NEXT_PUBLIC_API_URL="${NEXT_PUBLIC_API_URL}" \
-  --min-instances 0 \
-  --max-instances 10 \
-  --memory 512Mi \
-  --cpu 1 \
-  --timeout 60
+  --set-env-vars DATABASE_URL='YOUR_DATABASE_URL',JWT_SECRET='YOUR_JWT_SECRET',NEXT_PUBLIC_API_URL='https://your-service-url.run.app'
 ```
 
----
+**注意:** `NEXT_PUBLIC_API_URL` は初回デプロイ後に取得できる Service URL を設定してください。
 
-## ✅ 5. デプロイ後の確認
-
-### デプロイURLの取得
+### 6. デプロイ後の確認
 
 ```bash
-make deploy-url
-```
-
-または
-
-```bash
+# デプロイされた URL を確認
 gcloud run services describe discord-monitor-report \
   --region asia-northeast1 \
   --format 'value(status.url)'
+
+# ヘルスチェック
+curl -I https://your-service-url.run.app/
 ```
 
-### ヘルスチェック
+## 更新デプロイ
+
+コードを更新した後の再デプロイ手順:
 
 ```bash
-# URLを取得
-DEPLOY_URL=$(gcloud run services describe discord-monitor-report \
-  --region asia-northeast1 \
-  --format 'value(status.url)')
-
-# APIが正常に動作しているか確認
-curl ${DEPLOY_URL}/api/health
-```
-
-### ログの確認
-
-```bash
-# 最新50件のログを表示
-make logs
-
-# ログをリアルタイムで監視
-make logs-tail
-```
-
----
-
-## 🧪 6. 動作テスト
-
-### ログインAPIのテスト
-
-```bash
-DEPLOY_URL="https://your-service-url.run.app"
-
-curl -X POST ${DEPLOY_URL}/api/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "staff@example.com",
-    "password": "password123"
-  }'
-```
-
-成功すると以下のようなレスポンスが返ります：
-```json
-{
-  "success": true,
-  "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "user": {
-      "id": 1,
-      "name": "佐藤太郎",
-      "email": "staff@example.com",
-      "role": "STAFF"
-    }
-  }
-}
-```
-
-### 日報一覧APIのテスト
-
-```bash
-# 上記で取得したトークンを使用
-TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-
-curl -X GET "${DEPLOY_URL}/api/reports" \
-  -H "Authorization: Bearer ${TOKEN}"
-```
-
----
-
-## 🔄 7. 更新デプロイ
-
-コードを更新した場合：
-
-```bash
-cd "c:\Users\80036\Documents\Obsidian Vault\develop\discord-monitor-report"
-
-# 1. コードをコミット
+# 1. 変更をコミット
 git add .
-git commit -m "Update: ..."
+git commit -m "Update: your changes"
 git push
 
-# 2. 再デプロイ
-make deploy
-```
+# 2. Docker イメージを再ビルド
+docker build -t asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest .
 
----
+# 3. プッシュ
+docker push asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest
 
-## 🔙 8. ロールバック
-
-問題が発生した場合、前のバージョンに戻せます：
-
-```bash
-make rollback
-```
-
-または
-
-```bash
-gcloud run services update-traffic discord-monitor-report \
+# 4. Cloud Run に再デプロイ（環境変数は保持されます）
+gcloud run deploy discord-monitor-report \
+  --image asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest \
+  --platform managed \
   --region asia-northeast1 \
-  --to-revisions LATEST=0
+  --allow-unauthenticated
 ```
 
----
+## トラブルシューティング
 
-## 🗑️ 9. サービスの削除
-
-不要になった場合：
+### TypeScript コンパイルエラー
 
 ```bash
-make delete
+# ローカルで型チェック
+npx tsc --noEmit
+
+# ESLint チェック
+npm run lint
 ```
 
----
+### データベース接続エラー
 
-## 📊 10. 本番環境の監視
+```bash
+# Prisma Studio でデータベース確認
+npx prisma studio
 
-### Cloud Runコンソール
+# 接続テスト
+npx prisma db pull
+```
 
-https://console.cloud.google.com/run
+### Docker ビルドエラー
 
+```bash
+# キャッシュをクリアして再ビルド
+docker build --no-cache -t asia-northeast1-docker.pkg.dev/YOUR_PROJECT_ID/discord-monitor-report/app:latest .
+```
+
+### Cloud Run ログ確認
+
+```bash
+# サービスログを表示
+gcloud run services logs read discord-monitor-report \
+  --region asia-northeast1 \
+  --limit 100
+```
+
+## セキュリティ
+
+### 環境変数の管理
+
+- **絶対に Git にコミットしない:** `.env`, `.env.production` は `.gitignore` に含まれています
+- **JWT_SECRET は強力なもの:** 最低32文字のランダム文字列を使用
+- **DATABASE_URL は暗号化:** Cloud Run の環境変数は自動的に暗号化されます
+
+### 本番環境の保護
+
+- Cloud Run の IAM ポリシーを適切に設定
+- データベースのIPホワイトリストを設定（可能な場合）
+- 定期的なセキュリティアップデート
+
+## モニタリング
+
+### Cloud Run メトリクス
+
+Google Cloud Console > Cloud Run > discord-monitor-report で以下を確認:
 - リクエスト数
-- レスポンスタイム
+- レイテンシ
 - エラー率
-- メモリ使用量
+- CPU/メモリ使用率
 
 ### ログ確認
 
 ```bash
-# リアルタイムログ
-make logs-tail
-
-# 最新ログ
-make logs
+# エラーログのみ表示
+gcloud run services logs read discord-monitor-report \
+  --region asia-northeast1 \
+  --filter="severity>=ERROR"
 ```
 
----
+## バックアップ
 
-## 🔐 11. セキュリティ設定
+### データベースバックアップ
 
-### 環境変数の保護
+Neon PostgreSQL の場合、自動バックアップが有効です。
 
-本番環境では環境変数をGoogle Cloud Secret Managerで管理することを推奨：
-
+手動バックアップ:
 ```bash
-# シークレットを作成
-echo -n "your-database-url" | gcloud secrets create database-url --data-file=-
-echo -n "your-jwt-secret" | gcloud secrets create jwt-secret --data-file=-
-
-# Cloud Runサービスにシークレットへのアクセス権を付与
-gcloud run services update discord-monitor-report \
-  --update-secrets=DATABASE_URL=database-url:latest \
-  --update-secrets=JWT_SECRET=jwt-secret:latest \
-  --region asia-northeast1
+pg_dump $DATABASE_URL > backup_$(date +%Y%m%d).sql
 ```
 
----
+## 本番環境情報
 
-## 📝 トラブルシューティング
+**現在のデプロイ:**
+- **Service URL:** https://discord-monitor-report-528834221704.asia-northeast1.run.app
+- **Region:** asia-northeast1
+- **Database:** Neon PostgreSQL (Singapore)
+- **Container Registry:** Artifact Registry (asia-northeast1)
 
-### デプロイが失敗する場合
+## サポート
 
-1. **Docker buildエラー**
-   ```bash
-   # ローカルでビルドテスト
-   docker build -t test-image .
-   ```
-
-2. **環境変数エラー**
-   ```bash
-   # 環境変数が正しく設定されているか確認
-   gcloud run services describe discord-monitor-report \
-     --region asia-northeast1 \
-     --format yaml
-   ```
-
-3. **データベース接続エラー**
-   ```bash
-   # DATABASE_URLが正しいか確認
-   echo $DATABASE_URL
-
-   # Prismaで接続テスト
-   npx prisma db execute --stdin < /dev/null
-   ```
-
----
-
-## 📞 サポート
-
-問題が解決しない場合：
-1. ログを確認: `make logs`
-2. Cloud Runコンソールを確認
-3. GitHub Issuesに報告
-
----
-
-**デプロイ準備完了！** 🚀
+問題が発生した場合は、以下を確認してください:
+1. プロジェクトの CLAUDE.md
+2. 各フェーズのドキュメント（画面定義書.md、API仕様書.md、テスト仕様書.md）
+3. Cloud Run ログ
