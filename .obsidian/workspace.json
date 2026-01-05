@@ -34,9 +34,19 @@
               "icon": "lucide-file",
               "title": "tasks"
             }
+          },
+          {
+            "id": "edcefc4748209f00",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -196,8 +206,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c2d344518b21823a",
+  "active": "edcefc4748209f00",
   "lastOpenFiles": [
+    "tasks.md",
+    "tasks.md.tmp.10072.1767585905527",
     "develop/discord-monitor-report/node_modules/pg-types/test/types.js",
     "develop/discord-monitor-report/node_modules/pg-types/test/index.js",
     "develop/discord-monitor-report/node_modules/pg-types/test",
@@ -207,8 +219,6 @@
     "develop/discord-monitor-report/node_modules/pg-types/lib/arrayParser.js",
     "develop/discord-monitor-report/node_modules/pg-types/lib",
     "develop/discord-monitor-report/node_modules/pg-cloudflare/src/empty.ts",
-    "develop/discord-monitor-report/node_modules/pg-cloudflare/src/types.d.ts",
-    "develop/discord-monitor-report/node_modules/pg-cloudflare/src/index.ts",
     "develop/discord-monitor-report/node_modules/pg-cloudflare/README.md",
     "develop/discord-monitor-report/node_modules/split2/README.md",
     "develop/discord-monitor-report/node_modules/postgres-date/readme.md",
