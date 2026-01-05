@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(tee:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(gcloud auth configure-docker:*)",
+      "Bash(set PATH=%PATH%)",
+      "Bash(C:Users80036AppDataLocalGoogleCloud SDKgoogle-cloud-sdkbin)",
+      "Bash(bash:*)",
+      "Bash(make:*)",
+      "Bash(docker build:*)",
+      "Bash(docker push:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(gh run list:*)"
     ],
     "deny": [],
     "ask": []
