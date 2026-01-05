@@ -34,19 +34,9 @@
               "icon": "lucide-file",
               "title": "tasks"
             }
-          },
-          {
-            "id": "edcefc4748209f00",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新規タブ"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -206,7 +196,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "edcefc4748209f00",
+  "active": "c2d344518b21823a",
   "lastOpenFiles": [
     "tasks.md",
     "tasks.md.tmp.10072.1767585905527",
