@@ -82,7 +82,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#マーケティング",
+                "query": "tag:#RGO",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -210,7 +210,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cb601a8a69f83ffd",
+  "active": "c2d344518b21823a",
   "lastOpenFiles": [
     "スマイルゲート.md",
     "tasks.md",
