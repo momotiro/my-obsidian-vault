@@ -60,7 +60,7 @@
 - [ ] 12月請求 📅 2025-12-02
 
 ## #PGO
-- [ ] 2名に送付 📅 2025-12-02
+- [ ] フォームに回答[https://docs.google.com/spreadsheets/d/1m8NY7zFMxG8xybEaZ5TEQ3CoYz2tUwifYPRToAb2AvA/edit?resourcekey=&gid=137121494#gid=137121494]があり次第、2名に送付 📅 2025-12-02
 	- [ ] sonicborn
 	- [ ] hatohasewo
 - [ ] CA BOXの確認 📅 2025-12-02
