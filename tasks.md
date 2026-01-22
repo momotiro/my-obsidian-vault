@@ -25,6 +25,7 @@
 
 ## #OWDiscord
 - [ ] 3月に公式Discord 提案 📅 2026-2-28
+- [ ] 声かけ
 
 ## #LOLDiscord
 
