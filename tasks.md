@@ -3,9 +3,11 @@
 ## #組織
 
 ## #マーケティング
+- [ ] **宣伝会議の宿題📅 2026-01-26** 
 
 ## #AGF
 - [ ] 分析レポートを出す 📅 2026-01-28
+- [ ] 経費精算📅 2026-01-26 
 
 ## #Riot
 
@@ -14,7 +16,7 @@
 - [ ]  **情報セキュリティ資料作成 📅1/22(金)**
 
 ## #ZENAIM
-- [ ] 告知素材制作依頼
+- [x] 告知素材制作依頼 ✅ 2026-01-23
 - [ ] サーバー整備 1/17
 - [ ] 告知関連整理
 - [ ] オフイベ企画整理 1/10
@@ -25,7 +27,7 @@
 
 ## #OWDiscord
 - [ ] 3月に公式Discord 提案 📅 2026-2-28
-- [ ] 声かけ
+- [ ] **声かけ**
 
 ## #LOLDiscord
 
@@ -53,11 +55,11 @@
 - [ ] 12月請求 📅 2025-12-02
 
 ## #PGO
-- [ ] **2名に郵送**
-- [ ] フォームに回答[https://docs.google.com/spreadsheets/d/1m8NY7zFMxG8xybEaZ5TEQ3CoYz2tUwifYPRToAb2AvA/edit?resourcekey=&gid=137121494#gid=137121494]があり次第、2名に送付 📅 2025-12-02
-	- [ ] sonicborn
-	- [ ] hatohasewo
-- [ ] CA BOXの確認 📅 2025-12-02
+- [x] **2名に郵送** ✅ 2026-01-23
+- [x] フォームに回答[https://docs.google.com/spreadsheets/d/1m8NY7zFMxG8xybEaZ5TEQ3CoYz2tUwifYPRToAb2AvA/edit?resourcekey=&gid=137121494#gid=137121494]があり次第、2名に送付 📅 2025-12-02 ✅ 2026-01-23
+	- [x] sonicborn ✅ 2026-01-23
+	- [x] hatohasewo ✅ 2026-01-23
+- [x] CA BOXの確認 📅 2025-12-02 ✅ 2026-01-23
 
 ## #タスク
 
