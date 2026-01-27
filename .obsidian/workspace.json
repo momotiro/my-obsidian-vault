@@ -35,8 +35,7 @@
               "title": "無題のファイル 1"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -195,10 +194,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7adffbbb393a6e72",
+  "active": "2f5977c1f05f2944",
   "lastOpenFiles": [
-    "tasks.md",
     "無題のファイル 1.md",
+    "tasks.md",
     "tasks.md.tmp.20552.1769478924167",
     "tasks.md.tmp.20552.1769478918219",
     "tasks.md.tmp.13716.1769075113388",
