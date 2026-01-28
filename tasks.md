@@ -27,7 +27,7 @@
 ## #VALO
 
 ## #OWDiscord
-- [ ] 3月に公式Discord 提案 📅 2026-2-28
+- [ ] 3月に公式Discord 提案 📅 2026-2-18
 - [ ] **声かけ**
 
 ## #LOLDiscord
