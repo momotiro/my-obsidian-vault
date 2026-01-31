@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "無題のファイル 1.md",
-                "mode": "source",
+                "file": "組織課題 26.1.31.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "無題のファイル 1"
+              "title": "組織課題 26.1.31"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,8 +195,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a0dc5dff108633ff",
+  "active": "7adffbbb393a6e72",
   "lastOpenFiles": [
+    "tasks.md",
+    "tasks.md.tmp.18240.1769862213131",
+    "tasks.md.tmp.18240.1769862189372",
     "宣伝会議/第2回 コミュニケーションプランニング.md",
     "Pasted image 20260127210410.png",
     "Pasted image 20260127205526.png",
@@ -206,8 +210,7 @@
     "Pasted image 20260127202817.png",
     "Pasted image 20260127192856.png",
     "コミュニケーションプランニング講座2回_吉田氏.pdf",
-    "tasks.md",
-    "無題のファイル 1.md",
+    "組織課題 26.1.31.md",
     "tasks.md.tmp.20552.1769478924167",
     "tasks.md.tmp.20552.1769478918219",
     "tasks.md.tmp.13716.1769075113388",
@@ -220,10 +223,8 @@
     "Clippings/Why now is the time to pay attention to micro-communities.md",
     "Clippings/webclip/コミュニティーマーケの重要性.md",
     "Clippings/The Rise Of Micro-Communities What This Means For Social Media Marketers.md",
-    "US Market trend 2024-2025_Sadamoto (2).pdf",
     "宣伝会議/第1回 コミュニケーションプランニング.md",
     "無題のファイル.md",
-    "宣伝会議",
     "本/AIに選ばれ、ファンに愛される。変わる生活社とこれからのマーケティング.md",
     "AIに選ばれ、ファンに愛される。変わる生活者とこれからのマーケティング.md",
     "チャーチヒューゴさん.md",
