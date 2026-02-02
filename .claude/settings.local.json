@@ -16,7 +16,11 @@
       "Bash(gh run list:*)",
       "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" slack_task_bot.py --realtime)",
       "Bash(mkdir:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Read(//c/Users/80036/AppData/Roaming/Claude/**)",
+      "Bash(ls:*)",
+      "Bash(echo $HOME)",
+      "Bash(node:*)"
     ],
     "deny": [],
     "ask": []

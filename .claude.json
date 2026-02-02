@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "google-sheets": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "C:\\Users\\80036\\Documents\\Obsidian Vault\\mcp-google-sheets\\build\\index.js"
+      ]
+    }
+  }
+}
