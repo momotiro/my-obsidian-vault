@@ -14,7 +14,9 @@
       "Bash(git add:*)",
       "Bash(git push:*)",
       "Bash(gh run list:*)",
-      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" slack_task_bot.py --realtime)"
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" slack_task_bot.py --realtime)",
+      "Bash(mkdir:*)",
+      "Bash(npm install)"
     ],
     "deny": [],
     "ask": []
