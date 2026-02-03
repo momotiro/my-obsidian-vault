@@ -11,10 +11,14 @@
             "id": "7adffbbb393a6e72",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "グラフビュー"
+              "type": "markdown",
+              "state": {
+                "file": "宣伝会議/第3回 コミュニケーションプランニング.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "第3回 コミュニケーションプランニング"
             }
           }
         ]
@@ -137,12 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "宣伝会議/第3回 コミュニケーションプランニング.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "アウトライン"
+              "title": "第3回 コミュニケーションプランニングのアウトライン"
             }
           },
           {
@@ -176,6 +181,19 @@
   },
   "active": "7adffbbb393a6e72",
   "lastOpenFiles": [
+    "Pasted image 20260203203839.png",
+    "Pasted image 20260203203709.png",
+    "Pasted image 20260203203349.png",
+    "Pasted image 20260203203326.png",
+    "Pasted image 20260203203306.png",
+    "Pasted image 20260203201556.png",
+    "Pasted image 20260203201158.png",
+    "Pasted image 20260203200934.png",
+    "Pasted image 20260203200142.png",
+    "Pasted image 20260203200053.png",
+    "Pasted image 20260203191810.png",
+    "宣伝会議/第2回 コミュニケーションプランニング.md",
+    "宣伝会議/第3回 コミュニケーションプランニング.md",
     "mcp-google-sheets/node_modules/zod/v4/locales/zh-TW.js",
     "mcp-google-sheets/node_modules/zod/v4/locales/zh-CN.js",
     "mcp-google-sheets/node_modules/zod/v4/locales/zh-TW.cjs",
@@ -186,7 +204,6 @@
     "mcp-google-sheets/node_modules/zod/v4/locales/zh-CN.cjs",
     "mcp-google-sheets/node_modules/zod/v4/locales/yo.js",
     "mcp-google-sheets/node_modules/zod/v4/locales/yo.d.cts",
-    "mcp-google-sheets/node_modules/zod/v4/locales/yo.d.ts",
     "mcp-google-sheets/node_modules/wrappy/README.md",
     "mcp-google-sheets/node_modules/whatwg-url/README.md",
     "mcp-google-sheets/node_modules/url-template/uritemplate-test/README.md",
@@ -210,20 +227,8 @@
     "mcp-google-sheets/node_modules/get-proto/README.md",
     "mcp-google-sheets/node_modules/dunder-proto/README.md",
     "mcp-google-sheets/node_modules/dunder-proto/CHANGELOG.md",
-    "mcp-google-sheets/node_modules/call-bind-apply-helpers/README.md",
-    "mcp-google-sheets/node_modules/call-bind-apply-helpers/CHANGELOG.md",
-    "Pasted image 20260127210410.png",
-    "Pasted image 20260127205526.png",
-    "Pasted image 20260127205245.png",
-    "Pasted image 20260127204012.png",
-    "Pasted image 20260127203712.png",
-    "Pasted image 20260127203414.png",
-    "Pasted image 20260127202817.png",
-    "Pasted image 20260127192856.png",
     "develop/discord-monitor-report-phase6/無題のファイル.canvas",
-    "develop/discord-monitor-report-phase7/daily/Pasted image 20250706113003.png",
     "develop/discord-monitor-report-phase7/無題のファイル.canvas",
-    "develop/discord-monitor-report-phase7/Pasted image 20250830172315.png",
     "develop/discord-monitor-report-phase3/無題のファイル.canvas",
     "develop/discord-monitor-report-phase2/無題のファイル.canvas",
     "無題のファイル.canvas"
