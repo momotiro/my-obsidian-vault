@@ -262,3 +262,70 @@ The bot will:
 - Automatically add tasks to tasks.md organized by tags
 - Sort tasks by due date within each tag section
 - Add weekday information to dates (e.g., 📅10/21(火))
+
+## Google Sheets Integration
+
+### Overview
+Located in `mcp-google-sheets/`, this provides CLI-based access to Google Sheets via service account authentication.
+
+**Security:**
+- All data is processed locally only
+- Spreadsheet contents are NOT sent to Anthropic API
+- No data is used for training
+- Service account credentials stored in `mcp-google-sheets/credentials.json`
+
+### Usage
+
+**Available Commands:**
+```bash
+cd "c:\Users\80036\Documents\Obsidian Vault\mcp-google-sheets"
+
+# List all sheet names in a spreadsheet
+node cli.js sheets <spreadsheet-id>
+
+# Read data from a range
+node cli.js read <spreadsheet-id> "A1:Z100"
+node cli.js read <spreadsheet-id> "SheetName!A1:B10"
+
+# Write data to a range
+node cli.js write <spreadsheet-id> "A1:B2" '[["1","2"],["3","4"]]'
+```
+
+**Getting Spreadsheet ID:**
+Extract from Google Sheets URL:
+```
+https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID_HERE/edit
+                                      ^^^^^^^^^^^^^^^^^^^
+```
+
+**Setup Requirements:**
+1. **Service Account**: Already configured in `credentials.json`
+2. **Share Spreadsheet**: Share target spreadsheet with service account email
+   - Email format: `xxxxx@xxxxx.iam.gserviceaccount.com`
+   - Grant "Viewer" (read-only) or "Editor" (read/write) permission
+3. **Access**: Once shared, the CLI tool can access the spreadsheet
+
+**Common Patterns:**
+
+```bash
+# Example: Analyze streaming data
+SHEET_ID="1Ax0ml3rM8wuWFh8LWJTAxxlibaB3PD5biwJE7ARjf20"
+
+# Get all sheet names
+node cli.js sheets "$SHEET_ID"
+
+# Read full data range
+node cli.js read "$SHEET_ID" "Day1!A1:BW200"
+
+# Write summary results
+node cli.js write "$SHEET_ID" "Summary!A1:B5" '[["Metric","Value"],["Total","100"]]'
+```
+
+**Troubleshooting:**
+- **Permission denied**: Ensure spreadsheet is shared with service account
+- **Sheet not found**: Use `sheets` command to list available sheet names
+- **Range error**: Omit sheet name (e.g., `A1:B10`) to use default sheet
+
+**Documentation:**
+- Full setup guide: [mcp-google-sheets/SETUP_GUIDE.md](mcp-google-sheets/SETUP_GUIDE.md)
+- Usage examples: [mcp-google-sheets/README.md](mcp-google-sheets/README.md)
