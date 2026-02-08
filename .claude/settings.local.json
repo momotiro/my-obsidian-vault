@@ -20,7 +20,9 @@
       "Read(//c/Users/80036/AppData/Roaming/Claude/**)",
       "Bash(ls:*)",
       "Bash(echo $HOME)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(echo $env:APPDATA)",
+      "Bash(echo $env:CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)"
     ],
     "deny": [],
     "ask": []
