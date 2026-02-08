@@ -1,28 +1,16 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "true"
+  },
   "permissions": {
     "allow": [
-      "Bash(tee:*)",
-      "Bash(npm run:*)",
-      "Bash(gcloud auth configure-docker:*)",
-      "Bash(set PATH=%PATH%)",
-      "Bash(C:Users80036AppDataLocalGoogleCloud SDKgoogle-cloud-sdkbin)",
-      "Bash(bash:*)",
-      "Bash(make:*)",
-      "Bash(docker build:*)",
-      "Bash(docker push:*)",
-      "Bash(git log:*)",
-      "Bash(git add:*)",
-      "Bash(git push:*)",
-      "Bash(gh run list:*)",
-      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" slack_task_bot.py --realtime)",
-      "Bash(mkdir:*)",
-      "Bash(npm install)",
-      "Read(//c/Users/80036/AppData/Roaming/Claude/**)",
-      "Bash(ls:*)",
-      "Bash(echo $HOME)",
-      "Bash(node:*)",
-      "Bash(echo $env:APPDATA)",
-      "Bash(echo $env:CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS)"
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" tgs2025_ugc_analysis.py)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" tgs2025_phase2_booth_analysis.py)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" tgs2025_phase3_success_factors.py)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" tgs2025_phase45_formula.py)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" tgs2025_advanced_analysis.py)",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -c \"with open(''newTGS2025_OR_TGS_2025_OR_東京ゲームショウ2025_OR_東京ゲームショウ_20 - Feb 8, 2026 - 3 33 58 PM.csv'', ''rb'') as f: print(f.read(100))\")",
+      "Bash(\"C:\\Users\\80036\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" tgs2025_phase1to5_integrated.py)"
     ],
     "deny": [],
     "ask": []
